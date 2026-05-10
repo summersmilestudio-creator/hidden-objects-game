@@ -2,7 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../game/level_data.dart';
+import '../services/ads_service.dart';
 import '../services/rewards_service.dart';
+import '../widgets/banner_ad_widget.dart';
 import '../widgets/scene_background.dart';
 
 class GameScreen extends StatefulWidget {
@@ -32,6 +34,7 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void dispose() {
     _timer?.cancel();
+    _hintTimer?.cancel();
     super.dispose();
   }
 
@@ -49,6 +52,7 @@ class _GameScreenState extends State<GameScreen> {
       _timer?.cancel();
       final coins = (200 - _seconds).clamp(20, 200);
       _rewards.addCoins(coins);
+      AdsService.instance.maybeShowInterstitial();
       Future.microtask(() {
         if (!mounted) return;
         showDialog(
@@ -100,6 +104,23 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
+  int? _hintIndex;
+  Timer? _hintTimer;
+
+  Future<void> _showHintViaAd() async {
+    final unfound = _level.targetIndexes
+        .where((i) => !_level.allObjects[i].found)
+        .toList();
+    if (unfound.isEmpty) return;
+    final earned = await AdsService.instance.showRewarded();
+    if (!earned || !mounted) return;
+    setState(() => _hintIndex = unfound.first);
+    _hintTimer?.cancel();
+    _hintTimer = Timer(const Duration(seconds: 3), () {
+      if (mounted) setState(() => _hintIndex = null);
+    });
+  }
+
   String _fmt(int s) {
     final m = (s ~/ 60).toString().padLeft(2, '0');
     final ss = (s % 60).toString().padLeft(2, '0');
@@ -109,12 +130,18 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: AppBar(
         title: Text(_level.name),
         backgroundColor: Colors.black54,
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
+          IconButton(
+            tooltip: 'Indiciu',
+            icon: const Icon(Icons.lightbulb_outline),
+            onPressed: _completed ? null : _showHintViaAd,
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Center(
@@ -220,14 +247,28 @@ class _GameScreenState extends State<GameScreen> {
                             _level.targetIndexes.contains(i)
                         ? 0.2
                         : 1.0,
-                    child: Icon(
-                      _level.allObjects[i].icon,
-                      size: _level.allObjects[i].size,
-                      color: _level.allObjects[i].color,
-                      shadows: const [
-                        Shadow(color: Colors.black87, blurRadius: 6, offset: Offset(2, 2)),
-                        Shadow(color: Colors.black54, blurRadius: 12),
-                      ],
+                    child: Container(
+                      decoration: _hintIndex == i
+                          ? BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.yellowAccent.withValues(alpha: 0.9),
+                                  blurRadius: 30,
+                                  spreadRadius: 8,
+                                ),
+                              ],
+                            )
+                          : null,
+                      child: Icon(
+                        _level.allObjects[i].icon,
+                        size: _level.allObjects[i].size,
+                        color: _level.allObjects[i].color,
+                        shadows: const [
+                          Shadow(color: Colors.black87, blurRadius: 6, offset: Offset(2, 2)),
+                          Shadow(color: Colors.black54, blurRadius: 12),
+                        ],
+                      ),
                     ),
                   ),
                 ),

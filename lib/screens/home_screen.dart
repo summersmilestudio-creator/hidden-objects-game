@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../game/level_data.dart';
 import '../services/rewards_service.dart';
+import '../widgets/banner_ad_widget.dart';
 import 'daily_reward_screen.dart';
 import 'game_screen.dart';
 
@@ -39,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final levels = LevelGenerator.generateAll();
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
