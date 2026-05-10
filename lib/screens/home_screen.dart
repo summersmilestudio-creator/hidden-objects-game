@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../game/level_data.dart';
 import '../services/rewards_service.dart';
 import '../widgets/banner_ad_widget.dart';
+import 'achievements_screen.dart';
 import 'daily_reward_screen.dart';
 import 'game_screen.dart';
 
@@ -48,8 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  IconButton(
+                    tooltip: 'Realizări',
+                    onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const AchievementsScreen())),
+                    icon: const Icon(Icons.emoji_events, color: Color(0xFFFFCA28), size: 28),
+                  ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(

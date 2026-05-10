@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../game/level_data.dart';
+import '../services/achievements_service.dart';
 import '../services/ads_service.dart';
 import '../services/rewards_service.dart';
 import '../widgets/banner_ad_widget.dart';
@@ -20,6 +21,7 @@ class _GameScreenState extends State<GameScreen> {
   int _seconds = 0;
   Timer? _timer;
   bool _completed = false;
+  bool _hintUsed = false;
   final _rewards = RewardsService();
 
   @override
@@ -47,11 +49,17 @@ class _GameScreenState extends State<GameScreen> {
     if (_level.allObjects[idx].found) return;
     HapticFeedback.lightImpact();
     setState(() => _level.allObjects[idx].found = true);
+    AchievementsService.instance.recordObjectFound().then(_showUnlockToasts);
     if (_level.isComplete) {
       _completed = true;
       _timer?.cancel();
       final coins = (200 - _seconds).clamp(20, 200);
       _rewards.addCoins(coins);
+      AchievementsService.instance.recordLevelComplete(
+        levelIndex: widget.levelIndex,
+        seconds: _seconds,
+        usedHint: _hintUsed,
+      ).then(_showUnlockToasts);
       AdsService.instance.maybeShowInterstitial();
       Future.microtask(() {
         if (!mounted) return;
@@ -114,11 +122,46 @@ class _GameScreenState extends State<GameScreen> {
     if (unfound.isEmpty) return;
     final earned = await AdsService.instance.showRewarded();
     if (!earned || !mounted) return;
+    _hintUsed = true;
     setState(() => _hintIndex = unfound.first);
     _hintTimer?.cancel();
     _hintTimer = Timer(const Duration(seconds: 3), () {
       if (mounted) setState(() => _hintIndex = null);
     });
+  }
+
+  void _showUnlockToasts(List<Achievement> unlocked) {
+    if (unlocked.isEmpty || !mounted) return;
+    for (var i = 0; i < unlocked.length; i++) {
+      final a = unlocked[i];
+      Future.delayed(Duration(milliseconds: 200 + i * 1500), () {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: a.color,
+            duration: const Duration(milliseconds: 2200),
+            content: Row(
+              children: [
+                Icon(a.icon, color: Colors.white),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text('🏆 Realizare deblocată',
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 12)),
+                      Text(a.title,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+    }
   }
 
   String _fmt(int s) {
