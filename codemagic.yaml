@@ -5,8 +5,8 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       flutter: stable
-      xcode: latest
-      cocoapods: default
+      xcode: 16.2
+      cocoapods: 1.16.2
     scripts:
       - name: Show versions
         script: |
@@ -20,7 +20,7 @@ workflows:
       - name: Install CocoaPods
         script: |
           cd ios
-          pod install --repo-update
+          pod install
       - name: Flutter analyze
         script: flutter analyze lib || true
       - name: Build iOS (no codesign)
@@ -34,8 +34,8 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       flutter: stable
-      xcode: latest
-      cocoapods: default
+      xcode: 16.2
+      cocoapods: 1.16.2
       groups:
         - default
       vars:
@@ -62,7 +62,7 @@ workflows:
       - name: Install CocoaPods
         script: |
           cd ios
-          pod install --repo-update
+          pod install
       - name: Set TestFlight build number
         script: |
           LATEST=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" 2>/dev/null || echo "0")
