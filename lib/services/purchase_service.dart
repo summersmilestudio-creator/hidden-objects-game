@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'rewards_service.dart';
 
 class CoinPack {
   final String id;
@@ -25,7 +26,6 @@ class PurchaseService {
   ];
 
   static const _kNoAdsKey = 'hidden_no_ads';
-  static const _kCoinsKey = 'coinsHidden';
 
   static String _platformId(String logicalId) =>
       Platform.isIOS ? '${logicalId}_hidden' : logicalId;
@@ -39,6 +39,8 @@ class PurchaseService {
   bool _available = false;
   bool _noAds = false;
   final ValueNotifier<bool> noAdsNotifier = ValueNotifier(false);
+  /// Bumped after any successful purchase grant so UI (shop/home) can refresh.
+  final ValueNotifier<int> purchaseTick = ValueNotifier(0);
 
   bool get available => _available;
   bool get noAds => _noAds;
@@ -74,23 +76,24 @@ class PurchaseService {
   }
 
   Future<void> _grant(PurchaseDetails p) async {
-    final prefs = await SharedPreferences.getInstance();
     final logicalId = _logicalId(p.productID);
     if (logicalId == noAdsId) {
+      final prefs = await SharedPreferences.getInstance();
       _noAds = true;
       noAdsNotifier.value = true;
       await prefs.setBool(_kNoAdsKey, true);
+      purchaseTick.value++;
       return;
     }
     final pack = coinPacks.where((cp) => cp.id == logicalId).firstOrNull;
     if (pack != null) {
-      final current = prefs.getInt(_kCoinsKey) ?? 0;
-      await prefs.setInt(_kCoinsKey, current + pack.total);
+      // Same coin store the rest of the game reads/spends from ('hoCoins').
+      await RewardsService().addCoins(pack.total);
+      purchaseTick.value++;
     }
   }
 
   Future<bool> buy(String logicalId) async {
-    final platformProductId = _platformId(logicalId);
     final product = _products[logicalId];
     if (product == null || !_available) return false;
     final param = PurchaseParam(productDetails: product);

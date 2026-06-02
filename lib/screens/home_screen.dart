@@ -8,6 +8,7 @@ import 'achievements_screen.dart';
 import 'daily_reward_screen.dart';
 import 'events_screen.dart';
 import 'game_screen.dart';
+import 'shop_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,6 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _load() async {
     final c = await _rewards.getCoins();
     if (mounted) setState(() => _coins = c);
+  }
+
+  Future<void> _openShop() async {
+    await Navigator.push(
+        context, MaterialPageRoute(builder: (_) => const ShopScreen()));
+    _load();
   }
 
   bool _watching = false;
@@ -87,22 +94,36 @@ class _HomeScreenState extends State<HomeScreen> {
                           MaterialPageRoute(builder: (_) => const EventsScreen())),
                       icon: const Icon(Icons.event_available, color: Color(0xFFFF6F00), size: 28),
                     ),
-                  ]),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.5),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: const Color(0xFFFFD740)),
+                    IconButton(
+                      tooltip: 'Magazin',
+                      onPressed: _openShop,
+                      icon: const Icon(Icons.storefront, color: Color(0xFFFFD740), size: 28),
                     ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.monetization_on, color: Color(0xFFFFD740), size: 20),
-                        const SizedBox(width: 6),
-                        Text('$_coins',
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
-                      ],
+                  ]),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: _openShop,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.5),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: const Color(0xFFFFD740)),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.monetization_on, color: Color(0xFFFFD740), size: 20),
+                            const SizedBox(width: 6),
+                            Text('$_coins',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900)),
+                            const SizedBox(width: 4),
+                            const Icon(Icons.add_circle, color: Color(0xFFFFD740), size: 18),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
