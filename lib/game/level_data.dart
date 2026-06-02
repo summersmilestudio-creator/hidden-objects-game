@@ -1,20 +1,41 @@
-import 'dart:math';
-import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
-enum SceneType { garden, beach, city, forest, kitchen, library, attic, beachSunset }
+/// 50 hidden-object scenes. Each scene ships a premium AI-illustrated PNG in
+/// `assets/scenes/<name>.png` plus a list of *real* findable objects defined in
+/// `assets/hotspots.json`. Objects are no longer flat Material icons scattered
+/// at random — they are actual things drawn into the scene art. The bottom
+/// "find these" bar shows real cropped thumbnails (`assets/thumbs/...`).
+enum SceneType {
+  // Original 32
+  garden, beach, city, forest, kitchen, library, attic, beachSunset,
+  bedroom, bathroom, livingRoom, office, workshop, cellar, ballroom, greenhouse,
+  cave, castle, dungeon, ship, underwater, spaceStation, observatory, magicShop,
+  desert, snow, circus, carnival, bakery, cafe, flowerShop, toyStore,
+  // 18 new
+  toolShed, musicRoom, artStudio, gym, laundry, pharmacy, fishMarket, candyShop,
+  jewelryStore, barberShop, gasStation, barn, vineyard, lighthouse, aquarium,
+  museum, classroom, playground,
+}
 
-class HiddenObject {
-  final IconData icon;
-  final String name;
-  final Color color;
-  final double x;
-  final double y;
-  final double size;
-  final double rotation;
+/// A real findable object inside a scene. (cx, cy) is the normalized center
+/// (0..1 of the displayed image) and [r] the normalized tap radius. [thumb] is
+/// the asset path of the cropped illustration shown in the "find these" bar.
+class FindTarget {
+  final String id;
+  final String label;
+  final double cx;
+  final double cy;
+  final double r;
+  final String thumb;
   bool found;
-  HiddenObject({
-    required this.icon, required this.name, required this.color,
-    required this.x, required this.y, required this.size, required this.rotation,
+  FindTarget({
+    required this.id,
+    required this.label,
+    required this.cx,
+    required this.cy,
+    required this.r,
+    required this.thumb,
     this.found = false,
   });
 }
@@ -22,67 +43,115 @@ class HiddenObject {
 class Level {
   final String name;
   final SceneType scene;
-  final List<HiddenObject> allObjects;
-  final List<int> targetIndexes;
-  Level({required this.name, required this.scene, required this.allObjects, required this.targetIndexes});
-  int get foundCount => targetIndexes.where((i) => allObjects[i].found).length;
-  int get totalTargets => targetIndexes.length;
-  bool get isComplete => foundCount == totalTargets;
+  final List<FindTarget> targets;
+  Level({required this.name, required this.scene, required this.targets});
+  int get foundCount => targets.where((t) => t.found).length;
+  int get totalTargets => targets.length;
+  bool get isComplete => totalTargets > 0 && foundCount == totalTargets;
+}
+
+/// Loads the hotspot definitions once at startup. Call [preload] in main()
+/// before runApp so the synchronous [LevelGenerator.generateAll] has data.
+class LevelStore {
+  static Map<String, dynamic> _hotspots = {};
+  static bool _loaded = false;
+
+  static Future<void> preload() async {
+    if (_loaded) return;
+    try {
+      final raw = await rootBundle.loadString('assets/hotspots.json');
+      _hotspots = json.decode(raw) as Map<String, dynamic>;
+    } catch (_) {
+      _hotspots = {};
+    }
+    _loaded = true;
+  }
+
+  static List<FindTarget> _targetsFor(SceneType scene) {
+    final data = _hotspots[scene.name];
+    if (data is! Map) return [];
+    final objs = data['objects'];
+    if (objs is! List) return [];
+    return objs.map<FindTarget>((o) {
+      final m = o as Map;
+      final id = m['id'] as String;
+      return FindTarget(
+        id: id,
+        label: (m['label'] ?? id) as String,
+        cx: (m['cx'] as num).toDouble(),
+        cy: (m['cy'] as num).toDouble(),
+        r: (m['r'] as num?)?.toDouble() ?? 0.08,
+        thumb: 'assets/thumbs/${scene.name}__$id.png',
+      );
+    }).toList();
+  }
 }
 
 class LevelGenerator {
-  static const _decoyIcons = [
-    Icons.eco, Icons.cloud, Icons.local_florist, Icons.spa,
-    Icons.water_drop, Icons.terrain, Icons.park, Icons.flag,
-    Icons.wb_sunny, Icons.nightlight, Icons.shopping_bag, Icons.coffee,
-    Icons.local_pizza, Icons.cake, Icons.icecream, Icons.lunch_dining,
-    Icons.directions_bus, Icons.directions_car, Icons.flight, Icons.train,
-    Icons.casino, Icons.extension, Icons.smart_toy, Icons.celebration,
-    Icons.beach_access, Icons.umbrella, Icons.headphones, Icons.camera_alt,
-    Icons.book, Icons.brush, Icons.music_note, Icons.movie,
-    Icons.pets, Icons.diamond, Icons.bolt, Icons.favorite,
-    Icons.star, Icons.access_alarm, Icons.work, Icons.lightbulb,
+  /// Ordered master list of all 50 scenes with their display names. A scene
+  /// only appears in the menu once it has hotspots authored in hotspots.json,
+  /// so the rollout degrades gracefully (no broken / empty levels shown).
+  static const List<(SceneType, String)> _master = [
+    (SceneType.garden, 'Grădină Magică'),
+    (SceneType.beachSunset, 'Plajă la Apus'),
+    (SceneType.forest, 'Pădure Misterioasă'),
+    (SceneType.library, 'Bibliotecă Veche'),
+    (SceneType.kitchen, 'Bucătăria Bunicii'),
+    (SceneType.attic, 'Pod cu Comori'),
+    (SceneType.city, 'Oraș de Noapte'),
+    (SceneType.beach, 'Plajă Tropicală'),
+    (SceneType.bedroom, 'Dormitor Copilărie'),
+    (SceneType.bathroom, 'Baie Vintage'),
+    (SceneType.livingRoom, 'Sufragerie Caldă'),
+    (SceneType.office, 'Biroul Detectivului'),
+    (SceneType.workshop, 'Atelierul Inventatorului'),
+    (SceneType.cellar, 'Pivnița cu Vinuri'),
+    (SceneType.ballroom, 'Bal Mascat'),
+    (SceneType.greenhouse, 'Seră Botanică'),
+    (SceneType.cave, 'Peștera Cristalelor'),
+    (SceneType.castle, 'Castelul Pierdut'),
+    (SceneType.dungeon, 'Temnița Dragonului'),
+    (SceneType.ship, 'Corabia Piraților'),
+    (SceneType.underwater, 'Adâncuri Marine'),
+    (SceneType.spaceStation, 'Stația Spațială'),
+    (SceneType.observatory, 'Observatorul Stelar'),
+    (SceneType.magicShop, 'Prăvălia Magică'),
+    (SceneType.desert, 'Oaza din Deșert'),
+    (SceneType.snow, 'Cabana Înzăpezită'),
+    (SceneType.circus, 'Cortul Circului'),
+    (SceneType.carnival, 'Bâlciul Vesel'),
+    (SceneType.bakery, 'Brutăria Bunicii'),
+    (SceneType.cafe, 'Cafenea Pariziană'),
+    (SceneType.flowerShop, 'Florăria din Colț'),
+    (SceneType.toyStore, 'Magazinul de Jucării'),
+    (SceneType.toolShed, 'Magazia de Unelte'),
+    (SceneType.musicRoom, 'Camera de Muzică'),
+    (SceneType.artStudio, 'Atelierul de Artă'),
+    (SceneType.gym, 'Sala de Sport'),
+    (SceneType.laundry, 'Spălătoria'),
+    (SceneType.pharmacy, 'Farmacia Veche'),
+    (SceneType.fishMarket, 'Piața de Pește'),
+    (SceneType.candyShop, 'Magazinul de Dulciuri'),
+    (SceneType.jewelryStore, 'Bijuteria'),
+    (SceneType.barberShop, 'Frizeria Retro'),
+    (SceneType.gasStation, 'Benzinăria'),
+    (SceneType.barn, 'Hambarul Fermei'),
+    (SceneType.vineyard, 'Crama de la Vie'),
+    (SceneType.lighthouse, 'Farul de la Mare'),
+    (SceneType.aquarium, 'Acvariul Public'),
+    (SceneType.museum, 'Muzeul de Istorie'),
+    (SceneType.classroom, 'Sala de Clasă'),
+    (SceneType.playground, 'Parcul de Joacă'),
   ];
 
-  static const _decoyColors = [
-    Color(0xFFFF7043), Color(0xFFAB47BC), Color(0xFF42A5F5),
-    Color(0xFF26A69A), Color(0xFFEC407A), Color(0xFFEF5350),
-    Color(0xFF66BB6A), Color(0xFFFFCA28), Color(0xFF8D6E63),
-    Color(0xFF7E57C2), Color(0xFF29B6F6), Color(0xFF9CCC65),
-  ];
-
+  /// Build a fresh list of playable levels (only scenes with authored hotspots).
   static List<Level> generateAll() {
-    return [
-      _generate('Grădină Magică', SceneType.garden, 8, 30),
-      _generate('Plajă la Apus', SceneType.beachSunset, 9, 35),
-      _generate('Pădure Misterioasă', SceneType.forest, 10, 40),
-      _generate('Bibliotecă Veche', SceneType.library, 12, 45),
-      _generate('Bucătăria Bunicii', SceneType.kitchen, 14, 50),
-      _generate('Pod cu Comori', SceneType.attic, 14, 55),
-      _generate('Oraș de Noapte', SceneType.city, 15, 60),
-      _generate('Plajă Tropicală', SceneType.beach, 12, 50),
-    ];
-  }
-
-  static Level _generate(String name, SceneType scene, int targets, int total) {
-    final rng = Random(name.hashCode);
-    final objects = <HiddenObject>[];
-    for (var i = 0; i < total; i++) {
-      objects.add(HiddenObject(
-        icon: _decoyIcons[rng.nextInt(_decoyIcons.length)],
-        name: 'obj$i',
-        color: _decoyColors[rng.nextInt(_decoyColors.length)],
-        x: 0.05 + rng.nextDouble() * 0.9,
-        y: 0.08 + rng.nextDouble() * 0.85,
-        size: 26 + rng.nextDouble() * 24,
-        rotation: (rng.nextDouble() - 0.5) * 0.6,
-      ));
+    final out = <Level>[];
+    for (final (scene, name) in _master) {
+      final targets = LevelStore._targetsFor(scene);
+      if (targets.isEmpty) continue;
+      out.add(Level(name: name, scene: scene, targets: targets));
     }
-    final targetIndexes = <int>[];
-    final pool = List.generate(total, (i) => i)..shuffle(rng);
-    for (var i = 0; i < targets; i++) {
-      targetIndexes.add(pool[i]);
-    }
-    return Level(name: name, scene: scene, allObjects: objects, targetIndexes: targetIndexes);
+    return out;
   }
 }

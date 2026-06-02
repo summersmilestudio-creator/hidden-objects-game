@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../services/rewards_service.dart';
+import '../services/ads_service.dart';
 
 class DailyRewardScreen extends StatefulWidget {
   final int day;
@@ -25,14 +26,35 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
   @override
   void dispose() { _ctrl.dispose(); super.dispose(); }
 
+  bool _doubling = false;
+  Future<void> _doubleViaAd() async {
+    if (_doubling) return;
+    _doubling = true;
+    final earned = await AdsService.instance.showRewarded();
+    if (!mounted) return;
+    if (earned) {
+      await RewardsService().addCoins(widget.reward); // second time => x2
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('🎬 Bonus dublat! +${widget.reward} monede')),
+      );
+      Navigator.pop(context);
+    } else {
+      _doubling = false;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0F0F1A),
       body: SafeArea(
-        child: Center(
+        child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -116,13 +138,24 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
                     );
                   }),
                 ),
-                const SizedBox(height: 32),
-                ElevatedButton(
+                const SizedBox(height: 28),
+                ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF6F00),
+                    backgroundColor: const Color(0xFFFFD740),
+                    foregroundColor: Colors.black,
+                    padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+                    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900),
+                  ),
+                  onPressed: _doubleViaAd,
+                  icon: const Icon(Icons.smart_display),
+                  label: Text('DUBLEAZĂ ×2  (+${widget.reward})'),
+                ),
+                const SizedBox(height: 12),
+                TextButton(
+                  style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 16),
-                    textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 12),
+                    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   onPressed: () => Navigator.pop(context),
                   child: const Text('PRIMEȘTE'),

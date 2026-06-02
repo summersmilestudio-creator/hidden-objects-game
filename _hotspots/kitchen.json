@@ -1,0 +1,90 @@
+{
+  "kitchen": {
+    "objects": [
+      {
+        "id": "mixer",
+        "label": "Mixer roșu",
+        "cx": 0.27,
+        "cy": 0.5,
+        "r": 0.11
+      },
+      {
+        "id": "blender",
+        "label": "Blender",
+        "cx": 0.5,
+        "cy": 0.54,
+        "r": 0.11
+      },
+      {
+        "id": "cat",
+        "label": "Pisica neagră",
+        "cx": 0.78,
+        "cy": 0.63,
+        "r": 0.11
+      },
+      {
+        "id": "plant",
+        "label": "Plantă",
+        "cx": 0.07,
+        "cy": 0.16,
+        "r": 0.08
+      },
+      {
+        "id": "honey",
+        "label": "Borcan miere",
+        "cx": 0.49,
+        "cy": 0.17,
+        "r": 0.07
+      },
+      {
+        "id": "snowman",
+        "label": "Figurină",
+        "cx": 0.61,
+        "cy": 0.16,
+        "r": 0.06
+      },
+      {
+        "id": "utensils",
+        "label": "Ustensile",
+        "cx": 0.79,
+        "cy": 0.41,
+        "r": 0.09
+      },
+      {
+        "id": "pan",
+        "label": "Tigaie",
+        "cx": 0.28,
+        "cy": 0.13,
+        "r": 0.07
+      },
+      {
+        "id": "strawberries",
+        "label": "Căpșuni",
+        "cx": 0.21,
+        "cy": 0.81,
+        "r": 0.09
+      },
+      {
+        "id": "lemon",
+        "label": "Lămâie",
+        "cx": 0.18,
+        "cy": 0.66,
+        "r": 0.07
+      },
+      {
+        "id": "banana",
+        "label": "Banană",
+        "cx": 0.45,
+        "cy": 0.84,
+        "r": 0.08
+      },
+      {
+        "id": "succulent",
+        "label": "Suculentă",
+        "cx": 0.09,
+        "cy": 0.55,
+        "r": 0.06
+      }
+    ]
+  }
+}

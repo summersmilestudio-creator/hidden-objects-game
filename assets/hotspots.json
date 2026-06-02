@@ -1,0 +1,4402 @@
+{
+  "garden": {
+    "objects": [
+      {
+        "id": "butterfly",
+        "label": "Fluture",
+        "cx": 0.125,
+        "cy": 0.175,
+        "r": 0.06
+      },
+      {
+        "id": "bench",
+        "label": "Bancă",
+        "cx": 0.19,
+        "cy": 0.55,
+        "r": 0.09
+      },
+      {
+        "id": "blue_butterfly",
+        "label": "Fluture albastru",
+        "cx": 0.83,
+        "cy": 0.26,
+        "r": 0.06
+      },
+      {
+        "id": "wooden_table",
+        "label": "Măsuță",
+        "cx": 0.76,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "potted_plants",
+        "label": "Ghivece",
+        "cx": 0.52,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "garden_gnome",
+        "label": "Statuetă",
+        "cx": 0.6,
+        "cy": 0.62,
+        "r": 0.06
+      },
+      {
+        "id": "red_flowers",
+        "label": "Floare roșie",
+        "cx": 0.1,
+        "cy": 0.42,
+        "r": 0.06
+      },
+      {
+        "id": "blue_bottle",
+        "label": "Sticlă albastră",
+        "cx": 0.45,
+        "cy": 0.74,
+        "r": 0.06
+      },
+      {
+        "id": "watering_can",
+        "label": "Stropitoare",
+        "cx": 0.55,
+        "cy": 0.74,
+        "r": 0.07
+      },
+      {
+        "id": "woven_basket",
+        "label": "Coș împletit",
+        "cx": 0.74,
+        "cy": 0.85,
+        "r": 0.08
+      },
+      {
+        "id": "ceramic_pot",
+        "label": "Vas ceramic",
+        "cx": 0.17,
+        "cy": 0.79,
+        "r": 0.07
+      },
+      {
+        "id": "trowel",
+        "label": "Unealtă",
+        "cx": 0.62,
+        "cy": 0.84,
+        "r": 0.05
+      }
+    ]
+  },
+  "beachSunset": {
+    "objects": [
+      {
+        "id": "sun",
+        "label": "Soarele",
+        "cx": 0.37,
+        "cy": 0.23,
+        "r": 0.09
+      },
+      {
+        "id": "palmleaf",
+        "label": "Frunză palmier",
+        "cx": 0.86,
+        "cy": 0.11,
+        "r": 0.1
+      },
+      {
+        "id": "surfboard",
+        "label": "Placă surf",
+        "cx": 0.16,
+        "cy": 0.42,
+        "r": 0.09
+      },
+      {
+        "id": "chair",
+        "label": "Scaun lemn",
+        "cx": 0.58,
+        "cy": 0.48,
+        "r": 0.09
+      },
+      {
+        "id": "bottle",
+        "label": "Sticlă",
+        "cx": 0.86,
+        "cy": 0.42,
+        "r": 0.06
+      },
+      {
+        "id": "crate",
+        "label": "Ladă lemn",
+        "cx": 0.91,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "basket",
+        "label": "Coș",
+        "cx": 0.1,
+        "cy": 0.63,
+        "r": 0.08
+      },
+      {
+        "id": "whitestarfish",
+        "label": "Stea albă",
+        "cx": 0.3,
+        "cy": 0.78,
+        "r": 0.08
+      },
+      {
+        "id": "beachball",
+        "label": "Minge plajă",
+        "cx": 0.8,
+        "cy": 0.85,
+        "r": 0.09
+      },
+      {
+        "id": "sunglasses",
+        "label": "Ochelari",
+        "cx": 0.55,
+        "cy": 0.93,
+        "r": 0.08
+      },
+      {
+        "id": "redstarfish",
+        "label": "Stea roșie",
+        "cx": 0.08,
+        "cy": 0.85,
+        "r": 0.08
+      },
+      {
+        "id": "redball",
+        "label": "Minge mică",
+        "cx": 0.22,
+        "cy": 0.88,
+        "r": 0.07
+      }
+    ]
+  },
+  "forest": {
+    "objects": [
+      {
+        "id": "lantern_hanging",
+        "label": "Felinar",
+        "cx": 0.5,
+        "cy": 0.18,
+        "r": 0.07
+      },
+      {
+        "id": "lantern_tree",
+        "label": "Lampă copac",
+        "cx": 0.13,
+        "cy": 0.16,
+        "r": 0.08
+      },
+      {
+        "id": "basket",
+        "label": "Coș nuiele",
+        "cx": 0.13,
+        "cy": 0.55,
+        "r": 0.09
+      },
+      {
+        "id": "open_book",
+        "label": "Carte",
+        "cx": 0.27,
+        "cy": 0.83,
+        "r": 0.1
+      },
+      {
+        "id": "net_hoop",
+        "label": "Plasă",
+        "cx": 0.8,
+        "cy": 0.6,
+        "r": 0.09
+      },
+      {
+        "id": "red_mushroom",
+        "label": "Ciupercă roșie",
+        "cx": 0.45,
+        "cy": 0.66,
+        "r": 0.06
+      },
+      {
+        "id": "yellow_mushrooms",
+        "label": "Ciuperci galbene",
+        "cx": 0.68,
+        "cy": 0.62,
+        "r": 0.07
+      },
+      {
+        "id": "small_mushrooms",
+        "label": "Ciupercuțe",
+        "cx": 0.64,
+        "cy": 0.8,
+        "r": 0.06
+      },
+      {
+        "id": "toadstool_tall",
+        "label": "Ciupercă înaltă",
+        "cx": 0.55,
+        "cy": 0.78,
+        "r": 0.06
+      },
+      {
+        "id": "pebble_path",
+        "label": "Pietre",
+        "cx": 0.36,
+        "cy": 0.94,
+        "r": 0.08
+      },
+      {
+        "id": "big_rock",
+        "label": "Stâncă",
+        "cx": 0.82,
+        "cy": 0.82,
+        "r": 0.09
+      },
+      {
+        "id": "red_berries",
+        "label": "Boabe roșii",
+        "cx": 0.22,
+        "cy": 0.66,
+        "r": 0.06
+      }
+    ]
+  },
+  "library": {
+    "objects": [
+      {
+        "id": "globe",
+        "label": "Glob",
+        "cx": 0.2,
+        "cy": 0.18,
+        "r": 0.11
+      },
+      {
+        "id": "smallglobe",
+        "label": "Glob mic",
+        "cx": 0.85,
+        "cy": 0.2,
+        "r": 0.09
+      },
+      {
+        "id": "framedpicture",
+        "label": "Tablou",
+        "cx": 0.52,
+        "cy": 0.32,
+        "r": 0.06
+      },
+      {
+        "id": "candle",
+        "label": "Lumânare",
+        "cx": 0.17,
+        "cy": 0.52,
+        "r": 0.045
+      },
+      {
+        "id": "trophy",
+        "label": "Cupă",
+        "cx": 0.22,
+        "cy": 0.64,
+        "r": 0.07
+      },
+      {
+        "id": "telescope",
+        "label": "Telescop",
+        "cx": 0.82,
+        "cy": 0.5,
+        "r": 0.1
+      },
+      {
+        "id": "camera",
+        "label": "Aparat foto",
+        "cx": 0.73,
+        "cy": 0.59,
+        "r": 0.06
+      },
+      {
+        "id": "cat",
+        "label": "Pisică",
+        "cx": 0.68,
+        "cy": 0.74,
+        "r": 0.07
+      },
+      {
+        "id": "typewriter",
+        "label": "Mașină scris",
+        "cx": 0.21,
+        "cy": 0.75,
+        "r": 0.08
+      },
+      {
+        "id": "bag",
+        "label": "Geantă",
+        "cx": 0.52,
+        "cy": 0.81,
+        "r": 0.06
+      },
+      {
+        "id": "typewriter2",
+        "label": "Mașină scris 2",
+        "cx": 0.85,
+        "cy": 0.83,
+        "r": 0.09
+      },
+      {
+        "id": "feather",
+        "label": "Pană",
+        "cx": 0.68,
+        "cy": 0.89,
+        "r": 0.05
+      }
+    ]
+  },
+  "kitchen": {
+    "objects": [
+      {
+        "id": "mixer",
+        "label": "Mixer roșu",
+        "cx": 0.27,
+        "cy": 0.5,
+        "r": 0.11
+      },
+      {
+        "id": "blender",
+        "label": "Blender",
+        "cx": 0.5,
+        "cy": 0.54,
+        "r": 0.11
+      },
+      {
+        "id": "cat",
+        "label": "Pisica neagră",
+        "cx": 0.78,
+        "cy": 0.63,
+        "r": 0.11
+      },
+      {
+        "id": "plant",
+        "label": "Plantă",
+        "cx": 0.07,
+        "cy": 0.16,
+        "r": 0.08
+      },
+      {
+        "id": "honey",
+        "label": "Borcan miere",
+        "cx": 0.49,
+        "cy": 0.17,
+        "r": 0.07
+      },
+      {
+        "id": "snowman",
+        "label": "Figurină",
+        "cx": 0.61,
+        "cy": 0.16,
+        "r": 0.06
+      },
+      {
+        "id": "utensils",
+        "label": "Ustensile",
+        "cx": 0.79,
+        "cy": 0.41,
+        "r": 0.09
+      },
+      {
+        "id": "pan",
+        "label": "Tigaie",
+        "cx": 0.28,
+        "cy": 0.13,
+        "r": 0.07
+      },
+      {
+        "id": "strawberries",
+        "label": "Căpșuni",
+        "cx": 0.21,
+        "cy": 0.81,
+        "r": 0.09
+      },
+      {
+        "id": "lemon",
+        "label": "Lămâie",
+        "cx": 0.18,
+        "cy": 0.66,
+        "r": 0.07
+      },
+      {
+        "id": "banana",
+        "label": "Banană",
+        "cx": 0.45,
+        "cy": 0.84,
+        "r": 0.08
+      },
+      {
+        "id": "succulent",
+        "label": "Suculentă",
+        "cx": 0.09,
+        "cy": 0.55,
+        "r": 0.06
+      }
+    ]
+  },
+  "attic": {
+    "objects": [
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.13,
+        "cy": 0.18,
+        "r": 0.09
+      },
+      {
+        "id": "table_lamp",
+        "label": "Veioză",
+        "cx": 0.39,
+        "cy": 0.34,
+        "r": 0.08
+      },
+      {
+        "id": "framed_photo",
+        "label": "Tablou",
+        "cx": 0.78,
+        "cy": 0.07,
+        "r": 0.08
+      },
+      {
+        "id": "oval_mirror",
+        "label": "Oglindă",
+        "cx": 0.77,
+        "cy": 0.3,
+        "r": 0.07
+      },
+      {
+        "id": "desk_lamp",
+        "label": "Lampă birou",
+        "cx": 0.1,
+        "cy": 0.4,
+        "r": 0.09
+      },
+      {
+        "id": "suitcase",
+        "label": "Valiză",
+        "cx": 0.63,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "standing_mirror",
+        "label": "Oglindă mare",
+        "cx": 0.46,
+        "cy": 0.72,
+        "r": 0.1
+      },
+      {
+        "id": "globe",
+        "label": "Glob",
+        "cx": 0.63,
+        "cy": 0.7,
+        "r": 0.07
+      },
+      {
+        "id": "blue_doll",
+        "label": "Păpușă",
+        "cx": 0.26,
+        "cy": 0.82,
+        "r": 0.07
+      },
+      {
+        "id": "treasure_chest",
+        "label": "Cufăr",
+        "cx": 0.86,
+        "cy": 0.8,
+        "r": 0.08
+      },
+      {
+        "id": "drawer_chest",
+        "label": "Comodă",
+        "cx": 0.4,
+        "cy": 0.56,
+        "r": 0.07
+      },
+      {
+        "id": "small_frame",
+        "label": "Ramă mică",
+        "cx": 0.32,
+        "cy": 0.86,
+        "r": 0.06
+      }
+    ]
+  },
+  "city": {
+    "objects": [
+      {
+        "id": "bicycle",
+        "label": "Bicicletă",
+        "cx": 0.81,
+        "cy": 0.78,
+        "r": 0.11
+      },
+      {
+        "id": "hangingbike",
+        "label": "Bicicletă sus",
+        "cx": 0.62,
+        "cy": 0.55,
+        "r": 0.09
+      },
+      {
+        "id": "potplant",
+        "label": "Plantă",
+        "cx": 0.42,
+        "cy": 0.58,
+        "r": 0.1
+      },
+      {
+        "id": "whiteshirt",
+        "label": "Cămașă",
+        "cx": 0.1,
+        "cy": 0.34,
+        "r": 0.08
+      },
+      {
+        "id": "hangingshirts",
+        "label": "Tricouri",
+        "cx": 0.88,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "curtain",
+        "label": "Perdea",
+        "cx": 0.71,
+        "cy": 0.58,
+        "r": 0.08
+      },
+      {
+        "id": "flowerbox",
+        "label": "Ghiveci flori",
+        "cx": 0.3,
+        "cy": 0.65,
+        "r": 0.07
+      },
+      {
+        "id": "litwindow",
+        "label": "Fereastră",
+        "cx": 0.78,
+        "cy": 0.33,
+        "r": 0.09
+      },
+      {
+        "id": "barrelplant",
+        "label": "Butoi",
+        "cx": 0.88,
+        "cy": 0.85,
+        "r": 0.09
+      },
+      {
+        "id": "trashbin",
+        "label": "Coș gunoi",
+        "cx": 0.27,
+        "cy": 0.8,
+        "r": 0.1
+      },
+      {
+        "id": "newspapers",
+        "label": "Ziare",
+        "cx": 0.15,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "ivybalcony",
+        "label": "Iederă",
+        "cx": 0.08,
+        "cy": 0.15,
+        "r": 0.09
+      }
+    ]
+  },
+  "beach": {
+    "objects": [
+      {
+        "id": "beachball",
+        "label": "Minge plajă",
+        "cx": 0.07,
+        "cy": 0.55,
+        "r": 0.06
+      },
+      {
+        "id": "lifebuoy",
+        "label": "Colac salvare",
+        "cx": 0.1,
+        "cy": 0.73,
+        "r": 0.09
+      },
+      {
+        "id": "icecream",
+        "label": "Înghețată",
+        "cx": 0.36,
+        "cy": 0.85,
+        "r": 0.05
+      },
+      {
+        "id": "flamingo",
+        "label": "Flamingo",
+        "cx": 0.52,
+        "cy": 0.7,
+        "r": 0.07
+      },
+      {
+        "id": "sunglasses",
+        "label": "Ochelari",
+        "cx": 0.62,
+        "cy": 0.84,
+        "r": 0.05
+      },
+      {
+        "id": "umbrella_orange",
+        "label": "Umbrelă roșie",
+        "cx": 0.8,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "umbrella_pink",
+        "label": "Umbrelă roz",
+        "cx": 0.76,
+        "cy": 0.63,
+        "r": 0.08
+      },
+      {
+        "id": "watermelon_float",
+        "label": "Colac pepene",
+        "cx": 0.88,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "watermelon_slice",
+        "label": "Felie pepene",
+        "cx": 0.2,
+        "cy": 0.88,
+        "r": 0.06
+      },
+      {
+        "id": "gift_box",
+        "label": "Cadou",
+        "cx": 0.74,
+        "cy": 0.86,
+        "r": 0.06
+      },
+      {
+        "id": "seashell",
+        "label": "Scoică",
+        "cx": 0.43,
+        "cy": 0.93,
+        "r": 0.05
+      },
+      {
+        "id": "starfish",
+        "label": "Stea mare",
+        "cx": 0.3,
+        "cy": 0.94,
+        "r": 0.05
+      }
+    ]
+  },
+  "bedroom": {
+    "objects": [
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.06,
+        "cy": 0.28,
+        "r": 0.09
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă",
+        "cx": 0.13,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "wall_clock",
+        "label": "Ceas",
+        "cx": 0.24,
+        "cy": 0.45,
+        "r": 0.06
+      },
+      {
+        "id": "framed_picture",
+        "label": "Tablou",
+        "cx": 0.65,
+        "cy": 0.13,
+        "r": 0.07
+      },
+      {
+        "id": "string_lights",
+        "label": "Lumini",
+        "cx": 0.4,
+        "cy": 0.07,
+        "r": 0.08
+      },
+      {
+        "id": "table_lamp",
+        "label": "Veioză",
+        "cx": 0.69,
+        "cy": 0.55,
+        "r": 0.07
+      },
+      {
+        "id": "yellow_pillow",
+        "label": "Pernă galbenă",
+        "cx": 0.45,
+        "cy": 0.62,
+        "r": 0.07
+      },
+      {
+        "id": "teddy_bear",
+        "label": "Ursuleț",
+        "cx": 0.16,
+        "cy": 0.81,
+        "r": 0.08
+      },
+      {
+        "id": "nightstand",
+        "label": "Noptieră",
+        "cx": 0.68,
+        "cy": 0.66,
+        "r": 0.08
+      },
+      {
+        "id": "rug",
+        "label": "Covor",
+        "cx": 0.5,
+        "cy": 0.92,
+        "r": 0.1
+      },
+      {
+        "id": "books_shelf",
+        "label": "Cărți",
+        "cx": 0.88,
+        "cy": 0.41,
+        "r": 0.07
+      },
+      {
+        "id": "desk_drawers",
+        "label": "Birou",
+        "cx": 0.9,
+        "cy": 0.73,
+        "r": 0.08
+      }
+    ]
+  },
+  "bathroom": {
+    "objects": [
+      {
+        "id": "mirror",
+        "label": "Oglindă",
+        "cx": 0.74,
+        "cy": 0.13,
+        "r": 0.1
+      },
+      {
+        "id": "palm",
+        "label": "Palmier",
+        "cx": 0.2,
+        "cy": 0.2,
+        "r": 0.1
+      },
+      {
+        "id": "shelf_bottle",
+        "label": "Sticlă",
+        "cx": 0.51,
+        "cy": 0.37,
+        "r": 0.06
+      },
+      {
+        "id": "toiletry_bag",
+        "label": "Trusă",
+        "cx": 0.83,
+        "cy": 0.3,
+        "r": 0.07
+      },
+      {
+        "id": "faucet",
+        "label": "Robinet",
+        "cx": 0.55,
+        "cy": 0.5,
+        "r": 0.06
+      },
+      {
+        "id": "bathtub",
+        "label": "Cadă",
+        "cx": 0.41,
+        "cy": 0.62,
+        "r": 0.11
+      },
+      {
+        "id": "towel",
+        "label": "Prosop",
+        "cx": 0.64,
+        "cy": 0.72,
+        "r": 0.07
+      },
+      {
+        "id": "green_plant",
+        "label": "Plantă verde",
+        "cx": 0.1,
+        "cy": 0.68,
+        "r": 0.09
+      },
+      {
+        "id": "soap_bar",
+        "label": "Săpun",
+        "cx": 0.14,
+        "cy": 0.87,
+        "r": 0.06
+      },
+      {
+        "id": "pump_bottle",
+        "label": "Dozator",
+        "cx": 0.76,
+        "cy": 0.8,
+        "r": 0.07
+      },
+      {
+        "id": "bath_mat",
+        "label": "Covoraș",
+        "cx": 0.46,
+        "cy": 0.92,
+        "r": 0.09
+      },
+      {
+        "id": "seashell",
+        "label": "Scoică",
+        "cx": 0.24,
+        "cy": 0.95,
+        "r": 0.05
+      }
+    ]
+  },
+  "livingRoom": {
+    "objects": [
+      {
+        "id": "wallpainting",
+        "label": "Tablou",
+        "cx": 0.52,
+        "cy": 0.22,
+        "r": 0.1
+      },
+      {
+        "id": "television",
+        "label": "Televizor",
+        "cx": 0.46,
+        "cy": 0.44,
+        "r": 0.09
+      },
+      {
+        "id": "tablelamp",
+        "label": "Veioză",
+        "cx": 0.66,
+        "cy": 0.46,
+        "r": 0.05
+      },
+      {
+        "id": "books",
+        "label": "Cărți",
+        "cx": 0.82,
+        "cy": 0.24,
+        "r": 0.07
+      },
+      {
+        "id": "bluepillow",
+        "label": "Pernă albastră",
+        "cx": 0.09,
+        "cy": 0.51,
+        "r": 0.07
+      },
+      {
+        "id": "thermos",
+        "label": "Termos",
+        "cx": 0.3,
+        "cy": 0.51,
+        "r": 0.05
+      },
+      {
+        "id": "teacup",
+        "label": "Ceașcă",
+        "cx": 0.53,
+        "cy": 0.67,
+        "r": 0.05
+      },
+      {
+        "id": "vaseflower",
+        "label": "Vază",
+        "cx": 0.43,
+        "cy": 0.65,
+        "r": 0.05
+      },
+      {
+        "id": "orangeblanket",
+        "label": "Pătură",
+        "cx": 0.21,
+        "cy": 0.76,
+        "r": 0.07
+      },
+      {
+        "id": "basket",
+        "label": "Coș",
+        "cx": 0.19,
+        "cy": 0.88,
+        "r": 0.07
+      },
+      {
+        "id": "pottedplant",
+        "label": "Plantă",
+        "cx": 0.92,
+        "cy": 0.85,
+        "r": 0.08
+      },
+      {
+        "id": "rug",
+        "label": "Covor",
+        "cx": 0.6,
+        "cy": 0.89,
+        "r": 0.09
+      }
+    ]
+  },
+  "office": {
+    "objects": [
+      {
+        "id": "typewriter",
+        "label": "Mașină scris",
+        "cx": 0.55,
+        "cy": 0.62,
+        "r": 0.11
+      },
+      {
+        "id": "desk_lamp",
+        "label": "Veioză",
+        "cx": 0.18,
+        "cy": 0.4,
+        "r": 0.1
+      },
+      {
+        "id": "coffee_cup",
+        "label": "Cană cafea",
+        "cx": 0.35,
+        "cy": 0.79,
+        "r": 0.06
+      },
+      {
+        "id": "binoculars",
+        "label": "Binoclu",
+        "cx": 0.37,
+        "cy": 0.56,
+        "r": 0.07
+      },
+      {
+        "id": "books_stack",
+        "label": "Teanc cărți",
+        "cx": 0.2,
+        "cy": 0.67,
+        "r": 0.09
+      },
+      {
+        "id": "map_frame",
+        "label": "Hartă",
+        "cx": 0.62,
+        "cy": 0.2,
+        "r": 0.1
+      },
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.87,
+        "cy": 0.32,
+        "r": 0.11
+      },
+      {
+        "id": "open_notebook",
+        "label": "Caiet",
+        "cx": 0.6,
+        "cy": 0.84,
+        "r": 0.1
+      },
+      {
+        "id": "pencil_cup",
+        "label": "Suport creioane",
+        "cx": 0.06,
+        "cy": 0.71,
+        "r": 0.06
+      },
+      {
+        "id": "binders",
+        "label": "Bibliorafturi",
+        "cx": 0.16,
+        "cy": 0.1,
+        "r": 0.1
+      },
+      {
+        "id": "magnifying_glass",
+        "label": "Lupă",
+        "cx": 0.24,
+        "cy": 0.5,
+        "r": 0.06
+      },
+      {
+        "id": "map_drawing",
+        "label": "Schiță hartă",
+        "cx": 0.28,
+        "cy": 0.87,
+        "r": 0.09
+      }
+    ]
+  },
+  "workshop": {
+    "objects": [
+      {
+        "id": "telescope",
+        "label": "Telescop",
+        "cx": 0.2,
+        "cy": 0.1,
+        "r": 0.09
+      },
+      {
+        "id": "glowing_lamp",
+        "label": "Lampă",
+        "cx": 0.58,
+        "cy": 0.1,
+        "r": 0.09
+      },
+      {
+        "id": "gear",
+        "label": "Roată dințată",
+        "cx": 0.2,
+        "cy": 0.27,
+        "r": 0.08
+      },
+      {
+        "id": "big_jar",
+        "label": "Borcan",
+        "cx": 0.48,
+        "cy": 0.18,
+        "r": 0.1
+      },
+      {
+        "id": "magnifier",
+        "label": "Lupă",
+        "cx": 0.83,
+        "cy": 0.28,
+        "r": 0.1
+      },
+      {
+        "id": "blue_potion",
+        "label": "Poțiune albastră",
+        "cx": 0.61,
+        "cy": 0.3,
+        "r": 0.07
+      },
+      {
+        "id": "wooden_box",
+        "label": "Cutie lemn",
+        "cx": 0.52,
+        "cy": 0.41,
+        "r": 0.09
+      },
+      {
+        "id": "red_tube",
+        "label": "Tub roșu",
+        "cx": 0.67,
+        "cy": 0.4,
+        "r": 0.07
+      },
+      {
+        "id": "yellow_flask",
+        "label": "Flacon galben",
+        "cx": 0.82,
+        "cy": 0.46,
+        "r": 0.1
+      },
+      {
+        "id": "blueprint",
+        "label": "Schiță",
+        "cx": 0.45,
+        "cy": 0.66,
+        "r": 0.11
+      },
+      {
+        "id": "screwdriver",
+        "label": "Șurubelniță",
+        "cx": 0.74,
+        "cy": 0.74,
+        "r": 0.08
+      },
+      {
+        "id": "padlock",
+        "label": "Lacăt",
+        "cx": 0.16,
+        "cy": 0.82,
+        "r": 0.09
+      }
+    ]
+  },
+  "cellar": {
+    "objects": [
+      {
+        "id": "wicker_basket",
+        "label": "Coș",
+        "cx": 0.2,
+        "cy": 0.21,
+        "r": 0.08
+      },
+      {
+        "id": "hanging_lantern",
+        "label": "Felinar",
+        "cx": 0.47,
+        "cy": 0.31,
+        "r": 0.09
+      },
+      {
+        "id": "green_grape_leaves",
+        "label": "Frunze viță",
+        "cx": 0.82,
+        "cy": 0.09,
+        "r": 0.09
+      },
+      {
+        "id": "wine_bottle_shelf",
+        "label": "Sticlă vin",
+        "cx": 0.72,
+        "cy": 0.22,
+        "r": 0.07
+      },
+      {
+        "id": "cheese_wheel",
+        "label": "Roată brânză",
+        "cx": 0.42,
+        "cy": 0.36,
+        "r": 0.07
+      },
+      {
+        "id": "yellow_grapes",
+        "label": "Struguri galbeni",
+        "cx": 0.27,
+        "cy": 0.47,
+        "r": 0.07
+      },
+      {
+        "id": "small_barrel",
+        "label": "Butoiaș",
+        "cx": 0.27,
+        "cy": 0.6,
+        "r": 0.07
+      },
+      {
+        "id": "firewood_stack",
+        "label": "Lemne foc",
+        "cx": 0.43,
+        "cy": 0.68,
+        "r": 0.08
+      },
+      {
+        "id": "left_barrel",
+        "label": "Butoi stâng",
+        "cx": 0.1,
+        "cy": 0.79,
+        "r": 0.1
+      },
+      {
+        "id": "cheese_blocks",
+        "label": "Cuburi brânză",
+        "cx": 0.24,
+        "cy": 0.83,
+        "r": 0.06
+      },
+      {
+        "id": "red_grapes_floor",
+        "label": "Struguri roșii",
+        "cx": 0.42,
+        "cy": 0.89,
+        "r": 0.1
+      },
+      {
+        "id": "front_barrel",
+        "label": "Butoi",
+        "cx": 0.81,
+        "cy": 0.82,
+        "r": 0.11
+      }
+    ]
+  },
+  "ballroom": {
+    "objects": [
+      {
+        "id": "chandelier",
+        "label": "Candelabru",
+        "cx": 0.5,
+        "cy": 0.13,
+        "r": 0.11
+      },
+      {
+        "id": "grand_piano",
+        "label": "Pian",
+        "cx": 0.52,
+        "cy": 0.55,
+        "r": 0.11
+      },
+      {
+        "id": "red_curtain",
+        "label": "Draperie",
+        "cx": 0.2,
+        "cy": 0.18,
+        "r": 0.1
+      },
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.1,
+        "cy": 0.4,
+        "r": 0.09
+      },
+      {
+        "id": "red_roses",
+        "label": "Trandafiri",
+        "cx": 0.93,
+        "cy": 0.48,
+        "r": 0.08
+      },
+      {
+        "id": "piano_stool",
+        "label": "Scaun pian",
+        "cx": 0.37,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "mirror",
+        "label": "Oglindă",
+        "cx": 0.89,
+        "cy": 0.31,
+        "r": 0.08
+      },
+      {
+        "id": "candelabra",
+        "label": "Sfeșnic",
+        "cx": 0.3,
+        "cy": 0.5,
+        "r": 0.07
+      },
+      {
+        "id": "wine_glass",
+        "label": "Pahar vin",
+        "cx": 0.17,
+        "cy": 0.8,
+        "r": 0.06
+      },
+      {
+        "id": "white_chair",
+        "label": "Scaun alb",
+        "cx": 0.84,
+        "cy": 0.68,
+        "r": 0.07
+      },
+      {
+        "id": "red_pillow",
+        "label": "Pernă roșie",
+        "cx": 0.91,
+        "cy": 0.81,
+        "r": 0.07
+      },
+      {
+        "id": "wall_lamp",
+        "label": "Lampă perete",
+        "cx": 0.79,
+        "cy": 0.47,
+        "r": 0.06
+      }
+    ]
+  },
+  "greenhouse": {
+    "objects": [
+      {
+        "id": "hanging_fern",
+        "label": "Ferigă agățată",
+        "cx": 0.28,
+        "cy": 0.09,
+        "r": 0.09
+      },
+      {
+        "id": "hanging_basket",
+        "label": "Ferigă coș",
+        "cx": 0.66,
+        "cy": 0.2,
+        "r": 0.08
+      },
+      {
+        "id": "watering_can",
+        "label": "Stropitoare",
+        "cx": 0.13,
+        "cy": 0.81,
+        "r": 0.08
+      },
+      {
+        "id": "fountain",
+        "label": "Fântână",
+        "cx": 0.47,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "clay_pot",
+        "label": "Ghiveci lut",
+        "cx": 0.84,
+        "cy": 0.82,
+        "r": 0.09
+      },
+      {
+        "id": "left_plant",
+        "label": "Plantă stânga",
+        "cx": 0.08,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "right_palm",
+        "label": "Palmier",
+        "cx": 0.86,
+        "cy": 0.56,
+        "r": 0.09
+      },
+      {
+        "id": "red_flowers",
+        "label": "Flori roșii",
+        "cx": 0.4,
+        "cy": 0.63,
+        "r": 0.06
+      },
+      {
+        "id": "small_pot",
+        "label": "Ghiveci mic",
+        "cx": 0.19,
+        "cy": 0.68,
+        "r": 0.06
+      },
+      {
+        "id": "green_plant",
+        "label": "Plantă verde",
+        "cx": 0.7,
+        "cy": 0.95,
+        "r": 0.05
+      },
+      {
+        "id": "white_pot",
+        "label": "Ghiveci alb",
+        "cx": 0.29,
+        "cy": 0.77,
+        "r": 0.05
+      },
+      {
+        "id": "foreground_leaf",
+        "label": "Frunză față",
+        "cx": 0.34,
+        "cy": 0.93,
+        "r": 0.07
+      }
+    ]
+  },
+  "cave": {
+    "objects": [
+      {
+        "id": "blue_crystal_top",
+        "label": "Cristal albastru",
+        "cx": 0.215,
+        "cy": 0.085,
+        "r": 0.085
+      },
+      {
+        "id": "hanging_lantern",
+        "label": "Felinar",
+        "cx": 0.635,
+        "cy": 0.215,
+        "r": 0.07
+      },
+      {
+        "id": "pink_crystal_right",
+        "label": "Cristal roz",
+        "cx": 0.86,
+        "cy": 0.245,
+        "r": 0.075
+      },
+      {
+        "id": "green_plant",
+        "label": "Plantă verde",
+        "cx": 0.165,
+        "cy": 0.385,
+        "r": 0.07
+      },
+      {
+        "id": "shrine_lamp",
+        "label": "Lampă altar",
+        "cx": 0.375,
+        "cy": 0.535,
+        "r": 0.075
+      },
+      {
+        "id": "mine_cart",
+        "label": "Vagonet",
+        "cx": 0.535,
+        "cy": 0.555,
+        "r": 0.085
+      },
+      {
+        "id": "purple_crystal_left",
+        "label": "Cristal mov",
+        "cx": 0.055,
+        "cy": 0.66,
+        "r": 0.08
+      },
+      {
+        "id": "treasure_chest_left",
+        "label": "Cufăr comoară",
+        "cx": 0.16,
+        "cy": 0.65,
+        "r": 0.055
+      },
+      {
+        "id": "large_pink_crystal",
+        "label": "Cristal mare",
+        "cx": 0.85,
+        "cy": 0.69,
+        "r": 0.1
+      },
+      {
+        "id": "wooden_chair",
+        "label": "Scaun lemn",
+        "cx": 0.205,
+        "cy": 0.835,
+        "r": 0.095
+      },
+      {
+        "id": "gold_coins",
+        "label": "Monede aur",
+        "cx": 0.58,
+        "cy": 0.9,
+        "r": 0.06
+      },
+      {
+        "id": "open_chest_right",
+        "label": "Cufăr deschis",
+        "cx": 0.815,
+        "cy": 0.85,
+        "r": 0.08
+      }
+    ]
+  },
+  "castle": {
+    "objects": [
+      {
+        "id": "chandelier",
+        "label": "Candelabru",
+        "cx": 0.475,
+        "cy": 0.17,
+        "r": 0.085
+      },
+      {
+        "id": "stained_glass_window",
+        "label": "Vitraliu",
+        "cx": 0.585,
+        "cy": 0.065,
+        "r": 0.055
+      },
+      {
+        "id": "throne",
+        "label": "Tron",
+        "cx": 0.495,
+        "cy": 0.555,
+        "r": 0.085
+      },
+      {
+        "id": "red_carpet",
+        "label": "Covor",
+        "cx": 0.495,
+        "cy": 0.84,
+        "r": 0.11
+      },
+      {
+        "id": "left_red_banner",
+        "label": "Steag rosu",
+        "cx": 0.105,
+        "cy": 0.62,
+        "r": 0.08
+      },
+      {
+        "id": "purple_drape",
+        "label": "Draperie mov",
+        "cx": 0.895,
+        "cy": 0.5,
+        "r": 0.09
+      },
+      {
+        "id": "left_red_tapestry",
+        "label": "Tapiserie stanga",
+        "cx": 0.185,
+        "cy": 0.215,
+        "r": 0.075
+      },
+      {
+        "id": "right_red_tapestry",
+        "label": "Tapiserie dreapta",
+        "cx": 0.79,
+        "cy": 0.235,
+        "r": 0.075
+      },
+      {
+        "id": "candlestand",
+        "label": "Sfesnic",
+        "cx": 0.335,
+        "cy": 0.625,
+        "r": 0.08
+      },
+      {
+        "id": "floor_candelabra",
+        "label": "Candelabru podea",
+        "cx": 0.81,
+        "cy": 0.45,
+        "r": 0.075
+      },
+      {
+        "id": "golden_helmet",
+        "label": "Coif auriu",
+        "cx": 0.91,
+        "cy": 0.79,
+        "r": 0.085
+      },
+      {
+        "id": "golden_urn",
+        "label": "Urna aurie",
+        "cx": 0.08,
+        "cy": 0.92,
+        "r": 0.085
+      }
+    ]
+  },
+  "dungeon": {
+    "objects": [
+      {
+        "id": "candle",
+        "label": "Lumânare",
+        "cx": 0.27,
+        "cy": 0.27,
+        "r": 0.06
+      },
+      {
+        "id": "plant",
+        "label": "Plantă",
+        "cx": 0.05,
+        "cy": 0.3,
+        "r": 0.055
+      },
+      {
+        "id": "hanging_hook",
+        "label": "Cârlig",
+        "cx": 0.72,
+        "cy": 0.07,
+        "r": 0.06
+      },
+      {
+        "id": "hanging_chain",
+        "label": "Lanț",
+        "cx": 0.91,
+        "cy": 0.17,
+        "r": 0.07
+      },
+      {
+        "id": "wooden_door",
+        "label": "Ușă",
+        "cx": 0.73,
+        "cy": 0.44,
+        "r": 0.1
+      },
+      {
+        "id": "treasure_pile",
+        "label": "Comoară",
+        "cx": 0.22,
+        "cy": 0.46,
+        "r": 0.07
+      },
+      {
+        "id": "wooden_chest",
+        "label": "Cufăr",
+        "cx": 0.4,
+        "cy": 0.59,
+        "r": 0.07
+      },
+      {
+        "id": "helmet",
+        "label": "Coif",
+        "cx": 0.07,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "sword",
+        "label": "Sabie",
+        "cx": 0.46,
+        "cy": 0.8,
+        "r": 0.08
+      },
+      {
+        "id": "skull",
+        "label": "Craniu",
+        "cx": 0.46,
+        "cy": 0.87,
+        "r": 0.06
+      },
+      {
+        "id": "barrel",
+        "label": "Butoi",
+        "cx": 0.82,
+        "cy": 0.84,
+        "r": 0.08
+      },
+      {
+        "id": "golden_ring",
+        "label": "Inel",
+        "cx": 0.31,
+        "cy": 0.93,
+        "r": 0.055
+      }
+    ]
+  },
+  "ship": {
+    "objects": [
+      {
+        "id": "treasure_chest",
+        "label": "Cufăr",
+        "cx": 0.3,
+        "cy": 0.42,
+        "r": 0.1
+      },
+      {
+        "id": "barrel",
+        "label": "Butoi",
+        "cx": 0.1,
+        "cy": 0.67,
+        "r": 0.07
+      },
+      {
+        "id": "mug",
+        "label": "Cană",
+        "cx": 0.13,
+        "cy": 0.56,
+        "r": 0.05
+      },
+      {
+        "id": "red_flag",
+        "label": "Steag roșu",
+        "cx": 0.6,
+        "cy": 0.05,
+        "r": 0.07
+      },
+      {
+        "id": "parrot",
+        "label": "Papagal",
+        "cx": 0.46,
+        "cy": 0.79,
+        "r": 0.07
+      },
+      {
+        "id": "treasure_map",
+        "label": "Hartă",
+        "cx": 0.54,
+        "cy": 0.74,
+        "r": 0.08
+      },
+      {
+        "id": "rope_coil",
+        "label": "Frânghie",
+        "cx": 0.27,
+        "cy": 0.86,
+        "r": 0.07
+      },
+      {
+        "id": "red_bottle",
+        "label": "Sticlă roșie",
+        "cx": 0.13,
+        "cy": 0.76,
+        "r": 0.05
+      },
+      {
+        "id": "milk_bottle",
+        "label": "Sticlă albă",
+        "cx": 0.23,
+        "cy": 0.75,
+        "r": 0.05
+      },
+      {
+        "id": "palm_tree",
+        "label": "Palmier",
+        "cx": 0.9,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "id": "cannon",
+        "label": "Tun",
+        "cx": 0.62,
+        "cy": 0.32,
+        "r": 0.08
+      },
+      {
+        "id": "lantern",
+        "label": "Felinar",
+        "cx": 0.68,
+        "cy": 0.41,
+        "r": 0.06
+      }
+    ]
+  },
+  "underwater": {
+    "objects": [
+      {
+        "id": "anchor",
+        "label": "Ancoră",
+        "cx": 0.13,
+        "cy": 0.13,
+        "r": 0.09
+      },
+      {
+        "id": "orange_fish",
+        "label": "Pește portocaliu",
+        "cx": 0.38,
+        "cy": 0.09,
+        "r": 0.06
+      },
+      {
+        "id": "purple_fish",
+        "label": "Pește mov",
+        "cx": 0.47,
+        "cy": 0.16,
+        "r": 0.08
+      },
+      {
+        "id": "octopus",
+        "label": "Caracatiță",
+        "cx": 0.8,
+        "cy": 0.15,
+        "r": 0.1
+      },
+      {
+        "id": "bottle",
+        "label": "Sticlă",
+        "cx": 0.46,
+        "cy": 0.31,
+        "r": 0.06
+      },
+      {
+        "id": "treasure_chest",
+        "label": "Cufăr comoară",
+        "cx": 0.4,
+        "cy": 0.45,
+        "r": 0.11
+      },
+      {
+        "id": "pink_coral",
+        "label": "Coral roz",
+        "cx": 0.13,
+        "cy": 0.26,
+        "r": 0.08
+      },
+      {
+        "id": "compass",
+        "label": "Busolă",
+        "cx": 0.88,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "yellow_fish",
+        "label": "Pește galben",
+        "cx": 0.13,
+        "cy": 0.52,
+        "r": 0.07
+      },
+      {
+        "id": "blue_fish",
+        "label": "Pește albastru",
+        "cx": 0.6,
+        "cy": 0.72,
+        "r": 0.07
+      },
+      {
+        "id": "scroll",
+        "label": "Pergament",
+        "cx": 0.42,
+        "cy": 0.9,
+        "r": 0.08
+      },
+      {
+        "id": "seashell",
+        "label": "Scoică",
+        "cx": 0.78,
+        "cy": 0.88,
+        "r": 0.09
+      }
+    ]
+  },
+  "spaceStation": {
+    "objects": [
+      {
+        "id": "space_helmet",
+        "label": "Casca",
+        "cx": 0.19,
+        "cy": 0.5,
+        "r": 0.08
+      },
+      {
+        "id": "window_earth",
+        "label": "Planeta",
+        "cx": 0.5,
+        "cy": 0.46,
+        "r": 0.11
+      },
+      {
+        "id": "wall_clock",
+        "label": "Ceas",
+        "cx": 0.235,
+        "cy": 0.305,
+        "r": 0.05
+      },
+      {
+        "id": "keyboard",
+        "label": "Tastatura",
+        "cx": 0.87,
+        "cy": 0.63,
+        "r": 0.09
+      },
+      {
+        "id": "red_apple",
+        "label": "Mar",
+        "cx": 0.04,
+        "cy": 0.685,
+        "r": 0.045
+      },
+      {
+        "id": "orange_barrel",
+        "label": "Butoi",
+        "cx": 0.155,
+        "cy": 0.83,
+        "r": 0.07
+      },
+      {
+        "id": "jellyfish_screen",
+        "label": "Ecran meduza",
+        "cx": 0.78,
+        "cy": 0.555,
+        "r": 0.07
+      },
+      {
+        "id": "left_monitor",
+        "label": "Monitor stanga",
+        "cx": 0.12,
+        "cy": 0.59,
+        "r": 0.065
+      },
+      {
+        "id": "green_speaker",
+        "label": "Difuzor",
+        "cx": 0.685,
+        "cy": 0.315,
+        "r": 0.06
+      },
+      {
+        "id": "orange_panel",
+        "label": "Panou portocaliu",
+        "cx": 0.05,
+        "cy": 0.27,
+        "r": 0.07
+      },
+      {
+        "id": "round_hatch",
+        "label": "Trapa",
+        "cx": 0.63,
+        "cy": 0.565,
+        "r": 0.06
+      },
+      {
+        "id": "floor_canister",
+        "label": "Recipient",
+        "cx": 0.93,
+        "cy": 0.86,
+        "r": 0.06
+      }
+    ]
+  },
+  "observatory": {
+    "objects": [
+      {
+        "id": "telescope",
+        "label": "Telescop",
+        "cx": 0.11,
+        "cy": 0.26,
+        "r": 0.1
+      },
+      {
+        "id": "moon",
+        "label": "Luna",
+        "cx": 0.53,
+        "cy": 0.08,
+        "r": 0.06
+      },
+      {
+        "id": "ringed_planet",
+        "label": "Planeta",
+        "cx": 0.52,
+        "cy": 0.38,
+        "r": 0.08
+      },
+      {
+        "id": "purple_planet",
+        "label": "Astru mov",
+        "cx": 0.87,
+        "cy": 0.3,
+        "r": 0.07
+      },
+      {
+        "id": "books",
+        "label": "Carti",
+        "cx": 0.16,
+        "cy": 0.56,
+        "r": 0.07
+      },
+      {
+        "id": "potted_plant",
+        "label": "Planta",
+        "cx": 0.04,
+        "cy": 0.53,
+        "r": 0.06
+      },
+      {
+        "id": "candle",
+        "label": "Lumanare",
+        "cx": 0.48,
+        "cy": 0.61,
+        "r": 0.05
+      },
+      {
+        "id": "lantern",
+        "label": "Felinar",
+        "cx": 0.61,
+        "cy": 0.68,
+        "r": 0.06
+      },
+      {
+        "id": "crystal",
+        "label": "Cristal",
+        "cx": 0.38,
+        "cy": 0.55,
+        "r": 0.06
+      },
+      {
+        "id": "map",
+        "label": "Harta",
+        "cx": 0.27,
+        "cy": 0.88,
+        "r": 0.1
+      },
+      {
+        "id": "basket",
+        "label": "Cos",
+        "cx": 0.86,
+        "cy": 0.82,
+        "r": 0.07
+      },
+      {
+        "id": "paper_boat",
+        "label": "Barca",
+        "cx": 0.57,
+        "cy": 0.83,
+        "r": 0.06
+      }
+    ]
+  },
+  "magicShop": {
+    "objects": [
+      {
+        "id": "black_cat",
+        "label": "Pisica neagra",
+        "cx": 0.16,
+        "cy": 0.73,
+        "r": 0.1
+      },
+      {
+        "id": "lit_candle",
+        "label": "Lumanare aprinsa",
+        "cx": 0.37,
+        "cy": 0.64,
+        "r": 0.07
+      },
+      {
+        "id": "glowing_lantern",
+        "label": "Felinar luminos",
+        "cx": 0.21,
+        "cy": 0.33,
+        "r": 0.08
+      },
+      {
+        "id": "hourglass",
+        "label": "Clepsidra magica",
+        "cx": 0.69,
+        "cy": 0.32,
+        "r": 0.08
+      },
+      {
+        "id": "pink_potion",
+        "label": "Potiune roz",
+        "cx": 0.7,
+        "cy": 0.71,
+        "r": 0.07
+      },
+      {
+        "id": "blue_flask",
+        "label": "Flacon albastru",
+        "cx": 0.55,
+        "cy": 0.26,
+        "r": 0.07
+      },
+      {
+        "id": "wooden_mortar",
+        "label": "Mojar lemn",
+        "cx": 0.51,
+        "cy": 0.72,
+        "r": 0.06
+      },
+      {
+        "id": "incense_bundle",
+        "label": "Betisoare parfumate",
+        "cx": 0.5,
+        "cy": 0.6,
+        "r": 0.07
+      },
+      {
+        "id": "wicker_basket",
+        "label": "Cos rachita",
+        "cx": 0.85,
+        "cy": 0.85,
+        "r": 0.08
+      },
+      {
+        "id": "green_gem_box",
+        "label": "Plante verzi",
+        "cx": 0.85,
+        "cy": 0.66,
+        "r": 0.08
+      },
+      {
+        "id": "teal_bottle",
+        "label": "Sticla turcoaz",
+        "cx": 0.23,
+        "cy": 0.23,
+        "r": 0.07
+      },
+      {
+        "id": "hanging_lamp",
+        "label": "Lampa suspendata",
+        "cx": 0.82,
+        "cy": 0.13,
+        "r": 0.06
+      }
+    ]
+  },
+  "desert": {
+    "objects": [
+      {
+        "id": "camel",
+        "label": "Cămilă",
+        "cx": 0.45,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "dromedary",
+        "label": "Dromader",
+        "cx": 0.7,
+        "cy": 0.4,
+        "r": 0.08
+      },
+      {
+        "id": "palm_tree",
+        "label": "Palmier",
+        "cx": 0.78,
+        "cy": 0.13,
+        "r": 0.1
+      },
+      {
+        "id": "mountain",
+        "label": "Munte",
+        "cx": 0.21,
+        "cy": 0.22,
+        "r": 0.1
+      },
+      {
+        "id": "sun",
+        "label": "Soare",
+        "cx": 0.56,
+        "cy": 0.08,
+        "r": 0.06
+      },
+      {
+        "id": "oasis_pond",
+        "label": "Lac",
+        "cx": 0.45,
+        "cy": 0.6,
+        "r": 0.1
+      },
+      {
+        "id": "mirror",
+        "label": "Oglindă",
+        "cx": 0.76,
+        "cy": 0.6,
+        "r": 0.08
+      },
+      {
+        "id": "clay_pot",
+        "label": "Vas lut",
+        "cx": 0.83,
+        "cy": 0.78,
+        "r": 0.08
+      },
+      {
+        "id": "books",
+        "label": "Cărți",
+        "cx": 0.33,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "basket",
+        "label": "Coș",
+        "cx": 0.07,
+        "cy": 0.7,
+        "r": 0.07
+      },
+      {
+        "id": "flower_rug",
+        "label": "Covor",
+        "cx": 0.58,
+        "cy": 0.71,
+        "r": 0.07
+      },
+      {
+        "id": "cactus",
+        "label": "Cactus",
+        "cx": 0.84,
+        "cy": 0.45,
+        "r": 0.06
+      }
+    ]
+  },
+  "snow": {
+    "objects": [
+      {
+        "id": "snowman_big",
+        "label": "Om zapada",
+        "cx": 0.66,
+        "cy": 0.4,
+        "r": 0.11
+      },
+      {
+        "id": "small_snowman",
+        "label": "Omulet zapada",
+        "cx": 0.4,
+        "cy": 0.49,
+        "r": 0.09
+      },
+      {
+        "id": "corner_snowman",
+        "label": "Omulet colt",
+        "cx": 0.1,
+        "cy": 0.55,
+        "r": 0.1
+      },
+      {
+        "id": "wreath",
+        "label": "Coronita",
+        "cx": 0.51,
+        "cy": 0.31,
+        "r": 0.07
+      },
+      {
+        "id": "window",
+        "label": "Fereastra",
+        "cx": 0.49,
+        "cy": 0.21,
+        "r": 0.07
+      },
+      {
+        "id": "front_door",
+        "label": "Usa",
+        "cx": 0.45,
+        "cy": 0.41,
+        "r": 0.07
+      },
+      {
+        "id": "chimney",
+        "label": "Cos fum",
+        "cx": 0.55,
+        "cy": 0.06,
+        "r": 0.06
+      },
+      {
+        "id": "firewood_stack",
+        "label": "Stiva lemne",
+        "cx": 0.31,
+        "cy": 0.61,
+        "r": 0.08
+      },
+      {
+        "id": "sled",
+        "label": "Sanie",
+        "cx": 0.79,
+        "cy": 0.83,
+        "r": 0.09
+      },
+      {
+        "id": "red_scarf",
+        "label": "Fular rosu",
+        "cx": 0.72,
+        "cy": 0.57,
+        "r": 0.06
+      },
+      {
+        "id": "red_mittens",
+        "label": "Manusi rosii",
+        "cx": 0.13,
+        "cy": 0.9,
+        "r": 0.07
+      },
+      {
+        "id": "log_pile",
+        "label": "Busteni",
+        "cx": 0.86,
+        "cy": 0.66,
+        "r": 0.08
+      }
+    ]
+  },
+  "circus": {
+    "objects": [
+      {
+        "id": "red_balloon",
+        "label": "Balon rosu",
+        "cx": 0.065,
+        "cy": 0.06,
+        "r": 0.06
+      },
+      {
+        "id": "bunting_flags",
+        "label": "Stegulete",
+        "cx": 0.3,
+        "cy": 0.21,
+        "r": 0.06
+      },
+      {
+        "id": "yellow_balloon",
+        "label": "Balon galben",
+        "cx": 0.74,
+        "cy": 0.16,
+        "r": 0.055
+      },
+      {
+        "id": "circus_tent",
+        "label": "Cort",
+        "cx": 0.46,
+        "cy": 0.47,
+        "r": 0.1
+      },
+      {
+        "id": "poster_sign",
+        "label": "Afis",
+        "cx": 0.71,
+        "cy": 0.62,
+        "r": 0.06
+      },
+      {
+        "id": "big_wheel",
+        "label": "Roata",
+        "cx": 0.86,
+        "cy": 0.57,
+        "r": 0.07
+      },
+      {
+        "id": "white_elephant",
+        "label": "Elefant",
+        "cx": 0.6,
+        "cy": 0.63,
+        "r": 0.07
+      },
+      {
+        "id": "popcorn_box",
+        "label": "Popcorn",
+        "cx": 0.13,
+        "cy": 0.64,
+        "r": 0.08
+      },
+      {
+        "id": "ice_cream_cone",
+        "label": "Inghetata",
+        "cx": 0.07,
+        "cy": 0.78,
+        "r": 0.055
+      },
+      {
+        "id": "wicker_basket",
+        "label": "Cos",
+        "cx": 0.24,
+        "cy": 0.79,
+        "r": 0.06
+      },
+      {
+        "id": "striped_pillar",
+        "label": "Stalp",
+        "cx": 0.88,
+        "cy": 0.75,
+        "r": 0.08
+      },
+      {
+        "id": "cupcake",
+        "label": "Briosa",
+        "cx": 0.08,
+        "cy": 0.9,
+        "r": 0.055
+      }
+    ]
+  },
+  "carnival": {
+    "objects": [
+      {
+        "id": "cloud",
+        "label": "Nor alb",
+        "cx": 0.31,
+        "cy": 0.06,
+        "r": 0.07
+      },
+      {
+        "id": "hot_air_balloon",
+        "label": "Balon oranj",
+        "cx": 0.81,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "id": "ferris_wheel",
+        "label": "Roata mare",
+        "cx": 0.18,
+        "cy": 0.23,
+        "r": 0.1
+      },
+      {
+        "id": "carousel_tower",
+        "label": "Carusel turn",
+        "cx": 0.55,
+        "cy": 0.21,
+        "r": 0.09
+      },
+      {
+        "id": "striped_tent",
+        "label": "Cort dungat",
+        "cx": 0.5,
+        "cy": 0.43,
+        "r": 0.1
+      },
+      {
+        "id": "pink_tent",
+        "label": "Cort roz",
+        "cx": 0.11,
+        "cy": 0.5,
+        "r": 0.09
+      },
+      {
+        "id": "ticket_booth",
+        "label": "Casa bilete",
+        "cx": 0.13,
+        "cy": 0.66,
+        "r": 0.08
+      },
+      {
+        "id": "decorated_booth",
+        "label": "Masca colorata",
+        "cx": 0.85,
+        "cy": 0.62,
+        "r": 0.08
+      },
+      {
+        "id": "popcorn_cart",
+        "label": "Caruta popcorn",
+        "cx": 0.08,
+        "cy": 0.8,
+        "r": 0.09
+      },
+      {
+        "id": "lollipop",
+        "label": "Acadea",
+        "cx": 0.52,
+        "cy": 0.86,
+        "r": 0.06
+      },
+      {
+        "id": "popcorn_box",
+        "label": "Cutie popcorn",
+        "cx": 0.86,
+        "cy": 0.84,
+        "r": 0.09
+      },
+      {
+        "id": "candy_ground",
+        "label": "Bomboana jos",
+        "cx": 0.34,
+        "cy": 0.96,
+        "r": 0.06
+      }
+    ]
+  },
+  "bakery": {
+    "objects": [
+      {
+        "id": "hanging_lamp",
+        "label": "Lampă",
+        "cx": 0.72,
+        "cy": 0.12,
+        "r": 0.08
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă",
+        "cx": 0.18,
+        "cy": 0.05,
+        "r": 0.07
+      },
+      {
+        "id": "arched_window",
+        "label": "Fereastră",
+        "cx": 0.9,
+        "cy": 0.14,
+        "r": 0.08
+      },
+      {
+        "id": "chocolate_donut",
+        "label": "Gogoașă ciocolată",
+        "cx": 0.71,
+        "cy": 0.36,
+        "r": 0.07
+      },
+      {
+        "id": "layered_cake",
+        "label": "Tort",
+        "cx": 0.46,
+        "cy": 0.46,
+        "r": 0.07
+      },
+      {
+        "id": "pink_cupcake",
+        "label": "Brioșă roz",
+        "cx": 0.06,
+        "cy": 0.67,
+        "r": 0.07
+      },
+      {
+        "id": "cinnamon_roll",
+        "label": "Rulou scorțișoară",
+        "cx": 0.85,
+        "cy": 0.7,
+        "r": 0.08
+      },
+      {
+        "id": "orange_bundt",
+        "label": "Cozonac portocaliu",
+        "cx": 0.65,
+        "cy": 0.81,
+        "r": 0.07
+      },
+      {
+        "id": "blue_sugar_barrel",
+        "label": "Butoi zahăr",
+        "cx": 0.81,
+        "cy": 0.86,
+        "r": 0.09
+      },
+      {
+        "id": "glass_display",
+        "label": "Vitrină",
+        "cx": 0.27,
+        "cy": 0.4,
+        "r": 0.08
+      },
+      {
+        "id": "bread_loaf",
+        "label": "Pâine",
+        "cx": 0.07,
+        "cy": 0.79,
+        "r": 0.06
+      },
+      {
+        "id": "croissant",
+        "label": "Corn",
+        "cx": 0.31,
+        "cy": 0.86,
+        "r": 0.07
+      }
+    ]
+  },
+  "cafe": {
+    "objects": [
+      {
+        "id": "espresso_machine",
+        "label": "Espressor",
+        "cx": 0.27,
+        "cy": 0.46,
+        "r": 0.11
+      },
+      {
+        "id": "french_press",
+        "label": "Presă cafea",
+        "cx": 0.47,
+        "cy": 0.56,
+        "r": 0.07
+      },
+      {
+        "id": "teapot",
+        "label": "Ceainic",
+        "cx": 0.81,
+        "cy": 0.66,
+        "r": 0.09
+      },
+      {
+        "id": "yellow_flower",
+        "label": "Floare galbenă",
+        "cx": 0.86,
+        "cy": 0.2,
+        "r": 0.09
+      },
+      {
+        "id": "potted_plant",
+        "label": "Ghiveci",
+        "cx": 0.27,
+        "cy": 0.25,
+        "r": 0.09
+      },
+      {
+        "id": "wall_clock",
+        "label": "Ceas perete",
+        "cx": 0.46,
+        "cy": 0.33,
+        "r": 0.07
+      },
+      {
+        "id": "croissant",
+        "label": "Croasant",
+        "cx": 0.44,
+        "cy": 0.66,
+        "r": 0.08
+      },
+      {
+        "id": "coffee_cup",
+        "label": "Ceașcă cafea",
+        "cx": 0.48,
+        "cy": 0.78,
+        "r": 0.08
+      },
+      {
+        "id": "green_tea",
+        "label": "Ceai verde",
+        "cx": 0.27,
+        "cy": 0.72,
+        "r": 0.07
+      },
+      {
+        "id": "chocolate_cake",
+        "label": "Tort ciocolată",
+        "cx": 0.78,
+        "cy": 0.87,
+        "r": 0.07
+      },
+      {
+        "id": "window_building",
+        "label": "Clădire",
+        "cx": 0.66,
+        "cy": 0.14,
+        "r": 0.1
+      },
+      {
+        "id": "white_pitcher",
+        "label": "Cană albă",
+        "cx": 0.66,
+        "cy": 0.59,
+        "r": 0.06
+      }
+    ]
+  },
+  "flowerShop": {
+    "objects": [
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.1,
+        "cy": 0.18,
+        "r": 0.08
+      },
+      {
+        "id": "hanging_lantern",
+        "label": "Felinar",
+        "cx": 0.245,
+        "cy": 0.13,
+        "r": 0.06
+      },
+      {
+        "id": "chalkboard",
+        "label": "Tablă",
+        "cx": 0.73,
+        "cy": 0.16,
+        "r": 0.09
+      },
+      {
+        "id": "butterfly",
+        "label": "Fluture",
+        "cx": 0.665,
+        "cy": 0.27,
+        "r": 0.06
+      },
+      {
+        "id": "yellow_flowers",
+        "label": "Flori galbene",
+        "cx": 0.31,
+        "cy": 0.45,
+        "r": 0.11
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă verde",
+        "cx": 0.84,
+        "cy": 0.44,
+        "r": 0.08
+      },
+      {
+        "id": "red_flowers",
+        "label": "Flori roșii",
+        "cx": 0.72,
+        "cy": 0.63,
+        "r": 0.08
+      },
+      {
+        "id": "blue_hydrangea",
+        "label": "Hortensie albastră",
+        "cx": 0.885,
+        "cy": 0.6,
+        "r": 0.07
+      },
+      {
+        "id": "teal_bucket",
+        "label": "Găleată turcoaz",
+        "cx": 0.29,
+        "cy": 0.75,
+        "r": 0.1
+      },
+      {
+        "id": "babys_breath",
+        "label": "Floarea miresei",
+        "cx": 0.5,
+        "cy": 0.71,
+        "r": 0.08
+      },
+      {
+        "id": "pink_bucket",
+        "label": "Găleată roz",
+        "cx": 0.1,
+        "cy": 0.81,
+        "r": 0.08
+      },
+      {
+        "id": "blue_mug",
+        "label": "Cană albastră",
+        "cx": 0.89,
+        "cy": 0.86,
+        "r": 0.06
+      }
+    ]
+  },
+  "toyStore": {
+    "objects": [
+      {
+        "id": "big_teddy_bear",
+        "label": "Ursuleț mare",
+        "cx": 0.37,
+        "cy": 0.51,
+        "r": 0.1
+      },
+      {
+        "id": "small_teddy_bear",
+        "label": "Ursuleț mic",
+        "cx": 0.21,
+        "cy": 0.71,
+        "r": 0.09
+      },
+      {
+        "id": "blue_balloon",
+        "label": "Balon albastru",
+        "cx": 0.26,
+        "cy": 0.22,
+        "r": 0.06
+      },
+      {
+        "id": "wooden_truck",
+        "label": "Camion lemn",
+        "cx": 0.42,
+        "cy": 0.65,
+        "r": 0.08
+      },
+      {
+        "id": "red_fire_truck",
+        "label": "Mașină pompieri",
+        "cx": 0.13,
+        "cy": 0.84,
+        "r": 0.1
+      },
+      {
+        "id": "white_dog",
+        "label": "Cățel alb",
+        "cx": 0.74,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "rocket_toy",
+        "label": "Rachetă",
+        "cx": 0.42,
+        "cy": 0.16,
+        "r": 0.06
+      },
+      {
+        "id": "green_dinosaur",
+        "label": "Dinozaur verde",
+        "cx": 0.83,
+        "cy": 0.52,
+        "r": 0.07
+      },
+      {
+        "id": "pink_ball",
+        "label": "Minge roz",
+        "cx": 0.65,
+        "cy": 0.74,
+        "r": 0.06
+      },
+      {
+        "id": "building_blocks",
+        "label": "Cuburi colorate",
+        "cx": 0.47,
+        "cy": 0.92,
+        "r": 0.08
+      },
+      {
+        "id": "abacus_toy",
+        "label": "Numărătoare",
+        "cx": 0.53,
+        "cy": 0.15,
+        "r": 0.06
+      },
+      {
+        "id": "toy_robot",
+        "label": "Robot galben",
+        "cx": 0.79,
+        "cy": 0.46,
+        "r": 0.06
+      }
+    ]
+  },
+  "toolShed": {
+    "objects": [
+      {
+        "id": "lantern",
+        "label": "Felinar",
+        "cx": 0.62,
+        "cy": 0.13,
+        "r": 0.07
+      },
+      {
+        "id": "sieve",
+        "label": "Sită",
+        "cx": 0.37,
+        "cy": 0.18,
+        "r": 0.07
+      },
+      {
+        "id": "ladle",
+        "label": "Lingură",
+        "cx": 0.66,
+        "cy": 0.21,
+        "r": 0.06
+      },
+      {
+        "id": "shears",
+        "label": "Foarfecă",
+        "cx": 0.13,
+        "cy": 0.51,
+        "r": 0.06
+      },
+      {
+        "id": "pitchfork",
+        "label": "Furcă",
+        "cx": 0.24,
+        "cy": 0.63,
+        "r": 0.07
+      },
+      {
+        "id": "blue_scoop",
+        "label": "Polonic albastru",
+        "cx": 0.83,
+        "cy": 0.34,
+        "r": 0.06
+      },
+      {
+        "id": "flower_pot",
+        "label": "Ghiveci",
+        "cx": 0.7,
+        "cy": 0.48,
+        "r": 0.07
+      },
+      {
+        "id": "blue_can",
+        "label": "Stropitoare albastră",
+        "cx": 0.12,
+        "cy": 0.84,
+        "r": 0.09
+      },
+      {
+        "id": "watering_can",
+        "label": "Stropitoare",
+        "cx": 0.43,
+        "cy": 0.78,
+        "r": 0.09
+      },
+      {
+        "id": "milk_churn",
+        "label": "Bidon metalic",
+        "cx": 0.58,
+        "cy": 0.74,
+        "r": 0.09
+      },
+      {
+        "id": "wagon_wheel",
+        "label": "Roată căruță",
+        "cx": 0.86,
+        "cy": 0.81,
+        "r": 0.09
+      },
+      {
+        "id": "purple_flowers",
+        "label": "Flori mov",
+        "cx": 0.08,
+        "cy": 0.71,
+        "r": 0.08
+      }
+    ]
+  },
+  "musicRoom": {
+    "objects": [
+      {
+        "id": "grand_piano",
+        "label": "Pian",
+        "cx": 0.18,
+        "cy": 0.55,
+        "r": 0.11
+      },
+      {
+        "id": "piano_keys",
+        "label": "Clape",
+        "cx": 0.34,
+        "cy": 0.58,
+        "r": 0.07
+      },
+      {
+        "id": "cello",
+        "label": "Violoncel",
+        "cx": 0.66,
+        "cy": 0.62,
+        "r": 0.1
+      },
+      {
+        "id": "violin",
+        "label": "Vioara",
+        "cx": 0.51,
+        "cy": 0.55,
+        "r": 0.07
+      },
+      {
+        "id": "double_bass",
+        "label": "Contrabas",
+        "cx": 0.86,
+        "cy": 0.7,
+        "r": 0.1
+      },
+      {
+        "id": "chandelier",
+        "label": "Candelabru",
+        "cx": 0.47,
+        "cy": 0.04,
+        "r": 0.07
+      },
+      {
+        "id": "bookshelf",
+        "label": "Rafturi carti",
+        "cx": 0.62,
+        "cy": 0.27,
+        "r": 0.09
+      },
+      {
+        "id": "window",
+        "label": "Fereastra",
+        "cx": 0.88,
+        "cy": 0.2,
+        "r": 0.09
+      },
+      {
+        "id": "rug",
+        "label": "Covor",
+        "cx": 0.45,
+        "cy": 0.8,
+        "r": 0.1
+      },
+      {
+        "id": "desk_lamp",
+        "label": "Veioza",
+        "cx": 0.48,
+        "cy": 0.42,
+        "r": 0.06
+      },
+      {
+        "id": "wall_painting",
+        "label": "Tablou",
+        "cx": 0.1,
+        "cy": 0.13,
+        "r": 0.07
+      },
+      {
+        "id": "sheet_music",
+        "label": "Partitura",
+        "cx": 0.42,
+        "cy": 0.13,
+        "r": 0.06
+      }
+    ]
+  },
+  "artStudio": {
+    "objects": [
+      {
+        "id": "easel",
+        "label": "Șevalet",
+        "cx": 0.34,
+        "cy": 0.55,
+        "r": 0.1
+      },
+      {
+        "id": "canvas",
+        "label": "Pânză",
+        "cx": 0.34,
+        "cy": 0.34,
+        "r": 0.1
+      },
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.66,
+        "cy": 0.2,
+        "r": 0.11
+      },
+      {
+        "id": "framed_painting",
+        "label": "Tablou",
+        "cx": 0.13,
+        "cy": 0.4,
+        "r": 0.09
+      },
+      {
+        "id": "yellow_jar",
+        "label": "Borcan galben",
+        "cx": 0.11,
+        "cy": 0.79,
+        "r": 0.07
+      },
+      {
+        "id": "red_jar",
+        "label": "Borcan roșu",
+        "cx": 0.21,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "blue_bottle",
+        "label": "Sticlă albastră",
+        "cx": 0.48,
+        "cy": 0.76,
+        "r": 0.07
+      },
+      {
+        "id": "brush_pot",
+        "label": "Pahar pensule",
+        "cx": 0.88,
+        "cy": 0.6,
+        "r": 0.08
+      },
+      {
+        "id": "flower_pot",
+        "label": "Ghiveci",
+        "cx": 0.85,
+        "cy": 0.8,
+        "r": 0.08
+      },
+      {
+        "id": "paint_tube",
+        "label": "Tub vopsea",
+        "cx": 0.7,
+        "cy": 0.87,
+        "r": 0.06
+      },
+      {
+        "id": "yellow_cup",
+        "label": "Cană galbenă",
+        "cx": 0.72,
+        "cy": 0.42,
+        "r": 0.06
+      },
+      {
+        "id": "sketchbook",
+        "label": "Caiet schițe",
+        "cx": 0.2,
+        "cy": 0.92,
+        "r": 0.08
+      }
+    ]
+  },
+  "gym": {
+    "objects": [
+      {
+        "id": "wall_clock",
+        "label": "Ceas perete",
+        "cx": 0.3,
+        "cy": 0.11,
+        "r": 0.1
+      },
+      {
+        "id": "round_clock",
+        "label": "Ceas rotund",
+        "cx": 0.85,
+        "cy": 0.13,
+        "r": 0.09
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă",
+        "cx": 0.86,
+        "cy": 0.28,
+        "r": 0.06
+      },
+      {
+        "id": "hanging_pan",
+        "label": "Tigaie",
+        "cx": 0.66,
+        "cy": 0.23,
+        "r": 0.06
+      },
+      {
+        "id": "floor_plant",
+        "label": "Ghiveci",
+        "cx": 0.09,
+        "cy": 0.53,
+        "r": 0.09
+      },
+      {
+        "id": "red_punching_bag",
+        "label": "Sac roșu",
+        "cx": 0.27,
+        "cy": 0.46,
+        "r": 0.1
+      },
+      {
+        "id": "orange_ball",
+        "label": "Minge portocalie",
+        "cx": 0.37,
+        "cy": 0.54,
+        "r": 0.08
+      },
+      {
+        "id": "water_bottle",
+        "label": "Bidon apă",
+        "cx": 0.85,
+        "cy": 0.53,
+        "r": 0.08
+      },
+      {
+        "id": "yoga_mat",
+        "label": "Saltea yoga",
+        "cx": 0.48,
+        "cy": 0.74,
+        "r": 0.11
+      },
+      {
+        "id": "pink_dumbbell",
+        "label": "Gantere roz",
+        "cx": 0.42,
+        "cy": 0.83,
+        "r": 0.08
+      },
+      {
+        "id": "green_kettlebell",
+        "label": "Gantere verde",
+        "cx": 0.78,
+        "cy": 0.8,
+        "r": 0.1
+      },
+      {
+        "id": "red_medicine_ball",
+        "label": "Minge roșie",
+        "cx": 0.2,
+        "cy": 0.87,
+        "r": 0.09
+      }
+    ]
+  },
+  "laundry": {
+    "objects": [
+      {
+        "id": "washing_machine",
+        "label": "Mașină spălat",
+        "cx": 0.41,
+        "cy": 0.62,
+        "r": 0.11
+      },
+      {
+        "id": "detergent_bottle",
+        "label": "Detergent",
+        "cx": 0.31,
+        "cy": 0.43,
+        "r": 0.06
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă ghiveci",
+        "cx": 0.08,
+        "cy": 0.62,
+        "r": 0.1
+      },
+      {
+        "id": "wicker_basket",
+        "label": "Coș nuiele",
+        "cx": 0.84,
+        "cy": 0.71,
+        "r": 0.09
+      },
+      {
+        "id": "red_shoes",
+        "label": "Pantofi roșii",
+        "cx": 0.38,
+        "cy": 0.9,
+        "r": 0.08
+      },
+      {
+        "id": "laundry_basket",
+        "label": "Coș rufe",
+        "cx": 0.21,
+        "cy": 0.86,
+        "r": 0.09
+      },
+      {
+        "id": "blue_bucket",
+        "label": "Găleată albastră",
+        "cx": 0.06,
+        "cy": 0.88,
+        "r": 0.07
+      },
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.86,
+        "cy": 0.2,
+        "r": 0.1
+      },
+      {
+        "id": "hanging_towel",
+        "label": "Prosop atârnat",
+        "cx": 0.42,
+        "cy": 0.31,
+        "r": 0.07
+      },
+      {
+        "id": "folded_towels",
+        "label": "Prosoape pliate",
+        "cx": 0.73,
+        "cy": 0.41,
+        "r": 0.08
+      },
+      {
+        "id": "cup_brushes",
+        "label": "Pahar perii",
+        "cx": 0.9,
+        "cy": 0.33,
+        "r": 0.06
+      },
+      {
+        "id": "stacked_clothes",
+        "label": "Haine stivuite",
+        "cx": 0.5,
+        "cy": 0.13,
+        "r": 0.1
+      }
+    ]
+  },
+  "pharmacy": {
+    "objects": [
+      {
+        "id": "hanging_lamp",
+        "label": "Lampă",
+        "cx": 0.575,
+        "cy": 0.155,
+        "r": 0.07
+      },
+      {
+        "id": "yellow_bottle",
+        "label": "Flacon galben",
+        "cx": 0.135,
+        "cy": 0.105,
+        "r": 0.06
+      },
+      {
+        "id": "orange_box",
+        "label": "Cutie portocalie",
+        "cx": 0.36,
+        "cy": 0.215,
+        "r": 0.065
+      },
+      {
+        "id": "yellow_box",
+        "label": "Cutie galbenă",
+        "cx": 0.5,
+        "cy": 0.31,
+        "r": 0.07
+      },
+      {
+        "id": "purple_jar",
+        "label": "Borcan mov",
+        "cx": 0.205,
+        "cy": 0.49,
+        "r": 0.055
+      },
+      {
+        "id": "blue_bottle",
+        "label": "Sticlă albastră",
+        "cx": 0.155,
+        "cy": 0.535,
+        "r": 0.055
+      },
+      {
+        "id": "pink_bottle",
+        "label": "Flacon roz",
+        "cx": 0.69,
+        "cy": 0.46,
+        "r": 0.055
+      },
+      {
+        "id": "white_jar",
+        "label": "Borcan alb",
+        "cx": 0.85,
+        "cy": 0.555,
+        "r": 0.06
+      },
+      {
+        "id": "green_dispenser",
+        "label": "Dozator verde",
+        "cx": 0.88,
+        "cy": 0.785,
+        "r": 0.075
+      },
+      {
+        "id": "teal_tin",
+        "label": "Cutie verde",
+        "cx": 0.085,
+        "cy": 0.72,
+        "r": 0.065
+      },
+      {
+        "id": "floor_papers",
+        "label": "Hârtii",
+        "cx": 0.51,
+        "cy": 0.865,
+        "r": 0.07
+      },
+      {
+        "id": "orange_glove",
+        "label": "Mănușă portocalie",
+        "cx": 0.4,
+        "cy": 0.79,
+        "r": 0.06
+      }
+    ]
+  },
+  "fishMarket": {
+    "objects": [
+      {
+        "id": "awning",
+        "label": "Copertina",
+        "cx": 0.32,
+        "cy": 0.06,
+        "r": 0.1
+      },
+      {
+        "id": "hanging_fish",
+        "label": "Peste atarnat",
+        "cx": 0.1,
+        "cy": 0.16,
+        "r": 0.07
+      },
+      {
+        "id": "seagull",
+        "label": "Pescarus",
+        "cx": 0.78,
+        "cy": 0.2,
+        "r": 0.09
+      },
+      {
+        "id": "hanging_plant",
+        "label": "Planta verde",
+        "cx": 0.45,
+        "cy": 0.18,
+        "r": 0.07
+      },
+      {
+        "id": "bread_basket",
+        "label": "Cos paine",
+        "cx": 0.78,
+        "cy": 0.4,
+        "r": 0.1
+      },
+      {
+        "id": "lobster",
+        "label": "Homar",
+        "cx": 0.39,
+        "cy": 0.46,
+        "r": 0.11
+      },
+      {
+        "id": "coconuts",
+        "label": "Nuci cocos",
+        "cx": 0.62,
+        "cy": 0.42,
+        "r": 0.09
+      },
+      {
+        "id": "scallop_pile",
+        "label": "Scoici albe",
+        "cx": 0.1,
+        "cy": 0.46,
+        "r": 0.08
+      },
+      {
+        "id": "mushroom_basket",
+        "label": "Cos ciuperci",
+        "cx": 0.3,
+        "cy": 0.3,
+        "r": 0.08
+      },
+      {
+        "id": "orange_crab",
+        "label": "Crab portocaliu",
+        "cx": 0.78,
+        "cy": 0.62,
+        "r": 0.09
+      },
+      {
+        "id": "red_crab",
+        "label": "Crab rosu",
+        "cx": 0.6,
+        "cy": 0.85,
+        "r": 0.1
+      },
+      {
+        "id": "lemon",
+        "label": "Lamaie",
+        "cx": 0.18,
+        "cy": 0.86,
+        "r": 0.08
+      }
+    ]
+  },
+  "candyShop": {
+    "objects": [
+      {
+        "id": "striped_awning",
+        "label": "Copertina",
+        "cx": 0.42,
+        "cy": 0.13,
+        "r": 0.11
+      },
+      {
+        "id": "candy_cane_tall",
+        "label": "Baston",
+        "cx": 0.86,
+        "cy": 0.27,
+        "r": 0.08
+      },
+      {
+        "id": "pink_lollipop",
+        "label": "Acadea",
+        "cx": 0.05,
+        "cy": 0.49,
+        "r": 0.08
+      },
+      {
+        "id": "candy_cane_right",
+        "label": "Acadea dunga",
+        "cx": 0.93,
+        "cy": 0.49,
+        "r": 0.07
+      },
+      {
+        "id": "ice_cream_swirl",
+        "label": "Inghetata",
+        "cx": 0.89,
+        "cy": 0.62,
+        "r": 0.09
+      },
+      {
+        "id": "teddy_bear_big",
+        "label": "Ursulet",
+        "cx": 0.14,
+        "cy": 0.71,
+        "r": 0.1
+      },
+      {
+        "id": "teddy_bear_small",
+        "label": "Ursulet mic",
+        "cx": 0.27,
+        "cy": 0.81,
+        "r": 0.09
+      },
+      {
+        "id": "wooden_drawer",
+        "label": "Sertar",
+        "cx": 0.4,
+        "cy": 0.79,
+        "r": 0.08
+      },
+      {
+        "id": "cupcake_pink",
+        "label": "Briosa",
+        "cx": 0.75,
+        "cy": 0.83,
+        "r": 0.08
+      },
+      {
+        "id": "cupcake_floor",
+        "label": "Prajitura",
+        "cx": 0.08,
+        "cy": 0.92,
+        "r": 0.07
+      },
+      {
+        "id": "red_dispenser",
+        "label": "Automat",
+        "cx": 0.87,
+        "cy": 0.78,
+        "r": 0.07
+      },
+      {
+        "id": "candy_jar_shelf",
+        "label": "Borcan bomboane",
+        "cx": 0.66,
+        "cy": 0.45,
+        "r": 0.07
+      }
+    ]
+  },
+  "jewelryStore": {
+    "objects": [
+      {
+        "id": "hand_mirror",
+        "label": "Oglindă",
+        "cx": 0.2,
+        "cy": 0.5,
+        "r": 0.1
+      },
+      {
+        "id": "diamond_necklace",
+        "label": "Colier diamant",
+        "cx": 0.5,
+        "cy": 0.26,
+        "r": 0.08
+      },
+      {
+        "id": "hoop_earrings",
+        "label": "Cercei",
+        "cx": 0.27,
+        "cy": 0.32,
+        "r": 0.07
+      },
+      {
+        "id": "blue_pendant",
+        "label": "Pandantiv albastru",
+        "cx": 0.78,
+        "cy": 0.14,
+        "r": 0.07
+      },
+      {
+        "id": "perfume_bottle",
+        "label": "Parfum",
+        "cx": 0.71,
+        "cy": 0.21,
+        "r": 0.06
+      },
+      {
+        "id": "gold_bracelet",
+        "label": "Brățară aur",
+        "cx": 0.62,
+        "cy": 0.4,
+        "r": 0.08
+      },
+      {
+        "id": "oval_ring",
+        "label": "Inel oval",
+        "cx": 0.5,
+        "cy": 0.62,
+        "r": 0.07
+      },
+      {
+        "id": "sapphire_ring",
+        "label": "Inel safir",
+        "cx": 0.83,
+        "cy": 0.6,
+        "r": 0.07
+      },
+      {
+        "id": "pink_gem",
+        "label": "Piatră roz",
+        "cx": 0.86,
+        "cy": 0.46,
+        "r": 0.06
+      },
+      {
+        "id": "diamond_tiara",
+        "label": "Tiara",
+        "cx": 0.82,
+        "cy": 0.85,
+        "r": 0.1
+      },
+      {
+        "id": "blue_brooch",
+        "label": "Broșă albastră",
+        "cx": 0.42,
+        "cy": 0.9,
+        "r": 0.06
+      },
+      {
+        "id": "treasure_chest",
+        "label": "Cufăr",
+        "cx": 0.16,
+        "cy": 0.78,
+        "r": 0.1
+      }
+    ]
+  },
+  "barberShop": {
+    "objects": [
+      {
+        "id": "ceiling_lamp",
+        "label": "Lampă",
+        "cx": 0.49,
+        "cy": 0.06,
+        "r": 0.1
+      },
+      {
+        "id": "wall_clock",
+        "label": "Ceas",
+        "cx": 0.66,
+        "cy": 0.14,
+        "r": 0.06
+      },
+      {
+        "id": "oval_mirror",
+        "label": "Oglindă ovală",
+        "cx": 0.82,
+        "cy": 0.1,
+        "r": 0.07
+      },
+      {
+        "id": "framed_portrait",
+        "label": "Tablou",
+        "cx": 0.14,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "id": "large_mirror",
+        "label": "Oglindă mare",
+        "cx": 0.85,
+        "cy": 0.27,
+        "r": 0.1
+      },
+      {
+        "id": "spray_bottle",
+        "label": "Pulverizator",
+        "cx": 0.84,
+        "cy": 0.46,
+        "r": 0.06
+      },
+      {
+        "id": "barber_chair",
+        "label": "Scaun frizer",
+        "cx": 0.5,
+        "cy": 0.62,
+        "r": 0.11
+      },
+      {
+        "id": "toilet_paper",
+        "label": "Hârtie",
+        "cx": 0.31,
+        "cy": 0.46,
+        "r": 0.05
+      },
+      {
+        "id": "white_towel",
+        "label": "Prosop",
+        "cx": 0.78,
+        "cy": 0.66,
+        "r": 0.06
+      },
+      {
+        "id": "drawer_cabinet",
+        "label": "Dulap sertare",
+        "cx": 0.13,
+        "cy": 0.71,
+        "r": 0.1
+      },
+      {
+        "id": "blue_bucket",
+        "label": "Găleată",
+        "cx": 0.79,
+        "cy": 0.79,
+        "r": 0.07
+      },
+      {
+        "id": "yarn_ball",
+        "label": "Ghem",
+        "cx": 0.23,
+        "cy": 0.92,
+        "r": 0.07
+      }
+    ]
+  },
+  "gasStation": {
+    "objects": [
+      {
+        "id": "clock",
+        "label": "Ceas",
+        "cx": 0.505,
+        "cy": 0.33,
+        "r": 0.07
+      },
+      {
+        "id": "fire_extinguisher",
+        "label": "Extinctor",
+        "cx": 0.22,
+        "cy": 0.66,
+        "r": 0.07
+      },
+      {
+        "id": "red_car",
+        "label": "Mașină",
+        "cx": 0.355,
+        "cy": 0.6,
+        "r": 0.09
+      },
+      {
+        "id": "left_pump",
+        "label": "Pompă stângă",
+        "cx": 0.105,
+        "cy": 0.49,
+        "r": 0.085
+      },
+      {
+        "id": "center_pump",
+        "label": "Pompă centrală",
+        "cx": 0.555,
+        "cy": 0.555,
+        "r": 0.09
+      },
+      {
+        "id": "right_pump",
+        "label": "Pompă dreaptă",
+        "cx": 0.89,
+        "cy": 0.54,
+        "r": 0.08
+      },
+      {
+        "id": "wall_map",
+        "label": "Hartă",
+        "cx": 0.38,
+        "cy": 0.45,
+        "r": 0.075
+      },
+      {
+        "id": "trash_bin",
+        "label": "Coș gunoi",
+        "cx": 0.15,
+        "cy": 0.82,
+        "r": 0.07
+      },
+      {
+        "id": "toolbox",
+        "label": "Cutie scule",
+        "cx": 0.82,
+        "cy": 0.8,
+        "r": 0.09
+      },
+      {
+        "id": "open_book",
+        "label": "Carte",
+        "cx": 0.715,
+        "cy": 0.875,
+        "r": 0.08
+      },
+      {
+        "id": "round_lid",
+        "label": "Capac rotund",
+        "cx": 0.08,
+        "cy": 0.905,
+        "r": 0.06
+      },
+      {
+        "id": "tray_dish",
+        "label": "Tavă",
+        "cx": 0.595,
+        "cy": 0.83,
+        "r": 0.065
+      }
+    ]
+  },
+  "barn": {
+    "objects": [
+      {
+        "id": "lantern",
+        "label": "Felinar",
+        "cx": 0.045,
+        "cy": 0.235,
+        "r": 0.07
+      },
+      {
+        "id": "hanging_lamp",
+        "label": "Lampă suspendată",
+        "cx": 0.215,
+        "cy": 0.165,
+        "r": 0.06
+      },
+      {
+        "id": "round_hay_bale",
+        "label": "Balot fân",
+        "cx": 0.225,
+        "cy": 0.43,
+        "r": 0.11
+      },
+      {
+        "id": "rooster",
+        "label": "Cocoș",
+        "cx": 0.46,
+        "cy": 0.555,
+        "r": 0.085
+      },
+      {
+        "id": "cart_wheel",
+        "label": "Roată căruță",
+        "cx": 0.4,
+        "cy": 0.625,
+        "r": 0.075
+      },
+      {
+        "id": "left_barrel",
+        "label": "Butoi stâng",
+        "cx": 0.13,
+        "cy": 0.74,
+        "r": 0.11
+      },
+      {
+        "id": "middle_barrel",
+        "label": "Butoi mijloc",
+        "cx": 0.285,
+        "cy": 0.66,
+        "r": 0.085
+      },
+      {
+        "id": "milk_jug",
+        "label": "Bidon lapte",
+        "cx": 0.905,
+        "cy": 0.475,
+        "r": 0.065
+      },
+      {
+        "id": "egg_basket",
+        "label": "Coș ouă",
+        "cx": 0.83,
+        "cy": 0.745,
+        "r": 0.105
+      },
+      {
+        "id": "small_hay_bale",
+        "label": "Balot mic",
+        "cx": 0.685,
+        "cy": 0.55,
+        "r": 0.09
+      },
+      {
+        "id": "sky_window",
+        "label": "Fereastră cer",
+        "cx": 0.665,
+        "cy": 0.085,
+        "r": 0.075
+      },
+      {
+        "id": "pitchfork",
+        "label": "Furcă fân",
+        "cx": 0.875,
+        "cy": 0.4,
+        "r": 0.07
+      }
+    ]
+  },
+  "vineyard": {
+    "objects": [
+      {
+        "id": "chimney",
+        "label": "Coș fum",
+        "cx": 0.46,
+        "cy": 0.115,
+        "r": 0.055
+      },
+      {
+        "id": "tiled_roof",
+        "label": "Acoperiș",
+        "cx": 0.55,
+        "cy": 0.185,
+        "r": 0.09
+      },
+      {
+        "id": "vine_grapes",
+        "label": "Struguri vie",
+        "cx": 0.84,
+        "cy": 0.25,
+        "r": 0.07
+      },
+      {
+        "id": "red_bottle",
+        "label": "Sticlă roșie",
+        "cx": 0.565,
+        "cy": 0.44,
+        "r": 0.045
+      },
+      {
+        "id": "blue_bottle",
+        "label": "Sticlă albastră",
+        "cx": 0.65,
+        "cy": 0.485,
+        "r": 0.05
+      },
+      {
+        "id": "green_bottle",
+        "label": "Sticlă verde",
+        "cx": 0.5,
+        "cy": 0.5,
+        "r": 0.05
+      },
+      {
+        "id": "white_pitcher",
+        "label": "Ulcior alb",
+        "cx": 0.76,
+        "cy": 0.49,
+        "r": 0.055
+      },
+      {
+        "id": "wooden_cabinet",
+        "label": "Dulap lemn",
+        "cx": 0.68,
+        "cy": 0.605,
+        "r": 0.07
+      },
+      {
+        "id": "woven_basket",
+        "label": "Coș împletit",
+        "cx": 0.585,
+        "cy": 0.69,
+        "r": 0.055
+      },
+      {
+        "id": "green_grapes_crate",
+        "label": "Ladă struguri",
+        "cx": 0.15,
+        "cy": 0.55,
+        "r": 0.1
+      },
+      {
+        "id": "wine_glass",
+        "label": "Pahar vin",
+        "cx": 0.4,
+        "cy": 0.8,
+        "r": 0.055
+      },
+      {
+        "id": "purple_grapes",
+        "label": "Struguri negri",
+        "cx": 0.8,
+        "cy": 0.8,
+        "r": 0.07
+      }
+    ]
+  },
+  "lighthouse": {
+    "objects": [
+      {
+        "id": "lighthouse_lamp",
+        "label": "Far",
+        "cx": 0.3,
+        "cy": 0.1,
+        "r": 0.1
+      },
+      {
+        "id": "life_ring",
+        "label": "Colac",
+        "cx": 0.06,
+        "cy": 0.16,
+        "r": 0.07
+      },
+      {
+        "id": "framed_picture",
+        "label": "Tablou",
+        "cx": 0.085,
+        "cy": 0.36,
+        "r": 0.08
+      },
+      {
+        "id": "toy_boat",
+        "label": "Barcă",
+        "cx": 0.63,
+        "cy": 0.4,
+        "r": 0.09
+      },
+      {
+        "id": "anchor",
+        "label": "Ancoră",
+        "cx": 0.045,
+        "cy": 0.055,
+        "r": 0.055
+      },
+      {
+        "id": "lantern",
+        "label": "Felinar",
+        "cx": 0.91,
+        "cy": 0.5,
+        "r": 0.08
+      },
+      {
+        "id": "map",
+        "label": "Hartă",
+        "cx": 0.92,
+        "cy": 0.29,
+        "r": 0.07
+      },
+      {
+        "id": "ships_wheel",
+        "label": "Timonă",
+        "cx": 0.86,
+        "cy": 0.69,
+        "r": 0.11
+      },
+      {
+        "id": "clock",
+        "label": "Ceas",
+        "cx": 0.71,
+        "cy": 0.62,
+        "r": 0.06
+      },
+      {
+        "id": "seashell",
+        "label": "Scoică",
+        "cx": 0.55,
+        "cy": 0.86,
+        "r": 0.08
+      },
+      {
+        "id": "coral",
+        "label": "Coral",
+        "cx": 0.4,
+        "cy": 0.83,
+        "r": 0.07
+      },
+      {
+        "id": "rope_coil",
+        "label": "Frânghie",
+        "cx": 0.16,
+        "cy": 0.62,
+        "r": 0.07
+      }
+    ]
+  },
+  "aquarium": {
+    "objects": [
+      {
+        "id": "jellyfish",
+        "label": "Meduză",
+        "cx": 0.1,
+        "cy": 0.42,
+        "r": 0.09
+      },
+      {
+        "id": "yellow_fish",
+        "label": "Pește galben",
+        "cx": 0.27,
+        "cy": 0.49,
+        "r": 0.06
+      },
+      {
+        "id": "clownfish",
+        "label": "Pește clovn",
+        "cx": 0.56,
+        "cy": 0.55,
+        "r": 0.08
+      },
+      {
+        "id": "orange_fish",
+        "label": "Pește portocaliu",
+        "cx": 0.44,
+        "cy": 0.34,
+        "r": 0.06
+      },
+      {
+        "id": "starfish",
+        "label": "Stea de mare",
+        "cx": 0.14,
+        "cy": 0.86,
+        "r": 0.07
+      },
+      {
+        "id": "striped_fish",
+        "label": "Pește dungat",
+        "cx": 0.18,
+        "cy": 0.71,
+        "r": 0.06
+      },
+      {
+        "id": "treasure_chest",
+        "label": "Cufăr comoară",
+        "cx": 0.82,
+        "cy": 0.85,
+        "r": 0.09
+      },
+      {
+        "id": "pink_coral",
+        "label": "Coral roz",
+        "cx": 0.79,
+        "cy": 0.55,
+        "r": 0.09
+      },
+      {
+        "id": "floor_fish",
+        "label": "Pește podea",
+        "cx": 0.33,
+        "cy": 0.83,
+        "r": 0.06
+      },
+      {
+        "id": "rainbow",
+        "label": "Curcubeu",
+        "cx": 0.09,
+        "cy": 0.09,
+        "r": 0.07
+      },
+      {
+        "id": "info_sign",
+        "label": "Panou informativ",
+        "cx": 0.3,
+        "cy": 0.5,
+        "r": 0.05
+      },
+      {
+        "id": "potted_plant",
+        "label": "Plantă verde",
+        "cx": 0.91,
+        "cy": 0.49,
+        "r": 0.08
+      }
+    ]
+  },
+  "museum": {
+    "objects": [
+      {
+        "id": "dinosaur_skeleton",
+        "label": "Schelet dinozaur",
+        "cx": 0.33,
+        "cy": 0.4,
+        "r": 0.11
+      },
+      {
+        "id": "glass_skylight",
+        "label": "Luminator sticlă",
+        "cx": 0.46,
+        "cy": 0.1,
+        "r": 0.1
+      },
+      {
+        "id": "abstract_painting",
+        "label": "Tablou abstract",
+        "cx": 0.11,
+        "cy": 0.18,
+        "r": 0.09
+      },
+      {
+        "id": "sphere_painting",
+        "label": "Tablou sferă",
+        "cx": 0.87,
+        "cy": 0.21,
+        "r": 0.09
+      },
+      {
+        "id": "figures_painting",
+        "label": "Tablou figuri",
+        "cx": 0.13,
+        "cy": 0.62,
+        "r": 0.1
+      },
+      {
+        "id": "ornate_archway",
+        "label": "Arcadă ornată",
+        "cx": 0.48,
+        "cy": 0.55,
+        "r": 0.07
+      },
+      {
+        "id": "crystal_orb",
+        "label": "Glob cristal",
+        "cx": 0.87,
+        "cy": 0.78,
+        "r": 0.1
+      },
+      {
+        "id": "golden_bust",
+        "label": "Bust auriu",
+        "cx": 0.83,
+        "cy": 0.5,
+        "r": 0.07
+      },
+      {
+        "id": "jeweled_egg",
+        "label": "Ou decorat",
+        "cx": 0.38,
+        "cy": 0.6,
+        "r": 0.06
+      },
+      {
+        "id": "screen_frame",
+        "label": "Ecran ramă",
+        "cx": 0.73,
+        "cy": 0.72,
+        "r": 0.08
+      },
+      {
+        "id": "silver_urn",
+        "label": "Urnă argint",
+        "cx": 0.1,
+        "cy": 0.85,
+        "r": 0.07
+      },
+      {
+        "id": "skull_sculpture",
+        "label": "Sculptură craniu",
+        "cx": 0.24,
+        "cy": 0.86,
+        "r": 0.08
+      }
+    ]
+  },
+  "classroom": {
+    "objects": [
+      {
+        "id": "clock",
+        "label": "Ceas",
+        "cx": 0.225,
+        "cy": 0.06,
+        "r": 0.055
+      },
+      {
+        "id": "world_map",
+        "label": "Hartă",
+        "cx": 0.45,
+        "cy": 0.18,
+        "r": 0.11
+      },
+      {
+        "id": "pink_backpack",
+        "label": "Ghiozdan roz",
+        "cx": 0.725,
+        "cy": 0.17,
+        "r": 0.07
+      },
+      {
+        "id": "window",
+        "label": "Fereastră",
+        "cx": 0.86,
+        "cy": 0.22,
+        "r": 0.105
+      },
+      {
+        "id": "pencil_cup",
+        "label": "Suport creioane",
+        "cx": 0.34,
+        "cy": 0.555,
+        "r": 0.06
+      },
+      {
+        "id": "apple",
+        "label": "Măr",
+        "cx": 0.61,
+        "cy": 0.49,
+        "r": 0.05
+      },
+      {
+        "id": "colored_pencils",
+        "label": "Creioane colorate",
+        "cx": 0.865,
+        "cy": 0.495,
+        "r": 0.06
+      },
+      {
+        "id": "open_book",
+        "label": "Carte deschisă",
+        "cx": 0.82,
+        "cy": 0.61,
+        "r": 0.075
+      },
+      {
+        "id": "notebook",
+        "label": "Caiet",
+        "cx": 0.37,
+        "cy": 0.65,
+        "r": 0.075
+      },
+      {
+        "id": "red_books",
+        "label": "Cărți roșii",
+        "cx": 0.1,
+        "cy": 0.69,
+        "r": 0.055
+      },
+      {
+        "id": "red_backpack",
+        "label": "Rucsac roșu",
+        "cx": 0.15,
+        "cy": 0.82,
+        "r": 0.085
+      },
+      {
+        "id": "banana_toy",
+        "label": "Banană",
+        "cx": 0.47,
+        "cy": 0.93,
+        "r": 0.07
+      }
+    ]
+  },
+  "playground": {
+    "objects": [
+      {
+        "id": "green_balloon",
+        "label": "Balon verde",
+        "cx": 0.31,
+        "cy": 0.31,
+        "r": 0.06
+      },
+      {
+        "id": "red_balloon",
+        "label": "Balon roșu",
+        "cx": 0.59,
+        "cy": 0.23,
+        "r": 0.05
+      },
+      {
+        "id": "white_cloud",
+        "label": "Nor alb",
+        "cx": 0.4,
+        "cy": 0.17,
+        "r": 0.09
+      },
+      {
+        "id": "swing",
+        "label": "Leagăn",
+        "cx": 0.18,
+        "cy": 0.52,
+        "r": 0.1
+      },
+      {
+        "id": "slide",
+        "label": "Tobogan",
+        "cx": 0.66,
+        "cy": 0.49,
+        "r": 0.08
+      },
+      {
+        "id": "swing_tower",
+        "label": "Turn roșu",
+        "cx": 0.82,
+        "cy": 0.47,
+        "r": 0.08
+      },
+      {
+        "id": "fountain",
+        "label": "Fântână",
+        "cx": 0.16,
+        "cy": 0.74,
+        "r": 0.11
+      },
+      {
+        "id": "dog",
+        "label": "Câine",
+        "cx": 0.41,
+        "cy": 0.86,
+        "r": 0.07
+      },
+      {
+        "id": "blue_ball",
+        "label": "Minge albastră",
+        "cx": 0.61,
+        "cy": 0.66,
+        "r": 0.05
+      },
+      {
+        "id": "rooster",
+        "label": "Cocoș",
+        "cx": 0.83,
+        "cy": 0.62,
+        "r": 0.06
+      },
+      {
+        "id": "mushroom",
+        "label": "Ciupercă",
+        "cx": 0.19,
+        "cy": 0.95,
+        "r": 0.06
+      },
+      {
+        "id": "easter_egg",
+        "label": "Ou colorat",
+        "cx": 0.57,
+        "cy": 0.81,
+        "r": 0.06
+      }
+    ]
+  }
+}
