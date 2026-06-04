@@ -1,13 +1,16 @@
 name: hidden_objects
 description: "Joc de obiecte ascunse: gaseste obiectele de pe scena"
 publish_to: 'none'
-version: 2.3.2+31
+version: 2.3.3+32
 environment:
   sdk: ^3.11.1
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.3.2
   upgrader: ^11.4.0
@@ -35,7 +38,9 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
+  generate: true
   assets:
     - assets/scenes/
     - assets/thumbs/
     - assets/hotspots.json
+    - assets/i18n/

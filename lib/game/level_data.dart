@@ -1,5 +1,13 @@
 import 'dart:convert';
+import 'dart:ui' show PlatformDispatcher;
 import 'package:flutter/services.dart' show rootBundle;
+
+/// The 10 non-ro locales that ship translated object labels in
+/// `assets/i18n/labels_<lang>.json`. RO uses the labels embedded in
+/// hotspots.json directly (no labels file needed).
+const Set<String> kSupportedLabelLangs = {
+  'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ja', 'ko', 'zh',
+};
 
 /// 50 hidden-object scenes. Each scene ships a premium AI-illustrated PNG in
 /// `assets/scenes/<name>.png` plus a list of *real* findable objects defined in
@@ -54,6 +62,7 @@ class Level {
 /// before runApp so the synchronous [LevelGenerator.generateAll] has data.
 class LevelStore {
   static Map<String, dynamic> _hotspots = {};
+  static Map<String, String> _labels = {}; // id -> localized label (current locale)
   static bool _loaded = false;
 
   static Future<void> preload() async {
@@ -64,7 +73,24 @@ class LevelStore {
     } catch (_) {
       _hotspots = {};
     }
+    await _loadLabelsForLocale();
     _loaded = true;
+  }
+
+  /// Loads the object-label translations for the current device locale, when it
+  /// is one of the 10 supported languages. RO (and anything else) keeps the
+  /// labels embedded in hotspots.json. Never throws — falls back to RO.
+  static Future<void> _loadLabelsForLocale() async {
+    _labels = {};
+    try {
+      final lang = PlatformDispatcher.instance.locale.languageCode.toLowerCase();
+      if (!kSupportedLabelLangs.contains(lang)) return;
+      final raw = await rootBundle.loadString('assets/i18n/labels_$lang.json');
+      final map = json.decode(raw) as Map<String, dynamic>;
+      _labels = map.map((k, v) => MapEntry(k, v.toString()));
+    } catch (_) {
+      _labels = {}; // fall back to RO labels from hotspots.json
+    }
   }
 
   static List<FindTarget> _targetsFor(SceneType scene) {
@@ -75,9 +101,10 @@ class LevelStore {
     return objs.map<FindTarget>((o) {
       final m = o as Map;
       final id = m['id'] as String;
+      final roLabel = (m['label'] ?? id) as String;
       return FindTarget(
         id: id,
-        label: (m['label'] ?? id) as String,
+        label: _labels[id] ?? roLabel,
         cx: (m['cx'] as num).toDouble(),
         cy: (m['cy'] as num).toDouble(),
         r: (m['r'] as num?)?.toDouble() ?? 0.08,

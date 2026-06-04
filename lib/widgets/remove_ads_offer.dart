@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/purchase_service.dart';
 
 /// House promo shown right after an ad closes: offers to remove ads for a fixed
@@ -24,6 +25,8 @@ class RemoveAdsOffer {
 
   static Future<void> maybeShow(BuildContext context) async {
     if (!_due) return;
+    final l = AppLocalizations.of(context);
+    if (l == null) return;
     _lastShown = DateTime.now();
     _open = true;
     final price = PurchaseService.instance.productFor(PurchaseService.noAdsId)?.price ??
@@ -48,14 +51,14 @@ class RemoveAdsOffer {
                 child: const Icon(Icons.block, color: Colors.white, size: 34),
               ),
               const SizedBox(height: 16),
-              const Text('Scapă de reclame',
-                  style: TextStyle(
+              Text(l.escapeAdsTitle,
+                  style: const TextStyle(
                       color: Colors.white, fontSize: 22, fontWeight: FontWeight.w900)),
               const SizedBox(height: 8),
-              const Text(
-                'Joacă fără bannere și fără reclame care te întrerup. O singură dată, pentru totdeauna.',
+              Text(
+                l.escapeAdsBody,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white70, fontSize: 14, height: 1.3),
+                style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.3),
               ),
               const SizedBox(height: 22),
               SizedBox(
@@ -72,15 +75,15 @@ class RemoveAdsOffer {
                     Navigator.of(ctx).pop();
                     PurchaseService.instance.buy(PurchaseService.noAdsId);
                   },
-                  child: Text('Elimină reclamele • $price',
+                  child: Text(l.removeAdsForPrice(price),
                       style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
                 ),
               ),
               const SizedBox(height: 6),
               TextButton(
                 onPressed: () => Navigator.of(ctx).pop(),
-                child: const Text('Mai târziu',
-                    style: TextStyle(color: Colors.white54)),
+                child: Text(l.later,
+                    style: const TextStyle(color: Colors.white54)),
               ),
             ],
           ),

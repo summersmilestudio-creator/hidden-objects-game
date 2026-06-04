@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../l10n/app_localizations.dart';
 
 class Achievement {
   final String id;
@@ -16,6 +17,36 @@ class Achievement {
     required this.color,
     required this.target,
   });
+
+  /// Localized title for the current locale (falls back to the embedded RO).
+  String localizedTitle(AppLocalizations l) {
+    switch (id) {
+      case 'first_find': return l.achFirstFindTitle;
+      case 'garden_master': return l.achGardenMasterTitle;
+      case 'halfway_hero': return l.achHalfwayHeroTitle;
+      case 'master_detective': return l.achMasterDetectiveTitle;
+      case 'hawk_eye': return l.achHawkEyeTitle;
+      case 'eagle_eye': return l.achEagleEyeTitle;
+      case 'no_cheat': return l.achNoCheatTitle;
+      case 'speed_runner': return l.achSpeedRunnerTitle;
+    }
+    return title;
+  }
+
+  /// Localized description for the current locale (falls back to embedded RO).
+  String localizedDescription(AppLocalizations l) {
+    switch (id) {
+      case 'first_find': return l.achFirstFindDesc;
+      case 'garden_master': return l.achGardenMasterDesc;
+      case 'halfway_hero': return l.achHalfwayHeroDesc;
+      case 'master_detective': return l.achMasterDetectiveDesc;
+      case 'hawk_eye': return l.achHawkEyeDesc;
+      case 'eagle_eye': return l.achEagleEyeDesc;
+      case 'no_cheat': return l.achNoCheatDesc;
+      case 'speed_runner': return l.achSpeedRunnerDesc;
+    }
+    return description;
+  }
 }
 
 class AchievementsService {

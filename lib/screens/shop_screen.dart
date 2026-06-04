@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/purchase_service.dart';
 import '../services/rewards_service.dart';
 
@@ -35,7 +36,7 @@ class _ShopScreenState extends State<ShopScreen> {
     if (mounted) {
       setState(() => _busy = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('✅ Cumpărare reușită. Mulțumim!')));
+        SnackBar(content: Text(AppLocalizations.of(context)!.purchaseSuccess)));
     }
   }
 
@@ -51,8 +52,8 @@ class _ShopScreenState extends State<ShopScreen> {
     // On success the native purchase sheet drives _onPurchase via the stream.
     if (!ok && mounted) {
       setState(() => _busy = false);
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Magazinul nu este disponibil acum. Încearcă din nou.')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.shopUnavailable)));
     }
   }
 
@@ -60,7 +61,7 @@ class _ShopScreenState extends State<ShopScreen> {
     await _purchases.restore();
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Se restaurează cumpărăturile…')));
+        SnackBar(content: Text(AppLocalizations.of(context)!.restoringPurchases)));
     }
   }
 
@@ -69,14 +70,15 @@ class _ShopScreenState extends State<ShopScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Magazin', style: TextStyle(fontWeight: FontWeight.w900)),
+        title: Text(l.shopTitle, style: const TextStyle(fontWeight: FontWeight.w900)),
         backgroundColor: Colors.transparent,
         actions: [
           TextButton(
             onPressed: _restore,
-            child: const Text('Restaurează', style: TextStyle(color: Color(0xFFFFD740))),
+            child: Text(l.restore, style: const TextStyle(color: Color(0xFFFFD740))),
           ),
         ],
       ),
@@ -96,8 +98,8 @@ class _ShopScreenState extends State<ShopScreen> {
                 children: [
                   const Icon(Icons.monetization_on, color: Color(0xFFFFD740)),
                   const SizedBox(width: 10),
-                  const Text('Monedele tale',
-                      style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w700)),
+                  Text(l.yourCoins,
+                      style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w700)),
                   const Spacer(),
                   Text('$_coins',
                       style: const TextStyle(
@@ -114,15 +116,15 @@ class _ShopScreenState extends State<ShopScreen> {
                   return _Banner(
                     icon: Icons.verified,
                     colors: const [Color(0xFF43A047), Color(0xFF1B5E20)],
-                    title: 'Reclame eliminate',
-                    subtitle: 'Mulțumim pentru susținere!',
+                    title: l.adsRemovedTitle,
+                    subtitle: l.adsRemovedSubtitle,
                   );
                 }
                 return _ShopCard(
                   icon: Icons.block,
                   iconColor: const Color(0xFFFF6F00),
-                  title: 'Elimină reclamele',
-                  subtitle: 'Fără bannere și reclame interstițiale',
+                  title: l.removeAdsTitle,
+                  subtitle: l.removeAdsSubtitle,
                   price: _priceFor(PurchaseService.noAdsId, '2.99 \$'),
                   busy: _busy,
                   onTap: () => _buy(PurchaseService.noAdsId),
@@ -130,10 +132,10 @@ class _ShopScreenState extends State<ShopScreen> {
               },
             ),
             const SizedBox(height: 24),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4),
-              child: Text('PACHETE DE MONEDE',
-                  style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(l.coinPacks,
+                  style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 13,
                       fontWeight: FontWeight.w800,
@@ -145,9 +147,9 @@ class _ShopScreenState extends State<ShopScreen> {
                 icon: Icons.monetization_on,
                 iconColor: const Color(0xFFFFD740),
                 title: pack.bonus > 0
-                    ? '${pack.coins} + ${pack.bonus} bonus monede'
-                    : '${pack.coins} monede',
-                subtitle: pack.bonus > 0 ? 'Cea mai bună valoare' : 'Mai multe indicii',
+                    ? l.coinPackBonus(pack.coins, pack.bonus)
+                    : l.coinPackPlain(pack.coins),
+                subtitle: pack.bonus > 0 ? l.bestValue : l.moreHints,
                 price: _priceFor(pack.id, '—'),
                 busy: _busy,
                 onTap: () => _buy(pack.id),
@@ -155,9 +157,9 @@ class _ShopScreenState extends State<ShopScreen> {
               const SizedBox(height: 12),
             ],
             const SizedBox(height: 8),
-            const Center(
-              child: Text('Plata se face prin contul tău App Store.',
-                  style: TextStyle(color: Colors.white38, fontSize: 12)),
+            Center(
+              child: Text(l.paymentNotice,
+                  style: const TextStyle(color: Colors.white38, fontSize: 12)),
             ),
           ],
         ),

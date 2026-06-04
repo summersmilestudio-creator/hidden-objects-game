@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:upgrader/upgrader.dart';
+import 'package:hidden_objects/l10n/app_localizations.dart';
 import 'services/notification_service.dart';
 import 'services/review_service.dart';
 import 'screens/home_screen.dart';
@@ -16,7 +17,10 @@ void main() async {
   await PurchaseService.instance.initialize();
   await AdsService.instance.initialize();
   ReviewService.instance.registerLaunch();
-  NotificationService.instance.scheduleDailyReminder(title: 'Hidden Objects', body: 'Găsește obiectele ascunse! 🔍');
+  NotificationService.instance.scheduleDailyReminder(
+    title: NotificationService.localizedTitle(),
+    body: NotificationService.localizedBody(),
+  );
   runApp(const HiddenObjectsApp());
 }
 
@@ -59,9 +63,11 @@ class _HiddenObjectsAppState extends State<HiddenObjectsApp>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hidden Objects',
+      onGenerateTitle: (ctx) => AppLocalizations.of(ctx)!.appTitle,
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(

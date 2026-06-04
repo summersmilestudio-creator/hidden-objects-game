@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../l10n/app_localizations.dart';
 import '../services/rewards_service.dart';
 import '../services/ads_service.dart';
 
@@ -36,19 +37,20 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
       await RewardsService().addCoins(widget.reward); // second time => x2
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('🎬 Bonus dublat! +${widget.reward} monede')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.bonusDoubled(widget.reward))),
       );
       Navigator.pop(context);
     } else {
       _doubling = false;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.adNotAvailable)),
       );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: const Color(0xFF0F0F1A),
       body: SafeArea(
@@ -69,13 +71,13 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
                   shaderCallback: (r) => const LinearGradient(
                     colors: [Color(0xFFFF6F00), Color(0xFFFFCA28)],
                   ).createShader(r),
-                  child: const Text('BONUS ZILNIC',
-                      style: TextStyle(
+                  child: Text(l.dailyBonus,
+                      style: const TextStyle(
                           fontSize: 28, fontWeight: FontWeight.w900,
                           color: Colors.white, letterSpacing: 4)),
                 ),
                 const SizedBox(height: 8),
-                Text('Ziua ${widget.day} / 7',
+                Text(l.dayOfSeven(widget.day),
                     style: const TextStyle(color: Colors.white60, fontSize: 16)),
                 const SizedBox(height: 32),
                 Container(
@@ -121,7 +123,7 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Z$day',
+                          Text(l.dayShort(day),
                               style: TextStyle(
                                   color: claimed ? Colors.white : Colors.white60, fontSize: 11)),
                           const SizedBox(height: 4),
@@ -148,7 +150,7 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
                   ),
                   onPressed: _doubleViaAd,
                   icon: const Icon(Icons.smart_display),
-                  label: Text('DUBLEAZĂ ×2  (+${widget.reward})'),
+                  label: Text(l.doubleX2WithReward(widget.reward)),
                 ),
                 const SizedBox(height: 12),
                 TextButton(
@@ -158,7 +160,7 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
                     textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('PRIMEȘTE'),
+                  child: Text(l.claim),
                 ),
               ],
             ),

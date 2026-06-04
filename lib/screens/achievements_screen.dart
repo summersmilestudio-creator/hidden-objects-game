@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../services/achievements_service.dart';
 import '../widgets/banner_ad_widget.dart';
 
@@ -33,12 +34,13 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final all = AchievementsService.all;
     final unlockedCount = all.where((a) => _unlocked.contains(a.id)).length;
     return Scaffold(
       bottomNavigationBar: const BannerAdWidget(),
       appBar: AppBar(
-        title: const Text('Realizări'),
+        title: Text(l.achievementsTitle),
         backgroundColor: Colors.black54,
         foregroundColor: Colors.white,
         elevation: 0,
@@ -64,9 +66,9 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Progres total',
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 16)),
-                          Text('$unlockedCount din ${all.length} realizări',
+                          Text(l.totalProgress,
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 16)),
+                          Text(l.achievementsUnlockedCount(unlockedCount, all.length),
                               style: const TextStyle(color: Colors.white, fontSize: 13)),
                         ],
                       ),
@@ -115,13 +117,13 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(a.title,
+                              Text(a.localizedTitle(l),
                                   style: TextStyle(
                                       color: unlocked ? Colors.white : Colors.white70,
                                       fontWeight: FontWeight.w800,
                                       fontSize: 15)),
                               const SizedBox(height: 2),
-                              Text(a.description,
+                              Text(a.localizedDescription(l),
                                   style: const TextStyle(color: Colors.white60, fontSize: 12)),
                               const SizedBox(height: 6),
                               ClipRRect(

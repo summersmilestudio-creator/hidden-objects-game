@@ -36,6 +36,8 @@ class AdsService {
   DateTime? _lastInterstitialShown;
   RewardedAd? _rewarded;
   bool _rewardedLoading = false;
+  int _rewardedRetry = 0;
+  Completer<bool>? _rewardedLoadCompleter;
   AppOpenAd? _appOpen;
   bool _appOpenLoading = false;
   DateTime? _appOpenLoadTime;
@@ -188,17 +190,48 @@ class AdsService {
         onAdLoaded: (ad) {
           _rewarded = ad;
           _rewardedLoading = false;
+          _rewardedRetry = 0;
+          final c = _rewardedLoadCompleter;
+          if (c != null && !c.isCompleted) c.complete(true);
         },
         onAdFailedToLoad: (err) {
           _rewarded = null;
           _rewardedLoading = false;
+          final c = _rewardedLoadCompleter;
+          if (c != null && !c.isCompleted) c.complete(false);
+          // Auto-retry with backoff so a transient no-fill doesn't leave the
+          // user permanently without a rewarded ad.
+          if (_rewardedRetry < 4) {
+            _rewardedRetry++;
+            Future.delayed(Duration(seconds: 3 * _rewardedRetry), () {
+              if (_rewarded == null) _loadRewarded();
+            });
+          }
         },
       ),
     );
   }
 
+  /// Makes sure a rewarded ad is ready, loading on demand and waiting up to
+  /// [timeout] for an in-flight load to finish. Returns true if one is ready.
+  Future<bool> _ensureRewarded(
+      {Duration timeout = const Duration(seconds: 9)}) async {
+    if (_rewarded != null) return true;
+    final c = (_rewardedLoadCompleter != null &&
+            !_rewardedLoadCompleter!.isCompleted)
+        ? _rewardedLoadCompleter!
+        : (_rewardedLoadCompleter = Completer<bool>());
+    _loadRewarded();
+    try {
+      await c.future.timeout(timeout);
+    } catch (_) {/* timeout — fall through */}
+    return _rewarded != null;
+  }
+
   Future<bool> showRewarded() async {
     if (!_initialized) return false;
+    // Try to load on demand (and wait) instead of failing instantly.
+    await _ensureRewarded();
     final ad = _rewarded;
     if (ad == null) {
       _loadRewarded();

@@ -1,0 +1,145 @@
+{
+  "@@locale": "ro",
+  "appTitle": "Obiecte Ascunse",
+  "homeTitle": "OBIECTE\nASCUNSE",
+  "homeSubtitle": "Găsește obiectele în scenele pictate",
+  "scenesHeader": "Scene",
+  "tooltipAchievements": "Realizări",
+  "tooltipEvents": "Evenimente",
+  "tooltipShop": "Magazin",
+  "watchAdForCoins": "Vezi o reclamă → +50 monede",
+  "coinsEarned": "🎬 +50 monede!",
+  "adNotAvailable": "Reclama nu e disponibilă acum, încearcă din nou.",
+  "objectsToFind": "{count} obiecte de găsit",
+  "@objectsToFind": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "eventToday": "EVENIMENT AZI",
+  "tooltipHint": "Indiciu",
+  "tooltipSkipLevel": "Sari peste nivel (reclamă)",
+  "findProgress": "GĂSEȘTE  {found}/{total}",
+  "@findProgress": {
+    "placeholders": { "found": { "type": "int" }, "total": { "type": "int" } }
+  },
+  "levelComplete": "🎉 Nivel complet!",
+  "allObjectsFoundIn": "Toate {total} obiectele găsite în {time}",
+  "@allObjectsFoundIn": {
+    "placeholders": { "total": { "type": "int" }, "time": { "type": "String" } }
+  },
+  "doubleX2": "Dublează ×2",
+  "bonusLevels": "+2 niveluri 🎁",
+  "back": "Înapoi",
+  "skipLevelTitle": "Sari peste nivel",
+  "skipLevelBody": "Vezi un scurt videoclip pentru a marca nivelul ca rezolvat și a te întoarce acasă.",
+  "cancel": "Renunță",
+  "watchVideo": "Vezi video",
+  "rewardDoubled": "🎬 Recompensă dublată! +{coins} monede",
+  "@rewardDoubled": {
+    "placeholders": { "coins": { "type": "int" } }
+  },
+  "bonusLevelsGranted": "🎁 +2 niveluri bonus + 400 monede!",
+  "achievementUnlocked": "🏆 Realizare deblocată",
+  "shopTitle": "Magazin",
+  "restore": "Restaurează",
+  "purchaseSuccess": "✅ Cumpărare reușită. Mulțumim!",
+  "shopUnavailable": "Magazinul nu este disponibil acum. Încearcă din nou.",
+  "restoringPurchases": "Se restaurează cumpărăturile…",
+  "yourCoins": "Monedele tale",
+  "adsRemovedTitle": "Reclame eliminate",
+  "adsRemovedSubtitle": "Mulțumim pentru susținere!",
+  "removeAdsTitle": "Elimină reclamele",
+  "removeAdsSubtitle": "Fără bannere și reclame interstițiale",
+  "coinPacks": "PACHETE DE MONEDE",
+  "coinPackBonus": "{coins} + {bonus} bonus monede",
+  "@coinPackBonus": {
+    "placeholders": { "coins": { "type": "int" }, "bonus": { "type": "int" } }
+  },
+  "coinPackPlain": "{coins} monede",
+  "@coinPackPlain": {
+    "placeholders": { "coins": { "type": "int" } }
+  },
+  "bestValue": "Cea mai bună valoare",
+  "moreHints": "Mai multe indicii",
+  "paymentNotice": "Plata se face prin contul tău App Store.",
+  "achievementsTitle": "Realizări",
+  "totalProgress": "Progres total",
+  "achievementsUnlockedCount": "{unlocked} din {total} realizări",
+  "@achievementsUnlockedCount": {
+    "placeholders": { "unlocked": { "type": "int" }, "total": { "type": "int" } }
+  },
+  "dailyBonus": "BONUS ZILNIC",
+  "dayOfSeven": "Ziua {day} / 7",
+  "@dayOfSeven": {
+    "placeholders": { "day": { "type": "int" } }
+  },
+  "dayShort": "Z{day}",
+  "@dayShort": {
+    "placeholders": { "day": { "type": "int" } }
+  },
+  "doubleX2WithReward": "DUBLEAZĂ ×2  (+{reward})",
+  "@doubleX2WithReward": {
+    "placeholders": { "reward": { "type": "int" } }
+  },
+  "claim": "PRIMEȘTE",
+  "bonusDoubled": "🎬 Bonus dublat! +{reward} monede",
+  "@bonusDoubled": {
+    "placeholders": { "reward": { "type": "int" } }
+  },
+  "eventsTitle": "Evenimente",
+  "eventOfTheDay": "EVENIMENTUL DE AZI",
+  "rewardStars": "{stars} stele recompensă",
+  "@rewardStars": {
+    "placeholders": { "stars": { "type": "int" } }
+  },
+  "playNow": "Joacă acum",
+  "eventCalendar": "Calendar evenimente",
+  "special": "SPECIAL",
+  "today": "Azi",
+  "tomorrow": "Mâine",
+  "weekdayMon": "Lun",
+  "weekdayTue": "Mar",
+  "weekdayWed": "Mie",
+  "weekdayThu": "Joi",
+  "weekdayFri": "Vin",
+  "weekdaySat": "Sâm",
+  "weekdaySun": "Dum",
+  "escapeAdsTitle": "Scapă de reclame",
+  "escapeAdsBody": "Joacă fără bannere și fără reclame care te întrerup. O singură dată, pentru totdeauna.",
+  "removeAdsForPrice": "Elimină reclamele • {price}",
+  "@removeAdsForPrice": {
+    "placeholders": { "price": { "type": "String" } }
+  },
+  "later": "Mai târziu",
+  "notificationTitle": "Obiecte Ascunse",
+  "notificationBody": "Găsește obiectele ascunse! 🔍",
+  "achFirstFindTitle": "Prima Descoperire",
+  "achFirstFindDesc": "Găsește primul obiect",
+  "achGardenMasterTitle": "Maestrul Grădinii",
+  "achGardenMasterDesc": "Termină Grădina Magică",
+  "achHalfwayHeroTitle": "Erou la Jumătate",
+  "achHalfwayHeroDesc": "Termină 4 scene",
+  "achMasterDetectiveTitle": "Detectiv Maestru",
+  "achMasterDetectiveDesc": "Termină toate 8 scenele",
+  "achHawkEyeTitle": "Ochi de Șoim",
+  "achHawkEyeDesc": "Găsește 50 de obiecte total",
+  "achEagleEyeTitle": "Ochi de Vultur",
+  "achEagleEyeDesc": "Găsește 200 de obiecte total",
+  "achNoCheatTitle": "Fără Trișat",
+  "achNoCheatDesc": "Termină o scenă fără indiciu",
+  "achSpeedRunnerTitle": "Alergător Rapid",
+  "achSpeedRunnerDesc": "Termină o scenă sub 30 secunde",
+  "evtDailyChallengeName": "Provocarea Zilei",
+  "evtDailyChallengeDesc": "Găsește toate obiectele într-o singură scenă",
+  "evtHawkEyeName": "Ochi de Vultur",
+  "evtHawkEyeDesc": "Termină o scenă fără să folosești indiciu",
+  "evtQuickHuntName": "Vânătoarea Rapidă",
+  "evtQuickHuntDesc": "Găsește 5 obiecte sub 60 de secunde",
+  "evtMarathonName": "Detectiv Maraton",
+  "evtMarathonDesc": "Joacă 3 scene diferite astăzi",
+  "evtCollectorName": "Colecționarul",
+  "evtCollectorDesc": "Strânge 25 de obiecte azi",
+  "evtTreasureHuntName": "Vânătoarea de Comori",
+  "evtTreasureHuntDesc": "Termină 5 scene la rând cu toate obiectele",
+  "evtHintMasterName": "Maestrul Indiciilor",
+  "evtHintMasterDesc": "Găsește 50 de obiecte în weekend"
+}

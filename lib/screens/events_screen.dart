@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../game/events.dart';
 import '../game/level_data.dart';
 import 'game_screen.dart';
@@ -19,22 +20,26 @@ class EventsScreen extends StatelessWidget {
     Navigator.push(context, MaterialPageRoute(builder: (_) => GameScreen(levelIndex: idx)));
   }
 
-  String _dayLabel(DateTime d, int i) {
-    if (i == 0) return 'Azi';
-    if (i == 1) return 'Mâine';
-    const wd = ['Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sâm', 'Dum'];
+  String _dayLabel(AppLocalizations l, DateTime d, int i) {
+    if (i == 0) return l.today;
+    if (i == 1) return l.tomorrow;
+    final wd = [
+      l.weekdayMon, l.weekdayTue, l.weekdayWed, l.weekdayThu,
+      l.weekdayFri, l.weekdaySat, l.weekdaySun,
+    ];
     return '${wd[d.weekday - 1]} ${d.day}';
   }
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final events = EventService.upcoming(14);
     final today = events.first;
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: _bgMid,
       appBar: AppBar(
-        title: const Text('Evenimente', style: TextStyle(fontWeight: FontWeight.w700)),
+        title: Text(l.eventsTitle, style: const TextStyle(fontWeight: FontWeight.w700)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Colors.white,
@@ -69,19 +74,19 @@ class EventsScreen extends StatelessWidget {
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          const Text('EVENIMENTUL DE AZI',
-                              style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 1.2)),
-                          Text(today.name,
+                          Text(l.eventOfTheDay,
+                              style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w700, letterSpacing: 1.2)),
+                          Text(today.localizedName(l),
                               style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w800)),
                         ]),
                       ),
                     ]),
                     const SizedBox(height: 10),
-                    Text(today.description, style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    Text(today.localizedDescription(l), style: const TextStyle(color: Colors.white, fontSize: 15)),
                     const SizedBox(height: 8),
                     Row(children: [
                       const Icon(Icons.star_rounded, color: Colors.amberAccent, size: 20),
-                      Text(' ${today.rewardStars} stele recompensă',
+                      Text(' ${l.rewardStars(today.rewardStars)}',
                           style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
                     ]),
                     const SizedBox(height: 16),
@@ -96,20 +101,20 @@ class EventsScreen extends StatelessWidget {
                         ),
                         onPressed: () => _playToday(context),
                         icon: const Icon(Icons.play_arrow_rounded),
-                        label: const Text('Joacă acum', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
+                        label: Text(l.playNow, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
                       ),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 24),
-              const Padding(
-                padding: EdgeInsets.only(left: 4, bottom: 8),
-                child: Text('Calendar evenimente',
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700)),
+              Padding(
+                padding: const EdgeInsets.only(left: 4, bottom: 8),
+                child: Text(l.eventCalendar,
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700)),
               ),
               for (var i = 1; i < events.length; i++)
-                _EventRow(event: events[i], label: _dayLabel(events[i].date, i)),
+                _EventRow(event: events[i], label: _dayLabel(l, events[i].date, i)),
             ],
           ),
         ),
@@ -125,6 +130,7 @@ class _EventRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(14),
@@ -153,12 +159,12 @@ class _EventRow extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
                     decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(6)),
-                    child: const Text('SPECIAL', style: TextStyle(fontSize: 9, fontWeight: FontWeight.w800, color: Colors.black87)),
+                    child: Text(l.special, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w800, color: Colors.black87)),
                   ),
                 ],
               ]),
-              Text(event.name, style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700)),
-              Text(event.description, style: const TextStyle(color: Colors.white60, fontSize: 12)),
+              Text(event.localizedName(l), style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700)),
+              Text(event.localizedDescription(l), style: const TextStyle(color: Colors.white60, fontSize: 12)),
             ]),
           ),
           Column(children: [

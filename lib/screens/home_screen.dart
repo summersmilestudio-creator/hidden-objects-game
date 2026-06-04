@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import '../game/events.dart';
 import '../game/level_data.dart';
+import '../game/scene_names.dart';
 import '../services/rewards_service.dart';
 import '../services/ads_service.dart';
 import '../widgets/banner_ad_widget.dart';
@@ -58,17 +60,19 @@ class _HomeScreenState extends State<HomeScreen> {
       await _load();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('🎬 +50 monede!')));
+          SnackBar(content: Text(AppLocalizations.of(context)!.coinsEarned)));
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')));
+        SnackBar(content: Text(AppLocalizations.of(context)!.adNotAvailable)));
     }
     if (mounted) setState(() => _watching = false);
   }
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+    final lang = Localizations.localeOf(context).languageCode;
     final levels = LevelGenerator.generateAll();
     return Scaffold(
       bottomNavigationBar: const BannerAdWidget(),
@@ -83,19 +87,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Row(children: [
                     IconButton(
-                      tooltip: 'Realizări',
+                      tooltip: l.tooltipAchievements,
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const AchievementsScreen())),
                       icon: const Icon(Icons.emoji_events, color: Color(0xFFFFCA28), size: 28),
                     ),
                     IconButton(
-                      tooltip: 'Evenimente',
+                      tooltip: l.tooltipEvents,
                       onPressed: () => Navigator.push(context,
                           MaterialPageRoute(builder: (_) => const EventsScreen())),
                       icon: const Icon(Icons.event_available, color: Color(0xFFFF6F00), size: 28),
                     ),
                     IconButton(
-                      tooltip: 'Magazin',
+                      tooltip: l.tooltipShop,
                       onPressed: _openShop,
                       icon: const Icon(Icons.storefront, color: Color(0xFFFFD740), size: 28),
                     ),
@@ -133,9 +137,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 shaderCallback: (r) => const LinearGradient(
                   colors: [Color(0xFFFF6F00), Color(0xFFFFCA28)],
                 ).createShader(r),
-                child: const Text('OBIECTE\nASCUNSE',
+                child: Text(l.homeTitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 38,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
@@ -143,9 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         letterSpacing: 2)),
               ),
               const SizedBox(height: 8),
-              const Center(
-                child: Text('Găsește obiectele în scenele pictate',
-                    style: TextStyle(color: Colors.white54)),
+              Center(
+                child: Text(l.homeSubtitle,
+                    style: const TextStyle(color: Colors.white54)),
               ),
               const SizedBox(height: 16),
               _TodayEventCard(onTap: () => Navigator.push(context,
@@ -167,9 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(children: [
                       const Icon(Icons.smart_display, color: Colors.white),
                       const SizedBox(width: 10),
-                      const Expanded(
-                        child: Text('Vezi o reclamă → +50 monede',
-                            style: TextStyle(
+                      Expanded(
+                        child: Text(l.watchAdForCoins,
+                            style: const TextStyle(
                                 color: Colors.white, fontWeight: FontWeight.w800)),
                       ),
                       const Icon(Icons.monetization_on, color: Color(0xFFFFD740)),
@@ -178,10 +182,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
-                child: Text('Scene',
-                    style: TextStyle(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(l.scenesHeader,
+                    style: const TextStyle(
                         color: Colors.white70,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -227,13 +231,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text(lvl.name,
+                                      Text(sceneNameFor(lvl.scene, lang, lvl.name),
                                           style: const TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.w800,
                                               color: Colors.white,
                                               shadows: [Shadow(color: Colors.black87, blurRadius: 4)])),
-                                      Text('${lvl.totalTargets} obiecte de găsit',
+                                      Text(l.objectsToFind(lvl.totalTargets),
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 13,
@@ -370,6 +374,7 @@ class _TodayEventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final e = EventService.today();
     return Material(
       color: Colors.transparent,
@@ -392,13 +397,13 @@ class _TodayEventCard extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('EVENIMENT AZI',
-                    style: TextStyle(color: Colors.white70, fontSize: 10,
+                Text(l.eventToday,
+                    style: const TextStyle(color: Colors.white70, fontSize: 10,
                         fontWeight: FontWeight.w800, letterSpacing: 1.4)),
-                Text(e.name,
+                Text(e.localizedName(l),
                     style: const TextStyle(color: Colors.white, fontSize: 18,
                         fontWeight: FontWeight.w900)),
-                Text(e.description,
+                Text(e.localizedDescription(l),
                     style: const TextStyle(color: Colors.white70, fontSize: 12),
                     maxLines: 1, overflow: TextOverflow.ellipsis),
               ]),

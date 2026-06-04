@@ -4,7 +4,9 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../l10n/app_localizations.dart';
 import '../game/level_data.dart';
+import '../game/scene_names.dart';
 import '../services/achievements_service.dart';
 import '../services/ads_service.dart';
 import '../services/rewards_service.dart';
@@ -112,17 +114,18 @@ class _GameScreenState extends State<GameScreen> {
       AdsService.instance.maybeShowInterstitial();
       Future.microtask(() {
         if (!mounted) return;
+        final l = AppLocalizations.of(context)!;
         showDialog(
           context: context,
           barrierDismissible: false,
           builder: (c) => AlertDialog(
             backgroundColor: const Color(0xFF1A0033),
-            title: const Text('🎉 Nivel complet!',
-                style: TextStyle(color: Colors.white)),
+            title: Text(l.levelComplete,
+                style: const TextStyle(color: Colors.white)),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Toate ${_level.totalTargets} obiectele găsite în ${_fmt(_seconds)}',
+                Text(l.allObjectsFoundIn(_level.totalTargets, _fmt(_seconds)),
                     style: const TextStyle(color: Colors.white70)),
                 const SizedBox(height: 12),
                 Container(
@@ -154,20 +157,20 @@ class _GameScreenState extends State<GameScreen> {
                 ),
                 onPressed: () => _doubleCoinsViaAd(c, coins),
                 icon: const Icon(Icons.smart_display, size: 20),
-                label: const Text('Dublează ×2',
-                    style: TextStyle(fontWeight: FontWeight.w900)),
+                label: Text(l.doubleX2,
+                    style: const TextStyle(fontWeight: FontWeight.w900)),
               ),
               TextButton(
                 onPressed: () => _bonusLevelsViaAd(c),
-                child: const Text('+2 niveluri 🎁',
-                    style: TextStyle(color: Color(0xFFFFD740), fontWeight: FontWeight.w900)),
+                child: Text(l.bonusLevels,
+                    style: const TextStyle(color: Color(0xFFFFD740), fontWeight: FontWeight.w900)),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.pop(c);
                   Navigator.pop(context);
                 },
-                child: const Text('Înapoi', style: TextStyle(color: Colors.white)),
+                child: Text(l.back, style: const TextStyle(color: Colors.white)),
               ),
             ],
           ),
@@ -191,24 +194,25 @@ class _GameScreenState extends State<GameScreen> {
 
   Future<void> _skipLevelViaAd() async {
     if (_completed) return;
+    final l = AppLocalizations.of(context)!;
     final go = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF1A0033),
-        title: const Text('Sari peste nivel', style: TextStyle(color: Colors.white)),
-        content: const Text(
-          'Vezi un scurt videoclip pentru a marca nivelul ca rezolvat și a te întoarce acasă.',
-          style: TextStyle(color: Colors.white70),
+        title: Text(l.skipLevelTitle, style: const TextStyle(color: Colors.white)),
+        content: Text(
+          l.skipLevelBody,
+          style: const TextStyle(color: Colors.white70),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Renunță', style: TextStyle(color: Colors.white)),
+            child: Text(l.cancel, style: const TextStyle(color: Colors.white)),
           ),
           ElevatedButton.icon(
             onPressed: () => Navigator.pop(ctx, true),
             icon: const Icon(Icons.play_circle_outline),
-            label: const Text('Vezi video'),
+            label: Text(l.watchVideo),
           ),
         ],
       ),
@@ -218,7 +222,7 @@ class _GameScreenState extends State<GameScreen> {
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.adNotAvailable)),
       );
       return;
     }
@@ -237,14 +241,14 @@ class _GameScreenState extends State<GameScreen> {
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.adNotAvailable)),
       );
       return;
     }
     await _rewards.addCoins(coins); // a second time => total x2
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('🎬 Recompensă dublată! +$coins monede')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.rewardDoubled(coins))),
     );
     if (Navigator.canPop(dialogCtx)) Navigator.pop(dialogCtx);
     if (mounted) Navigator.pop(context);
@@ -255,7 +259,7 @@ class _GameScreenState extends State<GameScreen> {
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Reclama nu e disponibilă acum, încearcă din nou.')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.adNotAvailable)),
       );
       return;
     }
@@ -265,7 +269,7 @@ class _GameScreenState extends State<GameScreen> {
     await _rewards.addCoins(400);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('🎁 +2 niveluri bonus + 400 monede!')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.bonusLevelsGranted)),
     );
     if (Navigator.canPop(dialogCtx)) Navigator.pop(dialogCtx);
     if (mounted) Navigator.pop(context);
@@ -273,6 +277,7 @@ class _GameScreenState extends State<GameScreen> {
 
   void _showUnlockToasts(List<Achievement> unlocked) {
     if (unlocked.isEmpty || !mounted) return;
+    final l = AppLocalizations.of(context)!;
     for (var i = 0; i < unlocked.length; i++) {
       final a = unlocked[i];
       Future.delayed(Duration(milliseconds: 200 + i * 1500), () {
@@ -290,9 +295,9 @@ class _GameScreenState extends State<GameScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text('🏆 Realizare deblocată',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 12)),
-                      Text(a.title,
+                      Text(l.achievementUnlocked,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 12)),
+                      Text(a.localizedTitle(l),
                           style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15)),
                     ],
                   ),
@@ -315,22 +320,24 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+    final lang = Localizations.localeOf(context).languageCode;
     return Scaffold(
       backgroundColor: const Color(0xFF0B0B14),
       bottomNavigationBar: const BannerAdWidget(),
       appBar: AppBar(
-        title: Text(_level.name),
+        title: Text(sceneNameFor(_level.scene, lang, _level.name)),
         backgroundColor: Colors.black54,
         foregroundColor: Colors.white,
         elevation: 0,
         actions: [
           IconButton(
-            tooltip: 'Indiciu',
+            tooltip: l.tooltipHint,
             icon: const Icon(Icons.lightbulb_outline),
             onPressed: _completed ? null : _showHintViaAd,
           ),
           IconButton(
-            tooltip: 'Sari peste nivel (reclamă)',
+            tooltip: l.tooltipSkipLevel,
             icon: const Icon(Icons.skip_next),
             onPressed: _completed ? null : _skipLevelViaAd,
           ),
@@ -365,7 +372,7 @@ class _GameScreenState extends State<GameScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 6),
             child: Text(
-              'GĂSEȘTE  ${_level.foundCount}/${_level.totalTargets}',
+              AppLocalizations.of(context)!.findProgress(_level.foundCount, _level.totalTargets),
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w800,
