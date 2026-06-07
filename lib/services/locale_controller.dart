@@ -24,6 +24,23 @@ class LocaleController {
     'ro': 'Română',
   };
 
+  /// Flag emoji per language, shown on the picker button and in the list.
+  static const Map<String, String> flags = {
+    'en': '🇬🇧',
+    'es': '🇪🇸',
+    'fr': '🇫🇷',
+    'it': '🇮🇹',
+    'ja': '🇯🇵',
+    'ko': '🇰🇷',
+    'pt': '🇵🇹',
+    'ru': '🇷🇺',
+    'zh': '🇨🇳',
+    'de': '🇩🇪',
+    'ro': '🇷🇴',
+  };
+
+  static String flagFor(String code) => flags[code] ?? '🌐';
+
   Future<void> load() async {
     final p = await SharedPreferences.getInstance();
     final code = p.getString(_key);

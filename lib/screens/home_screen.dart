@@ -8,6 +8,7 @@ import '../services/rewards_service.dart';
 import '../services/ads_service.dart';
 import '../services/lives_service.dart';
 import '../services/purchase_service.dart';
+import '../services/locale_controller.dart';
 import '../widgets/banner_ad_widget.dart';
 import '../widgets/game_juice.dart';
 import '../widgets/language_picker.dart';
@@ -231,7 +232,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     IconButton(
                       tooltip: l.language,
                       onPressed: () => showLanguagePicker(context),
-                      icon: const Icon(Icons.language, color: Color(0xFF40C4FF), size: 28),
+                      icon: Text(
+                        LocaleController.flagFor(Localizations.localeOf(context).languageCode),
+                        style: const TextStyle(fontSize: 26),
+                      ),
                     ),
                   ]),
                   Material(
@@ -334,50 +338,107 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     final lvl = levels[i];
                     return Container(
                       decoration: BoxDecoration(
-                        gradient: _gradientFor(lvl.scene),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.white12),
-                        boxShadow: const [
-                          BoxShadow(color: Colors.black54, blurRadius: 8, offset: Offset(0, 4)),
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.5),
+                              blurRadius: 14,
+                              offset: const Offset(0, 8)),
                         ],
                       ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(16),
-                          onTap: () => _startLevel(i),
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.white.withValues(alpha: 0.3),
-                                  child: Text('${i + 1}',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w900, color: Colors.white)),
-                                ),
-                                const SizedBox(width: 16),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(sceneNameFor(lvl.scene, lang, lvl.name),
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w800,
-                                              color: Colors.white,
-                                              shadows: [Shadow(color: Colors.black87, blurRadius: 4)])),
-                                      Text(l.objectsToFind(lvl.totalTargets),
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 13,
-                                              shadows: [Shadow(color: Colors.black87, blurRadius: 4)])),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(18),
+                        child: SizedBox(
+                          height: 104,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              // Real scene art as the card background (premium look).
+                              Image.asset(
+                                'assets/scenes/${lvl.scene.name}.jpg',
+                                fit: BoxFit.cover,
+                                cacheWidth: 600,
+                                errorBuilder: (_, __, ___) => DecoratedBox(
+                                    decoration: BoxDecoration(gradient: _gradientFor(lvl.scene))),
+                              ),
+                              // Dark scrim so the text stays readable.
+                              DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [
+                                      Colors.black.withValues(alpha: 0.80),
+                                      Colors.black.withValues(alpha: 0.25),
                                     ],
                                   ),
                                 ),
-                                const Icon(Icons.chevron_right, color: Colors.white),
-                              ],
-                            ),
+                              ),
+                              Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  onTap: () => _startLevel(i),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 42,
+                                          height: 42,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            gradient: _gradientFor(lvl.scene),
+                                            border: Border.all(color: Colors.white70, width: 2),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.black.withValues(alpha: 0.4),
+                                                  blurRadius: 6),
+                                            ],
+                                          ),
+                                          child: Text('${i + 1}',
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.w900, color: Colors.white)),
+                                        ),
+                                        const SizedBox(width: 14),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Text(sceneNameFor(lvl.scene, lang, lvl.name),
+                                                  style: const TextStyle(
+                                                      fontSize: 21,
+                                                      fontWeight: FontWeight.w900,
+                                                      color: Colors.white,
+                                                      shadows: [
+                                                        Shadow(color: Colors.black, blurRadius: 6)
+                                                      ])),
+                                              Text(l.objectsToFind(lvl.totalTargets),
+                                                  style: const TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12.5,
+                                                      shadows: [
+                                                        Shadow(color: Colors.black, blurRadius: 6)
+                                                      ])),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: const EdgeInsets.all(6),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.black.withValues(alpha: 0.35),
+                                          ),
+                                          child: const Icon(Icons.play_arrow,
+                                              color: Colors.white, size: 20),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
