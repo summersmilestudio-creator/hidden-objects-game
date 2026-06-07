@@ -127,5 +127,7 @@
   "freezeActiveBadge": "⏸ 時間停止中",
   "scanActiveBadge": "🔎 スキャン中",
   "shieldActiveBadge": "🛡 シールド有効",
-  "buyAction": "購入"
+  "buyAction": "購入",
+  "language": "言語",
+  "languageSystem": "システムの既定"
 }

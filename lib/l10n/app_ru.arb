@@ -127,5 +127,7 @@
   "freezeActiveBadge": "⏸ Время заморожено",
   "scanActiveBadge": "🔎 Сканирование",
   "shieldActiveBadge": "🛡 Щит активен",
-  "buyAction": "Купить"
+  "buyAction": "Купить",
+  "language": "Язык",
+  "languageSystem": "Системный по умолчанию"
 }

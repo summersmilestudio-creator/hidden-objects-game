@@ -270,5 +270,13 @@
   "freezeActiveBadge": "⏸ Timp înghețat",
   "scanActiveBadge": "🔎 Scanare",
   "shieldActiveBadge": "🛡 Scut activ",
-  "buyAction": "Cumpără"
+  "buyAction": "Cumpără",
+  "language": "Limbă",
+  "languageSystem": "Implicit (sistem)",
+  "@language": {
+    "description": "Language picker title"
+  },
+  "@languageSystem": {
+    "description": "Follow device language option"
+  }
 }

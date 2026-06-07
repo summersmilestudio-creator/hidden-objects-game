@@ -127,5 +127,7 @@
   "freezeActiveBadge": "⏸ Zeit eingefroren",
   "scanActiveBadge": "🔎 Scan läuft",
   "shieldActiveBadge": "🛡 Schild aktiv",
-  "buyAction": "Kaufen"
+  "buyAction": "Kaufen",
+  "language": "Sprache",
+  "languageSystem": "Systemstandard"
 }

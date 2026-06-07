@@ -127,5 +127,7 @@
   "freezeActiveBadge": "⏸ 시간 정지",
   "scanActiveBadge": "🔎 스캔 중",
   "shieldActiveBadge": "🛡 방패 활성",
-  "buyAction": "구매"
+  "buyAction": "구매",
+  "language": "언어",
+  "languageSystem": "시스템 기본값"
 }

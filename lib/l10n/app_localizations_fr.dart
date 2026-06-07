@@ -454,4 +454,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get buyAction => 'Acheter';
+
+  @override
+  String get language => 'Langue';
+
+  @override
+  String get languageSystem => 'Par défaut du système';
 }

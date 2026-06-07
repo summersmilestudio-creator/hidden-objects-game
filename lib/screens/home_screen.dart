@@ -10,6 +10,7 @@ import '../services/lives_service.dart';
 import '../services/purchase_service.dart';
 import '../widgets/banner_ad_widget.dart';
 import '../widgets/game_juice.dart';
+import '../widgets/language_picker.dart';
 import 'achievements_screen.dart';
 import 'daily_reward_screen.dart';
 import 'events_screen.dart';
@@ -226,6 +227,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       tooltip: l.tooltipShop,
                       onPressed: _openShop,
                       icon: const Icon(Icons.storefront, color: Color(0xFFFFD740), size: 28),
+                    ),
+                    IconButton(
+                      tooltip: l.language,
+                      onPressed: () => showLanguagePicker(context),
+                      icon: const Icon(Icons.language, color: Color(0xFF40C4FF), size: 28),
                     ),
                   ]),
                   Material(

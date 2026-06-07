@@ -127,5 +127,7 @@
   "freezeActiveBadge": "⏸ 时间冻结",
   "scanActiveBadge": "🔎 扫描中",
   "shieldActiveBadge": "🛡 护盾生效",
-  "buyAction": "购买"
+  "buyAction": "购买",
+  "language": "语言",
+  "languageSystem": "系统默认"
 }

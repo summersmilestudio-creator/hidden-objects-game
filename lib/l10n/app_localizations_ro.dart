@@ -435,4 +435,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get buyAction => 'Cumpără';
+
+  @override
+  String get language => 'Limbă';
+
+  @override
+  String get languageSystem => 'Implicit (sistem)';
 }
