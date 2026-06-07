@@ -733,6 +733,156 @@ abstract class AppLocalizations {
   /// In ro, this message translates to:
   /// **'Găsește 50 de obiecte în weekend'**
   String get evtHintMasterDesc;
+
+  /// No description provided for @livesFull.
+  ///
+  /// In ro, this message translates to:
+  /// **'Vieți pline'**
+  String get livesFull;
+
+  /// No description provided for @nextLifeIn.
+  ///
+  /// In ro, this message translates to:
+  /// **'Următoarea viață în {time}'**
+  String nextLifeIn(String time);
+
+  /// No description provided for @outOfLivesTitle.
+  ///
+  /// In ro, this message translates to:
+  /// **'Nu mai ai vieți'**
+  String get outOfLivesTitle;
+
+  /// No description provided for @outOfLivesBody.
+  ///
+  /// In ro, this message translates to:
+  /// **'Așteaptă refacerea lor, vezi o reclamă sau folosește monede.'**
+  String get outOfLivesBody;
+
+  /// No description provided for @getLifeAd.
+  ///
+  /// In ro, this message translates to:
+  /// **'+1 viață (reclamă)'**
+  String get getLifeAd;
+
+  /// No description provided for @getLifeCoins.
+  ///
+  /// In ro, this message translates to:
+  /// **'+1 viață ({coins} 🪙)'**
+  String getLifeCoins(int coins);
+
+  /// No description provided for @waitButton.
+  ///
+  /// In ro, this message translates to:
+  /// **'Aștept'**
+  String get waitButton;
+
+  /// No description provided for @notEnoughCoins.
+  ///
+  /// In ro, this message translates to:
+  /// **'Nu ai destule monede'**
+  String get notEnoughCoins;
+
+  /// No description provided for @watchAd10Coins.
+  ///
+  /// In ro, this message translates to:
+  /// **'Vezi o reclamă → 10 monede'**
+  String get watchAd10Coins;
+
+  /// No description provided for @powersTitle.
+  ///
+  /// In ro, this message translates to:
+  /// **'PUTERI'**
+  String get powersTitle;
+
+  /// No description provided for @powerHintName.
+  ///
+  /// In ro, this message translates to:
+  /// **'Indiciu'**
+  String get powerHintName;
+
+  /// No description provided for @powerHintDesc.
+  ///
+  /// In ro, this message translates to:
+  /// **'Arată un obiect ascuns'**
+  String get powerHintDesc;
+
+  /// No description provided for @powerScanName.
+  ///
+  /// In ro, this message translates to:
+  /// **'Scanare'**
+  String get powerScanName;
+
+  /// No description provided for @powerScanDesc.
+  ///
+  /// In ro, this message translates to:
+  /// **'Clipește toate obiectele rămase'**
+  String get powerScanDesc;
+
+  /// No description provided for @powerFreezeName.
+  ///
+  /// In ro, this message translates to:
+  /// **'Înghețare timp'**
+  String get powerFreezeName;
+
+  /// No description provided for @powerFreezeDesc.
+  ///
+  /// In ro, this message translates to:
+  /// **'Oprește cronometrul 20 de secunde'**
+  String get powerFreezeDesc;
+
+  /// No description provided for @powerShieldName.
+  ///
+  /// In ro, this message translates to:
+  /// **'Scut'**
+  String get powerShieldName;
+
+  /// No description provided for @powerShieldDesc.
+  ///
+  /// In ro, this message translates to:
+  /// **'Anulează penalizarea la următoarea atingere greșită'**
+  String get powerShieldDesc;
+
+  /// No description provided for @powerOwnedCount.
+  ///
+  /// In ro, this message translates to:
+  /// **'Ai: {count}'**
+  String powerOwnedCount(int count);
+
+  /// No description provided for @powerActivated.
+  ///
+  /// In ro, this message translates to:
+  /// **'{name} activat!'**
+  String powerActivated(String name);
+
+  /// No description provided for @powerNoneLeft.
+  ///
+  /// In ro, this message translates to:
+  /// **'Nu mai ai {name}. Cumpără din magazin.'**
+  String powerNoneLeft(String name);
+
+  /// No description provided for @freezeActiveBadge.
+  ///
+  /// In ro, this message translates to:
+  /// **'⏸ Timp înghețat'**
+  String get freezeActiveBadge;
+
+  /// No description provided for @scanActiveBadge.
+  ///
+  /// In ro, this message translates to:
+  /// **'🔎 Scanare'**
+  String get scanActiveBadge;
+
+  /// No description provided for @shieldActiveBadge.
+  ///
+  /// In ro, this message translates to:
+  /// **'🛡 Scut activ'**
+  String get shieldActiveBadge;
+
+  /// No description provided for @buyAction.
+  ///
+  /// In ro, this message translates to:
+  /// **'Cumpără'**
+  String get buyAction;
 }
 
 class _AppLocalizationsDelegate

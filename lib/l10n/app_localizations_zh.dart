@@ -342,4 +342,89 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => '在周末找到 50 个物品';
+
+  @override
+  String get livesFull => '生命已满';
+
+  @override
+  String nextLifeIn(String time) {
+    return '下一个生命还需 $time';
+  }
+
+  @override
+  String get outOfLivesTitle => '没有生命了';
+
+  @override
+  String get outOfLivesBody => '等待恢复、观看广告或使用金币。';
+
+  @override
+  String get getLifeAd => '+1 生命（广告）';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 生命（$coins 🪙）';
+  }
+
+  @override
+  String get waitButton => '等待';
+
+  @override
+  String get notEnoughCoins => '金币不足';
+
+  @override
+  String get watchAd10Coins => '观看广告 → 10 金币';
+
+  @override
+  String get powersTitle => '道具';
+
+  @override
+  String get powerHintName => '提示';
+
+  @override
+  String get powerHintDesc => '显示一个隐藏物品';
+
+  @override
+  String get powerScanName => '扫描';
+
+  @override
+  String get powerScanDesc => '闪烁显示所有剩余物品';
+
+  @override
+  String get powerFreezeName => '时间冻结';
+
+  @override
+  String get powerFreezeDesc => '暂停计时器20秒';
+
+  @override
+  String get powerShieldName => '护盾';
+
+  @override
+  String get powerShieldDesc => '抵消下一次点错的惩罚';
+
+  @override
+  String powerOwnedCount(int count) {
+    return '拥有：$count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name 已启动！';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return '没有$name了，去商店购买。';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ 时间冻结';
+
+  @override
+  String get scanActiveBadge => '🔎 扫描中';
+
+  @override
+  String get shieldActiveBadge => '🛡 护盾生效';
+
+  @override
+  String get buyAction => '购买';
 }

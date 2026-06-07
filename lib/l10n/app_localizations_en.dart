@@ -363,4 +363,90 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Find 50 objects over the weekend';
+
+  @override
+  String get livesFull => 'Lives full';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Next life in $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Out of lives';
+
+  @override
+  String get outOfLivesBody =>
+      'Wait for them to refill, watch an ad, or use coins.';
+
+  @override
+  String get getLifeAd => '+1 life (ad)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 life ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Wait';
+
+  @override
+  String get notEnoughCoins => 'Not enough coins';
+
+  @override
+  String get watchAd10Coins => 'Watch an ad → 10 coins';
+
+  @override
+  String get powersTitle => 'POWERS';
+
+  @override
+  String get powerHintName => 'Hint';
+
+  @override
+  String get powerHintDesc => 'Reveals one hidden object';
+
+  @override
+  String get powerScanName => 'Scan';
+
+  @override
+  String get powerScanDesc => 'Flashes all remaining objects';
+
+  @override
+  String get powerFreezeName => 'Freeze time';
+
+  @override
+  String get powerFreezeDesc => 'Stops the timer for 20 seconds';
+
+  @override
+  String get powerShieldName => 'Shield';
+
+  @override
+  String get powerShieldDesc => 'Cancels the penalty on your next wrong tap';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'You have: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name activated!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'No $name left. Buy more in the shop.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Time frozen';
+
+  @override
+  String get scanActiveBadge => '🔎 Scanning';
+
+  @override
+  String get shieldActiveBadge => '🛡 Shield active';
+
+  @override
+  String get buyAction => 'Buy';
 }

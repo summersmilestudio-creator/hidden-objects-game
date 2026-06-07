@@ -10,7 +10,9 @@ import '../game/scene_names.dart';
 import '../services/achievements_service.dart';
 import '../services/ads_service.dart';
 import '../services/rewards_service.dart';
+import '../services/powers_service.dart';
 import '../widgets/banner_ad_widget.dart';
+import '../widgets/game_juice.dart';
 
 class GameScreen extends StatefulWidget {
   final int levelIndex;
@@ -34,13 +36,36 @@ class _GameScreenState extends State<GameScreen> {
   Offset? _missAt; // where the last wrong tap landed (for an X marker)
   Timer? _missTimer;
 
+  // Powers (bought with coins, used during a level)
+  final _powersSvc = PowersService.instance;
+  Map<PowerType, int> _powerCounts = {for (final t in PowerType.values) t: 0};
+  DateTime _freezeUntil = DateTime.fromMillisecondsSinceEpoch(0);
+  bool _scanning = false;
+  Timer? _scanTimer;
+  bool _penaltyShield = false;
+
+  bool get _frozen => DateTime.now().isBefore(_freezeUntil);
+
   @override
   void initState() {
     super.initState();
     _level = LevelGenerator.generateAll()[widget.levelIndex];
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (!_completed && mounted) setState(() => _seconds++);
+      if (_completed || !mounted) return;
+      // While time is frozen, keep the UI ticking (for the countdown badge)
+      // but don't advance the score timer.
+      if (_frozen) {
+        setState(() {});
+      } else {
+        setState(() => _seconds++);
+      }
     });
+    _loadPowers();
+  }
+
+  Future<void> _loadPowers() async {
+    final counts = await _powersSvc.all();
+    if (mounted) setState(() => _powerCounts = counts);
   }
 
   @override
@@ -48,6 +73,7 @@ class _GameScreenState extends State<GameScreen> {
     _timer?.cancel();
     _hintTimer?.cancel();
     _missTimer?.cancel();
+    _scanTimer?.cancel();
     super.dispose();
   }
 
@@ -87,7 +113,11 @@ class _GameScreenState extends State<GameScreen> {
     } else {
       HapticFeedback.heavyImpact();
       setState(() {
-        _seconds += 3;
+        if (_penaltyShield) {
+          _penaltyShield = false; // scutul absoarbe penalizarea
+        } else {
+          _seconds += 3;
+        }
         _missAt = local;
       });
       _missTimer?.cancel();
@@ -104,6 +134,7 @@ class _GameScreenState extends State<GameScreen> {
     if (_level.isComplete) {
       _completed = true;
       _timer?.cancel();
+      Celebrate.show(context);
       final coins = (200 - _seconds).clamp(20, 200);
       _rewards.addCoins(coins);
       AchievementsService.instance.recordLevelComplete(
@@ -354,7 +385,123 @@ class _GameScreenState extends State<GameScreen> {
         children: [
           _targetsBar(),
           Expanded(child: _scene()),
+          _powerBar(),
         ],
+      ),
+    );
+  }
+
+  Future<void> _usePower(PowerType t) async {
+    if (_completed) return;
+    final l = AppLocalizations.of(context)!;
+    final ok = await _powersSvc.use(t);
+    if (!ok) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l.powerNoneLeft(powerName(l, t)))));
+      }
+      return;
+    }
+    if (!mounted) return;
+    setState(() => _powerCounts[t] = (_powerCounts[t] ?? 1) - 1);
+    HapticFeedback.mediumImpact();
+    _applyPower(t);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(milliseconds: 1200),
+      backgroundColor: PowersService.specFor(t).color,
+      content: Text(l.powerActivated(powerName(l, t))),
+    ));
+  }
+
+  void _applyPower(PowerType t) {
+    switch (t) {
+      case PowerType.hint:
+        final unfound = _level.targets.where((x) => !x.found).toList();
+        if (unfound.isEmpty) return;
+        _hintUsed = true;
+        setState(() => _hintId = unfound.first.id);
+        _hintTimer?.cancel();
+        _hintTimer = Timer(const Duration(seconds: 3), () {
+          if (mounted) setState(() => _hintId = null);
+        });
+        break;
+      case PowerType.scan:
+        _hintUsed = true;
+        setState(() => _scanning = true);
+        _scanTimer?.cancel();
+        _scanTimer = Timer(const Duration(seconds: 2), () {
+          if (mounted) setState(() => _scanning = false);
+        });
+        break;
+      case PowerType.freeze:
+        setState(() => _freezeUntil = DateTime.now().add(const Duration(seconds: 20)));
+        break;
+      case PowerType.shield:
+        setState(() => _penaltyShield = true);
+        break;
+    }
+  }
+
+  Widget _powerBar() {
+    return Container(
+      color: Colors.black.withValues(alpha: 0.85),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [for (final spec in PowersService.specs) _powerChip(spec)],
+      ),
+    );
+  }
+
+  Widget _powerChip(PowerSpec spec) {
+    final count = _powerCounts[spec.type] ?? 0;
+    final enabled = count > 0 && !_completed;
+    final active = (spec.type == PowerType.freeze && _frozen) ||
+        (spec.type == PowerType.scan && _scanning) ||
+        (spec.type == PowerType.shield && _penaltyShield);
+    return PressableScale(
+      onTap: enabled ? () => _usePower(spec.type) : null,
+      child: Opacity(
+        opacity: count > 0 ? 1.0 : 0.4,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              width: 52,
+              height: 52,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [spec.color, spec.color.withValues(alpha: 0.6)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                    color: active ? Colors.white : Colors.white24,
+                    width: active ? 2.5 : 1),
+                boxShadow: [
+                  BoxShadow(color: spec.color.withValues(alpha: 0.5), blurRadius: 7),
+                ],
+              ),
+              child: Icon(spec.icon, color: Colors.white, size: 26),
+            ),
+            Positioned(
+              right: -4,
+              top: -4,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.white30),
+                ),
+                child: Text('$count',
+                    style: const TextStyle(
+                        color: Colors.white, fontSize: 12, fontWeight: FontWeight.w900)),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -449,6 +596,7 @@ class _GameScreenState extends State<GameScreen> {
 
   Widget _scene() {
     return LayoutBuilder(builder: (ctx, c) {
+      final l = AppLocalizations.of(context)!;
       final area = Size(c.maxWidth, c.maxHeight);
       final img = _imageRect(area);
       final hint = _hintId == null
@@ -513,6 +661,47 @@ class _GameScreenState extends State<GameScreen> {
                   ),
                 ),
               ),
+            // Scan: briefly flash every remaining object.
+            if (_scanning)
+              for (final t in _level.targets)
+                if (!t.found)
+                  Positioned(
+                    left: img.left + t.cx * img.width - 28,
+                    top: img.top + t.cy * img.height - 28,
+                    child: IgnorePointer(
+                      child: Container(
+                        width: 56,
+                        height: 56,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0xFF40C4FF), width: 3),
+                          boxShadow: [
+                            BoxShadow(
+                                color: const Color(0xFF40C4FF).withValues(alpha: 0.8),
+                                blurRadius: 20,
+                                spreadRadius: 3),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+            // Active-effect badges.
+            if (_frozen || _penaltyShield || _scanning)
+              Positioned(
+                top: 8,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Wrap(
+                    spacing: 6,
+                    children: [
+                      if (_frozen) _effectBadge(l.freezeActiveBadge),
+                      if (_scanning) _effectBadge(l.scanActiveBadge),
+                      if (_penaltyShield) _effectBadge(l.shieldActiveBadge),
+                    ],
+                  ),
+                ),
+              ),
             // Wrong-tap X.
             if (_missAt != null)
               Positioned(
@@ -535,6 +724,19 @@ class _GameScreenState extends State<GameScreen> {
       left: img.left + cx * img.width - 15,
       top: img.top + cy * img.height - 15,
       child: IgnorePointer(child: child),
+    );
+  }
+
+  Widget _effectBadge(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.65),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white30),
+      ),
+      child: Text(text,
+          style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w800)),
     );
   }
 }

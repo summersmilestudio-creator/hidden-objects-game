@@ -365,4 +365,91 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Trova 50 oggetti nel fine settimana';
+
+  @override
+  String get livesFull => 'Vite al massimo';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Prossima vita tra $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Vite esaurite';
+
+  @override
+  String get outOfLivesBody =>
+      'Aspetta che si ricarichino, guarda un annuncio o usa le monete.';
+
+  @override
+  String get getLifeAd => '+1 vita (annuncio)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 vita ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Aspetta';
+
+  @override
+  String get notEnoughCoins => 'Monete insufficienti';
+
+  @override
+  String get watchAd10Coins => 'Guarda un annuncio → 10 monete';
+
+  @override
+  String get powersTitle => 'POTERI';
+
+  @override
+  String get powerHintName => 'Indizio';
+
+  @override
+  String get powerHintDesc => 'Rivela un oggetto nascosto';
+
+  @override
+  String get powerScanName => 'Scansione';
+
+  @override
+  String get powerScanDesc => 'Fa lampeggiare tutti gli oggetti rimasti';
+
+  @override
+  String get powerFreezeName => 'Congela tempo';
+
+  @override
+  String get powerFreezeDesc => 'Ferma il cronometro per 20 secondi';
+
+  @override
+  String get powerShieldName => 'Scudo';
+
+  @override
+  String get powerShieldDesc =>
+      'Annulla la penalità al prossimo tocco sbagliato';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Ne hai: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name attivato!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return '$name esaurito. Comprane altri nel negozio.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Tempo congelato';
+
+  @override
+  String get scanActiveBadge => '🔎 Scansione';
+
+  @override
+  String get shieldActiveBadge => '🛡 Scudo attivo';
+
+  @override
+  String get buyAction => 'Acquista';
 }

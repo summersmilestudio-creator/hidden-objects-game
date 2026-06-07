@@ -348,4 +348,91 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Găsește 50 de obiecte în weekend';
+
+  @override
+  String get livesFull => 'Vieți pline';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Următoarea viață în $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Nu mai ai vieți';
+
+  @override
+  String get outOfLivesBody =>
+      'Așteaptă refacerea lor, vezi o reclamă sau folosește monede.';
+
+  @override
+  String get getLifeAd => '+1 viață (reclamă)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 viață ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Aștept';
+
+  @override
+  String get notEnoughCoins => 'Nu ai destule monede';
+
+  @override
+  String get watchAd10Coins => 'Vezi o reclamă → 10 monede';
+
+  @override
+  String get powersTitle => 'PUTERI';
+
+  @override
+  String get powerHintName => 'Indiciu';
+
+  @override
+  String get powerHintDesc => 'Arată un obiect ascuns';
+
+  @override
+  String get powerScanName => 'Scanare';
+
+  @override
+  String get powerScanDesc => 'Clipește toate obiectele rămase';
+
+  @override
+  String get powerFreezeName => 'Înghețare timp';
+
+  @override
+  String get powerFreezeDesc => 'Oprește cronometrul 20 de secunde';
+
+  @override
+  String get powerShieldName => 'Scut';
+
+  @override
+  String get powerShieldDesc =>
+      'Anulează penalizarea la următoarea atingere greșită';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Ai: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name activat!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'Nu mai ai $name. Cumpără din magazin.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Timp înghețat';
+
+  @override
+  String get scanActiveBadge => '🔎 Scanare';
+
+  @override
+  String get shieldActiveBadge => '🛡 Scut activ';
+
+  @override
+  String get buyAction => 'Cumpără';
 }

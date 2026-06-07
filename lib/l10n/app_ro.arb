@@ -12,19 +12,37 @@
   "adNotAvailable": "Reclama nu e disponibilă acum, încearcă din nou.",
   "objectsToFind": "{count} obiecte de găsit",
   "@objectsToFind": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "eventToday": "EVENIMENT AZI",
   "tooltipHint": "Indiciu",
   "tooltipSkipLevel": "Sari peste nivel (reclamă)",
   "findProgress": "GĂSEȘTE  {found}/{total}",
   "@findProgress": {
-    "placeholders": { "found": { "type": "int" }, "total": { "type": "int" } }
+    "placeholders": {
+      "found": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
   "levelComplete": "🎉 Nivel complet!",
   "allObjectsFoundIn": "Toate {total} obiectele găsite în {time}",
   "@allObjectsFoundIn": {
-    "placeholders": { "total": { "type": "int" }, "time": { "type": "String" } }
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
   },
   "doubleX2": "Dublează ×2",
   "bonusLevels": "+2 niveluri 🎁",
@@ -35,7 +53,11 @@
   "watchVideo": "Vezi video",
   "rewardDoubled": "🎬 Recompensă dublată! +{coins} monede",
   "@rewardDoubled": {
-    "placeholders": { "coins": { "type": "int" } }
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
   },
   "bonusLevelsGranted": "🎁 +2 niveluri bonus + 400 monede!",
   "achievementUnlocked": "🏆 Realizare deblocată",
@@ -52,11 +74,22 @@
   "coinPacks": "PACHETE DE MONEDE",
   "coinPackBonus": "{coins} + {bonus} bonus monede",
   "@coinPackBonus": {
-    "placeholders": { "coins": { "type": "int" }, "bonus": { "type": "int" } }
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      },
+      "bonus": {
+        "type": "int"
+      }
+    }
   },
   "coinPackPlain": "{coins} monede",
   "@coinPackPlain": {
-    "placeholders": { "coins": { "type": "int" } }
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
   },
   "bestValue": "Cea mai bună valoare",
   "moreHints": "Mai multe indicii",
@@ -65,31 +98,58 @@
   "totalProgress": "Progres total",
   "achievementsUnlockedCount": "{unlocked} din {total} realizări",
   "@achievementsUnlockedCount": {
-    "placeholders": { "unlocked": { "type": "int" }, "total": { "type": "int" } }
+    "placeholders": {
+      "unlocked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
   "dailyBonus": "BONUS ZILNIC",
   "dayOfSeven": "Ziua {day} / 7",
   "@dayOfSeven": {
-    "placeholders": { "day": { "type": "int" } }
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
   },
   "dayShort": "Z{day}",
   "@dayShort": {
-    "placeholders": { "day": { "type": "int" } }
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
   },
   "doubleX2WithReward": "DUBLEAZĂ ×2  (+{reward})",
   "@doubleX2WithReward": {
-    "placeholders": { "reward": { "type": "int" } }
+    "placeholders": {
+      "reward": {
+        "type": "int"
+      }
+    }
   },
   "claim": "PRIMEȘTE",
   "bonusDoubled": "🎬 Bonus dublat! +{reward} monede",
   "@bonusDoubled": {
-    "placeholders": { "reward": { "type": "int" } }
+    "placeholders": {
+      "reward": {
+        "type": "int"
+      }
+    }
   },
   "eventsTitle": "Evenimente",
   "eventOfTheDay": "EVENIMENTUL DE AZI",
   "rewardStars": "{stars} stele recompensă",
   "@rewardStars": {
-    "placeholders": { "stars": { "type": "int" } }
+    "placeholders": {
+      "stars": {
+        "type": "int"
+      }
+    }
   },
   "playNow": "Joacă acum",
   "eventCalendar": "Calendar evenimente",
@@ -107,7 +167,11 @@
   "escapeAdsBody": "Joacă fără bannere și fără reclame care te întrerup. O singură dată, pentru totdeauna.",
   "removeAdsForPrice": "Elimină reclamele • {price}",
   "@removeAdsForPrice": {
-    "placeholders": { "price": { "type": "String" } }
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
   },
   "later": "Mai târziu",
   "notificationTitle": "Obiecte Ascunse",
@@ -141,5 +205,70 @@
   "evtTreasureHuntName": "Vânătoarea de Comori",
   "evtTreasureHuntDesc": "Termină 5 scene la rând cu toate obiectele",
   "evtHintMasterName": "Maestrul Indiciilor",
-  "evtHintMasterDesc": "Găsește 50 de obiecte în weekend"
+  "evtHintMasterDesc": "Găsește 50 de obiecte în weekend",
+  "livesFull": "Vieți pline",
+  "nextLifeIn": "Următoarea viață în {time}",
+  "@nextLifeIn": {
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "12:30"
+      }
+    }
+  },
+  "outOfLivesTitle": "Nu mai ai vieți",
+  "outOfLivesBody": "Așteaptă refacerea lor, vezi o reclamă sau folosește monede.",
+  "getLifeAd": "+1 viață (reclamă)",
+  "getLifeCoins": "+1 viață ({coins} 🪙)",
+  "@getLifeCoins": {
+    "placeholders": {
+      "coins": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "waitButton": "Aștept",
+  "notEnoughCoins": "Nu ai destule monede",
+  "watchAd10Coins": "Vezi o reclamă → 10 monede",
+  "powersTitle": "PUTERI",
+  "powerHintName": "Indiciu",
+  "powerHintDesc": "Arată un obiect ascuns",
+  "powerScanName": "Scanare",
+  "powerScanDesc": "Clipește toate obiectele rămase",
+  "powerFreezeName": "Înghețare timp",
+  "powerFreezeDesc": "Oprește cronometrul 20 de secunde",
+  "powerShieldName": "Scut",
+  "powerShieldDesc": "Anulează penalizarea la următoarea atingere greșită",
+  "powerOwnedCount": "Ai: {count}",
+  "@powerOwnedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "powerActivated": "{name} activat!",
+  "@powerActivated": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Indiciu"
+      }
+    }
+  },
+  "powerNoneLeft": "Nu mai ai {name}. Cumpără din magazin.",
+  "@powerNoneLeft": {
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Indiciu"
+      }
+    }
+  },
+  "freezeActiveBadge": "⏸ Timp înghețat",
+  "scanActiveBadge": "🔎 Scanare",
+  "shieldActiveBadge": "🛡 Scut activ",
+  "buyAction": "Cumpără"
 }

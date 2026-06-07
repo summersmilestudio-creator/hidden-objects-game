@@ -367,4 +367,91 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get evtHintMasterDesc =>
       'Encuentra 50 objetos durante el fin de semana';
+
+  @override
+  String get livesFull => 'Vidas al máximo';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Próxima vida en $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Sin vidas';
+
+  @override
+  String get outOfLivesBody =>
+      'Espera a que se recarguen, mira un anuncio o usa monedas.';
+
+  @override
+  String get getLifeAd => '+1 vida (anuncio)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 vida ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Esperar';
+
+  @override
+  String get notEnoughCoins => 'No tienes monedas suficientes';
+
+  @override
+  String get watchAd10Coins => 'Mira un anuncio → 10 monedas';
+
+  @override
+  String get powersTitle => 'PODERES';
+
+  @override
+  String get powerHintName => 'Pista';
+
+  @override
+  String get powerHintDesc => 'Revela un objeto oculto';
+
+  @override
+  String get powerScanName => 'Escaneo';
+
+  @override
+  String get powerScanDesc => 'Parpadea todos los objetos restantes';
+
+  @override
+  String get powerFreezeName => 'Congelar tiempo';
+
+  @override
+  String get powerFreezeDesc => 'Detiene el cronómetro 20 segundos';
+
+  @override
+  String get powerShieldName => 'Escudo';
+
+  @override
+  String get powerShieldDesc =>
+      'Anula la penalización en tu próximo toque erróneo';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Tienes: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '¡$name activado!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'No te queda $name. Compra más en la tienda.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Tiempo congelado';
+
+  @override
+  String get scanActiveBadge => '🔎 Escaneando';
+
+  @override
+  String get shieldActiveBadge => '🛡 Escudo activo';
+
+  @override
+  String get buyAction => 'Comprar';
 }

@@ -367,4 +367,90 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Finde 50 Objekte am Wochenende';
+
+  @override
+  String get livesFull => 'Leben voll';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Nächstes Leben in $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Keine Leben mehr';
+
+  @override
+  String get outOfLivesBody =>
+      'Warte auf das Auffüllen, sieh dir eine Anzeige an oder nutze Münzen.';
+
+  @override
+  String get getLifeAd => '+1 Leben (Anzeige)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 Leben ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Warten';
+
+  @override
+  String get notEnoughCoins => 'Nicht genug Münzen';
+
+  @override
+  String get watchAd10Coins => 'Anzeige ansehen → 10 Münzen';
+
+  @override
+  String get powersTitle => 'KRÄFTE';
+
+  @override
+  String get powerHintName => 'Hinweis';
+
+  @override
+  String get powerHintDesc => 'Zeigt ein verstecktes Objekt';
+
+  @override
+  String get powerScanName => 'Scan';
+
+  @override
+  String get powerScanDesc => 'Lässt alle verbleibenden Objekte aufblinken';
+
+  @override
+  String get powerFreezeName => 'Zeit einfrieren';
+
+  @override
+  String get powerFreezeDesc => 'Stoppt den Timer für 20 Sekunden';
+
+  @override
+  String get powerShieldName => 'Schild';
+
+  @override
+  String get powerShieldDesc => 'Hebt die Strafe beim nächsten Fehltipp auf';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Du hast: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name aktiviert!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'Kein $name mehr. Kaufe mehr im Shop.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Zeit eingefroren';
+
+  @override
+  String get scanActiveBadge => '🔎 Scan läuft';
+
+  @override
+  String get shieldActiveBadge => '🛡 Schild aktiv';
+
+  @override
+  String get buyAction => 'Kaufen';
 }

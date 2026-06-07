@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../game/events.dart';
@@ -5,7 +6,10 @@ import '../game/level_data.dart';
 import '../game/scene_names.dart';
 import '../services/rewards_service.dart';
 import '../services/ads_service.dart';
+import '../services/lives_service.dart';
+import '../services/purchase_service.dart';
 import '../widgets/banner_ad_widget.dart';
+import '../widgets/game_juice.dart';
 import 'achievements_screen.dart';
 import 'daily_reward_screen.dart';
 import 'events_screen.dart';
@@ -19,14 +23,32 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   final _rewards = RewardsService();
+  final _lives = LivesService.instance;
   int _coins = 0;
+  int _livesCount = LivesService.maxLives;
+  int _msToNext = 0;
+  Timer? _ticker;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _checkDaily();
+    _ticker = Timer.periodic(const Duration(seconds: 1), (_) => _refreshLives());
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _ticker?.cancel();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) _refreshLives();
   }
 
   Future<void> _checkDaily() async {
@@ -41,6 +63,106 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _load() async {
     final c = await _rewards.getCoins();
     if (mounted) setState(() => _coins = c);
+    _refreshLives();
+  }
+
+  Future<void> _refreshLives() async {
+    final lives = await _lives.getLives();
+    final ms = await _lives.millisToNextLife();
+    if (mounted) {
+      setState(() {
+        _livesCount = lives;
+        _msToNext = ms;
+      });
+    }
+  }
+
+  String _fmtTime(int ms) {
+    final total = (ms / 1000).ceil();
+    final m = total ~/ 60;
+    final s = total % 60;
+    return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
+  }
+
+  /// Starts a level after spending one life; offers refills when out.
+  Future<void> _startLevel(int index) async {
+    final ok = await _lives.consume();
+    if (!ok) {
+      _showOutOfLives();
+      return;
+    }
+    await _refreshLives();
+    if (!mounted) return;
+    await Navigator.push(
+        context, MaterialPageRoute(builder: (_) => GameScreen(levelIndex: index)));
+    _load();
+  }
+
+  void _showOutOfLives() {
+    final l = AppLocalizations.of(context)!;
+    showDialog(
+      context: context,
+      builder: (c) => StatefulBuilder(
+        builder: (c, setLocal) {
+          bool busy = false;
+          return AlertDialog(
+            backgroundColor: const Color(0xFF1A0033),
+            title: Text(l.outOfLivesTitle, style: const TextStyle(color: Colors.white)),
+            content: Text(l.outOfLivesBody,
+                textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70)),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(c),
+                child: Text(l.waitButton, style: const TextStyle(color: Colors.white)),
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.monetization_on, color: Color(0xFFFFD740)),
+                label: Text(l.getLifeCoins(LivesService.lifeCoinCost),
+                    style: const TextStyle(color: Color(0xFFFFD740))),
+                onPressed: () async {
+                  final coins = await _rewards.getCoins();
+                  if (coins < LivesService.lifeCoinCost) {
+                    if (c.mounted) {
+                      ScaffoldMessenger.of(c).showSnackBar(
+                        SnackBar(content: Text(l.notEnoughCoins)));
+                    }
+                    return;
+                  }
+                  await _rewards.addCoins(-LivesService.lifeCoinCost);
+                  await _lives.add(1);
+                  await _refreshLives();
+                  if (c.mounted) Navigator.pop(c);
+                },
+              ),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF6F00),
+                  foregroundColor: Colors.white,
+                ),
+                icon: const Icon(Icons.favorite),
+                label: Text(l.getLifeAd),
+                onPressed: () async {
+                  if (busy) return;
+                  setLocal(() => busy = true);
+                  final earned = await AdsService.instance.showRewarded();
+                  if (earned) {
+                    await _lives.add(1);
+                    await _refreshLives();
+                    if (c.mounted) Navigator.pop(c);
+                  } else {
+                    setLocal(() => busy = false);
+                    if (c.mounted) {
+                      ScaffoldMessenger.of(c).showSnackBar(
+                        SnackBar(content: Text(l.adNotAvailable)));
+                    }
+                  }
+                },
+              ),
+            ],
+          );
+        },
+      ),
+    );
   }
 
   Future<void> _openShop() async {
@@ -56,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final earned = await AdsService.instance.showRewarded();
     if (!mounted) return;
     if (earned) {
-      await _rewards.addCoins(50);
+      await _rewards.addCoins(10);
       await _load();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -76,7 +198,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final levels = LevelGenerator.generateAll();
     return Scaffold(
       bottomNavigationBar: const BannerAdWidget(),
-      body: SafeArea(
+      body: AnimatedGradientBackground(
+        colors: const [Color(0xFF0B0B14), Color(0xFF1A0033), Color(0xFF0B0B14)],
+        child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -151,7 +275,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(l.homeSubtitle,
                     style: const TextStyle(color: Colors.white54)),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
+              _livesCard(l),
+              const SizedBox(height: 12),
               _TodayEventCard(onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (_) => const EventsScreen()))),
               const SizedBox(height: 12),
@@ -172,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Icon(Icons.smart_display, color: Colors.white),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(l.watchAdForCoins,
+                        child: Text(l.watchAd10Coins,
                             style: const TextStyle(
                                 color: Colors.white, fontWeight: FontWeight.w800)),
                       ),
@@ -181,6 +307,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 12),
+              _removeAdsButton(l),
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -211,11 +339,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.transparent,
                         child: InkWell(
                           borderRadius: BorderRadius.circular(16),
-                          onTap: () async {
-                            await Navigator.push(ctx,
-                                MaterialPageRoute(builder: (_) => GameScreen(levelIndex: i)));
-                            _load();
-                          },
+                          onTap: () => _startLevel(i),
                           child: Padding(
                             padding: const EdgeInsets.all(20),
                             child: Row(
@@ -259,6 +383,79 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      ),
+    );
+  }
+
+  Widget _livesCard(AppLocalizations l) {
+    final full = _livesCount >= LivesService.maxLives;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.black.withValues(alpha: 0.4),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: const Color(0xFFFF6F00).withValues(alpha: 0.6)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          for (var i = 0; i < LivesService.maxLives; i++)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 3),
+              child: Icon(
+                i < _livesCount ? Icons.favorite : Icons.favorite_border,
+                color: i < _livesCount ? const Color(0xFFFF5252) : Colors.white30,
+                size: 22,
+              ),
+            ),
+          const SizedBox(width: 10),
+          Text(
+            full ? l.livesFull : l.nextLifeIn(_fmtTime(_msToNext)),
+            style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _removeAdsButton(AppLocalizations l) {
+    final svc = PurchaseService.instance;
+    return ValueListenableBuilder<bool>(
+      valueListenable: svc.noAdsNotifier,
+      builder: (ctx, noAds, _) {
+        if (noAds) return const SizedBox.shrink();
+        final price = svc.productFor(PurchaseService.noAdsId)?.price;
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: _openShop,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(colors: [Color(0xFFFF6F00), Color(0xFFE65100)]),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(color: const Color(0xFFFF6F00).withValues(alpha: 0.5), blurRadius: 10),
+                ],
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.block, color: Colors.white),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      price != null ? '${l.removeAdsTitle} • $price' : l.removeAdsTitle,
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w900, fontSize: 16),
+                    ),
+                  ),
+                  const Icon(Icons.chevron_right, color: Colors.white),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 

@@ -370,4 +370,90 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Найдите 50 предметов за выходные';
+
+  @override
+  String get livesFull => 'Жизни полны';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Следующая жизнь через $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Жизни закончились';
+
+  @override
+  String get outOfLivesBody =>
+      'Подождите восстановления, посмотрите рекламу или потратьте монеты.';
+
+  @override
+  String get getLifeAd => '+1 жизнь (реклама)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 жизнь ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Подождать';
+
+  @override
+  String get notEnoughCoins => 'Недостаточно монет';
+
+  @override
+  String get watchAd10Coins => 'Смотреть рекламу → 10 монет';
+
+  @override
+  String get powersTitle => 'СИЛЫ';
+
+  @override
+  String get powerHintName => 'Подсказка';
+
+  @override
+  String get powerHintDesc => 'Показывает один спрятанный предмет';
+
+  @override
+  String get powerScanName => 'Сканирование';
+
+  @override
+  String get powerScanDesc => 'Подсвечивает все оставшиеся предметы';
+
+  @override
+  String get powerFreezeName => 'Заморозка времени';
+
+  @override
+  String get powerFreezeDesc => 'Останавливает таймер на 20 секунд';
+
+  @override
+  String get powerShieldName => 'Щит';
+
+  @override
+  String get powerShieldDesc => 'Отменяет штраф за следующее неверное касание';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'У вас: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name активирован!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return '$name закончились. Купите в магазине.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Время заморожено';
+
+  @override
+  String get scanActiveBadge => '🔎 Сканирование';
+
+  @override
+  String get shieldActiveBadge => '🛡 Щит активен';
+
+  @override
+  String get buyAction => 'Купить';
 }

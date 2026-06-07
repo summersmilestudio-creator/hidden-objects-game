@@ -367,4 +367,90 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Encontre 50 objetos no fim de semana';
+
+  @override
+  String get livesFull => 'Vidas no máximo';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Próxima vida em $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Sem vidas';
+
+  @override
+  String get outOfLivesBody =>
+      'Espera recarregarem, vê um anúncio ou usa moedas.';
+
+  @override
+  String get getLifeAd => '+1 vida (anúncio)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 vida ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Esperar';
+
+  @override
+  String get notEnoughCoins => 'Moedas insuficientes';
+
+  @override
+  String get watchAd10Coins => 'Vê um anúncio → 10 moedas';
+
+  @override
+  String get powersTitle => 'PODERES';
+
+  @override
+  String get powerHintName => 'Dica';
+
+  @override
+  String get powerHintDesc => 'Revela um objeto escondido';
+
+  @override
+  String get powerScanName => 'Verificação';
+
+  @override
+  String get powerScanDesc => 'Pisca todos os objetos restantes';
+
+  @override
+  String get powerFreezeName => 'Congelar tempo';
+
+  @override
+  String get powerFreezeDesc => 'Para o cronómetro por 20 segundos';
+
+  @override
+  String get powerShieldName => 'Escudo';
+
+  @override
+  String get powerShieldDesc => 'Anula a penalização no próximo toque errado';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Tens: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name ativado!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'Sem $name. Compra mais na loja.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Tempo congelado';
+
+  @override
+  String get scanActiveBadge => '🔎 A verificar';
+
+  @override
+  String get shieldActiveBadge => '🛡 Escudo ativo';
+
+  @override
+  String get buyAction => 'Comprar';
 }

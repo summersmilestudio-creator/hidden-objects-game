@@ -342,4 +342,89 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => '주말 동안 50개의 물건을 찾으세요';
+
+  @override
+  String get livesFull => '생명 가득';
+
+  @override
+  String nextLifeIn(String time) {
+    return '다음 생명까지 $time';
+  }
+
+  @override
+  String get outOfLivesTitle => '생명이 없습니다';
+
+  @override
+  String get outOfLivesBody => '회복을 기다리거나, 광고를 보거나, 코인을 사용하세요.';
+
+  @override
+  String get getLifeAd => '+1 생명 (광고)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 생명 ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => '기다리기';
+
+  @override
+  String get notEnoughCoins => '코인이 부족합니다';
+
+  @override
+  String get watchAd10Coins => '광고 보기 → 10 코인';
+
+  @override
+  String get powersTitle => '파워';
+
+  @override
+  String get powerHintName => '힌트';
+
+  @override
+  String get powerHintDesc => '숨겨진 물건 하나를 보여줍니다';
+
+  @override
+  String get powerScanName => '스캔';
+
+  @override
+  String get powerScanDesc => '남은 물건을 모두 깜빡여 표시합니다';
+
+  @override
+  String get powerFreezeName => '시간 정지';
+
+  @override
+  String get powerFreezeDesc => '20초 동안 타이머를 멈춥니다';
+
+  @override
+  String get powerShieldName => '방패';
+
+  @override
+  String get powerShieldDesc => '다음 잘못된 터치의 페널티를 막습니다';
+
+  @override
+  String powerOwnedCount(int count) {
+    return '보유: $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name 발동!';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return '$name이(가) 없습니다. 상점에서 구매하세요.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ 시간 정지';
+
+  @override
+  String get scanActiveBadge => '🔎 스캔 중';
+
+  @override
+  String get shieldActiveBadge => '🛡 방패 활성';
+
+  @override
+  String get buyAction => '구매';
 }

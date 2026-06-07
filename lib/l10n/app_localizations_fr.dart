@@ -367,4 +367,91 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => 'Trouvez 50 objets pendant le week-end';
+
+  @override
+  String get livesFull => 'Vies au max';
+
+  @override
+  String nextLifeIn(String time) {
+    return 'Prochaine vie dans $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'Plus de vies';
+
+  @override
+  String get outOfLivesBody =>
+      'Attends qu\'elles se rechargent, regarde une pub ou utilise des pièces.';
+
+  @override
+  String get getLifeAd => '+1 vie (pub)';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 vie ($coins 🪙)';
+  }
+
+  @override
+  String get waitButton => 'Attendre';
+
+  @override
+  String get notEnoughCoins => 'Pas assez de pièces';
+
+  @override
+  String get watchAd10Coins => 'Regarde une pub → 10 pièces';
+
+  @override
+  String get powersTitle => 'POUVOIRS';
+
+  @override
+  String get powerHintName => 'Indice';
+
+  @override
+  String get powerHintDesc => 'Révèle un objet caché';
+
+  @override
+  String get powerScanName => 'Scan';
+
+  @override
+  String get powerScanDesc => 'Fait clignoter tous les objets restants';
+
+  @override
+  String get powerFreezeName => 'Gel du temps';
+
+  @override
+  String get powerFreezeDesc => 'Arrête le chrono pendant 20 secondes';
+
+  @override
+  String get powerShieldName => 'Bouclier';
+
+  @override
+  String get powerShieldDesc =>
+      'Annule la pénalité au prochain mauvais toucher';
+
+  @override
+  String powerOwnedCount(int count) {
+    return 'Tu as : $count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name activé !';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return 'Plus de $name. Achètes-en dans la boutique.';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ Temps gelé';
+
+  @override
+  String get scanActiveBadge => '🔎 Scan';
+
+  @override
+  String get shieldActiveBadge => '🛡 Bouclier actif';
+
+  @override
+  String get buyAction => 'Acheter';
 }

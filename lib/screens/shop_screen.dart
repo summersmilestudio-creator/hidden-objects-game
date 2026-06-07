@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../services/purchase_service.dart';
 import '../services/rewards_service.dart';
+import '../services/powers_service.dart';
 
 /// In-app store: Remove Ads + coin packs. Reachable from the home screen
 /// (coin pill and the store button), so every In-App Purchase is one tap away.
@@ -15,8 +16,10 @@ class ShopScreen extends StatefulWidget {
 class _ShopScreenState extends State<ShopScreen> {
   final _rewards = RewardsService();
   final _purchases = PurchaseService.instance;
+  final _powersSvc = PowersService.instance;
   int _coins = 0;
   bool _busy = false;
+  Map<PowerType, int> _powerCounts = {for (final t in PowerType.values) t: 0};
 
   @override
   void initState() {
@@ -42,7 +45,31 @@ class _ShopScreenState extends State<ShopScreen> {
 
   Future<void> _load() async {
     final c = await _rewards.getCoins();
-    if (mounted) setState(() => _coins = c);
+    final counts = await _powersSvc.all();
+    if (mounted) {
+      setState(() {
+        _coins = c;
+        _powerCounts = counts;
+      });
+    }
+  }
+
+  Future<void> _buyPower(PowerSpec spec) async {
+    final l = AppLocalizations.of(context)!;
+    if (_coins < spec.price) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l.notEnoughCoins)));
+      return;
+    }
+    await _rewards.addCoins(-spec.price);
+    await _powersSvc.add(spec.type, 1);
+    await _load();
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: spec.color,
+        duration: const Duration(milliseconds: 1100),
+        content: Text('${powerName(l, spec.type)}  +1')));
+    }
   }
 
   Future<void> _buy(String logicalId) async {
@@ -67,6 +94,73 @@ class _ShopScreenState extends State<ShopScreen> {
 
   String _priceFor(String logicalId, String fallback) =>
       _purchases.productFor(logicalId)?.price ?? fallback;
+
+  Widget _powerCard(PowerSpec spec) {
+    final l = AppLocalizations.of(context)!;
+    final owned = _powerCounts[spec.type] ?? 0;
+    final canAfford = _coins >= spec.price;
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: spec.color.withValues(alpha: 0.6)),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [spec.color, spec.color.withValues(alpha: 0.6)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(spec.icon, color: Colors.white, size: 26),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(powerName(l, spec.type),
+                    style: const TextStyle(
+                        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w800)),
+                const SizedBox(height: 2),
+                Text(powerDesc(l, spec.type),
+                    style: const TextStyle(color: Colors.white54, fontSize: 11.5)),
+                const SizedBox(height: 2),
+                Text(l.powerOwnedCount(owned),
+                    style: TextStyle(
+                        color: spec.color, fontSize: 11, fontWeight: FontWeight.w800)),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: canAfford ? const Color(0xFFFFD740) : Colors.white24,
+              foregroundColor: canAfford ? Colors.black : Colors.white54,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
+            ),
+            onPressed: () => _buyPower(spec),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.monetization_on, size: 16),
+                const SizedBox(width: 4),
+                Text('${spec.price}'),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,18 +214,78 @@ class _ShopScreenState extends State<ShopScreen> {
                     subtitle: l.adsRemovedSubtitle,
                   );
                 }
-                return _ShopCard(
-                  icon: Icons.block,
-                  iconColor: const Color(0xFFFF6F00),
-                  title: l.removeAdsTitle,
-                  subtitle: l.removeAdsSubtitle,
-                  price: _priceFor(PurchaseService.noAdsId, '2.99 \$'),
-                  busy: _busy,
-                  onTap: () => _buy(PurchaseService.noAdsId),
+                return Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(18),
+                    onTap: _busy ? null : () => _buy(PurchaseService.noAdsId),
+                    child: Container(
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                            colors: [Color(0xFFFF6F00), Color(0xFFE65100)]),
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                              color: const Color(0xFFFF6F00).withValues(alpha: 0.5),
+                              blurRadius: 14,
+                              offset: const Offset(0, 6)),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.block, color: Colors.white, size: 34),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(l.removeAdsTitle,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w900)),
+                                const SizedBox(height: 2),
+                                Text(l.removeAdsSubtitle,
+                                    style: const TextStyle(color: Colors.white70, fontSize: 12)),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Text(_priceFor(PurchaseService.noAdsId, '2.99 \$'),
+                                style: const TextStyle(
+                                    color: Color(0xFFE65100),
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 15)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 );
               },
             ),
             const SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Text(l.powersTitle,
+                  style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 2)),
+            ),
+            const SizedBox(height: 12),
+            for (final spec in PowersService.specs) ...[
+              _powerCard(spec),
+              const SizedBox(height: 12),
+            ],
+            const SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(l.coinPacks,

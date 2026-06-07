@@ -342,4 +342,89 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get evtHintMasterDesc => '週末に50個の物を見つける';
+
+  @override
+  String get livesFull => 'ライフ満タン';
+
+  @override
+  String nextLifeIn(String time) {
+    return '次のライフまで $time';
+  }
+
+  @override
+  String get outOfLivesTitle => 'ライフがありません';
+
+  @override
+  String get outOfLivesBody => '回復を待つか、広告を見るか、コインを使ってください。';
+
+  @override
+  String get getLifeAd => '+1 ライフ（広告）';
+
+  @override
+  String getLifeCoins(int coins) {
+    return '+1 ライフ（$coins 🪙）';
+  }
+
+  @override
+  String get waitButton => '待つ';
+
+  @override
+  String get notEnoughCoins => 'コインが足りません';
+
+  @override
+  String get watchAd10Coins => '広告を見る → 10 コイン';
+
+  @override
+  String get powersTitle => 'パワー';
+
+  @override
+  String get powerHintName => 'ヒント';
+
+  @override
+  String get powerHintDesc => '隠れたアイテムを1つ表示';
+
+  @override
+  String get powerScanName => 'スキャン';
+
+  @override
+  String get powerScanDesc => '残りのアイテムをすべて点滅表示';
+
+  @override
+  String get powerFreezeName => '時間停止';
+
+  @override
+  String get powerFreezeDesc => '20秒間タイマーを止める';
+
+  @override
+  String get powerShieldName => 'シールド';
+
+  @override
+  String get powerShieldDesc => '次のミスタップのペナルティを無効化';
+
+  @override
+  String powerOwnedCount(int count) {
+    return '所持数：$count';
+  }
+
+  @override
+  String powerActivated(String name) {
+    return '$name 発動！';
+  }
+
+  @override
+  String powerNoneLeft(String name) {
+    return '$name がありません。ショップで購入してください。';
+  }
+
+  @override
+  String get freezeActiveBadge => '⏸ 時間停止中';
+
+  @override
+  String get scanActiveBadge => '🔎 スキャン中';
+
+  @override
+  String get shieldActiveBadge => '🛡 シールド有効';
+
+  @override
+  String get buyAction => '購入';
 }
