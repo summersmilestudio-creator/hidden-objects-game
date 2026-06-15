@@ -31,7 +31,7 @@ class _DailyRewardScreenState extends State<DailyRewardScreen>
   Future<void> _doubleViaAd() async {
     if (_doubling) return;
     _doubling = true;
-    final earned = await AdsService.instance.showRewarded();
+    final earned = await AdsService.instance.showBonusAd();
     if (!mounted) return;
     if (earned) {
       await RewardsService().addCoins(widget.reward); // second time => x2

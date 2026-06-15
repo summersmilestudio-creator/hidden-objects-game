@@ -213,7 +213,7 @@ class _GameScreenState extends State<GameScreen> {
   Future<void> _showHintViaAd() async {
     final unfound = _level.targets.where((t) => !t.found).toList();
     if (unfound.isEmpty) return;
-    final earned = await AdsService.instance.showRewarded();
+    final earned = await AdsService.instance.showBonusAd();
     if (!earned || !mounted) return;
     _hintUsed = true;
     setState(() => _hintId = unfound.first.id);
@@ -249,7 +249,7 @@ class _GameScreenState extends State<GameScreen> {
       ),
     );
     if (go != true || !mounted) return;
-    final earned = await AdsService.instance.showRewarded();
+    final earned = await AdsService.instance.showBonusAd();
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -268,7 +268,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   Future<void> _doubleCoinsViaAd(BuildContext dialogCtx, int coins) async {
-    final earned = await AdsService.instance.showRewarded();
+    final earned = await AdsService.instance.showBonusAd();
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -286,7 +286,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   Future<void> _bonusLevelsViaAd(BuildContext dialogCtx) async {
-    final earned = await AdsService.instance.showRewarded();
+    final earned = await AdsService.instance.showBonusAd();
     if (!mounted) return;
     if (!earned) {
       ScaffoldMessenger.of(context).showSnackBar(
